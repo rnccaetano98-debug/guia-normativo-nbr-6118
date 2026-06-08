@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia Normativo e Calculadora Avançada ABNT NBR 6118:2014">
+  <meta name="theme-color" content="#050507">
+  <title>Guia Normativo — ABNT NBR 6118:2014</title>
+  
+  <!-- Fontes Premium de alta legibilidade -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- KaTeX para renderização matemática impecável -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            condensed: ['Barlow Condensed', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              black: '#050507',
+              dark: '#0C0C10',
+              card: '#121217',
+              border: '#1E1E26',
+              gold: '#D9941E',
+              goldHover: '#B87A13',
+              goldLight: '#FFF8EB',
+              muted: '#8F8F9F',
+              cyan: '#3DB0C0',
+              green: '#10B981',
+              red: '#EF4444',
+              yellow: '#F59E0B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Grid de coordenadas matemáticas inspirado na tabela de cargas */
+    .grid-coordinate-bg {
+      background-image: 
+        linear-gradient(to right, rgba(217, 148, 30, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(217, 148, 30, 0.025) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-color: #050507;
+    }
+
+    /* Scrollbar estilizada */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050507;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E1E26;
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D9941E;
+    }
+
+    /* Efeito de brilho de cockpit */
+    .glow-amber {
+      box-shadow: 0 0 20px rgba(217, 148, 30, 0.15);
+    }
+    .glow-amber-strong {
+      box-shadow: 0 0 30px rgba(217, 148, 30, 0.3);
+    }
+  </style>
+</head>
+<body class="grid-coordinate-bg text-gray-200 min-h-screen font-sans selection:bg-brand-gold selection:text-brand-black">
+
+  <!-- Header Estilo Cockpit -->
+  <header class="border-b border-brand-border bg-brand-black/90 backdrop-blur-md sticky top-0 z-50 transition-all">
+    <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo NBR 6118 -->
+      <div class="flex items-center space-x-3">
+        <div class="h-9 w-9 rounded bg-gradient-to-br from-brand-gold to-yellow-600 flex items-center justify-center text-brand-black font-black text-xs font-condensed tracking-tighter shadow-md glow-amber">
+          N18
+        </div>
+        <div>
+          <span class="font-condensed text-base tracking-wider text-white font-bold block leading-none">NBR 6118:2014</span>
+          <span class="text-[9px] font-mono text-brand-gold uppercase tracking-widest block mt-0.5">ESTRUTURAS DE CONCRETO</span>
+        </div>
+      </div>
+
+      <!-- Links de Navegação -->
+      <nav class="hidden xl:flex space-x-6 text-[10px] font-mono tracking-widest uppercase text-brand-muted">
+        <a href="#filosofia" class="hover:text-brand-gold transition-colors">01. Filosofia</a>
+        <a href="#durabilidade" class="hover:text-brand-gold transition-colors">02. Durabilidade</a>
+        <a href="#materiais" class="hover:text-brand-gold transition-colors">03. Materiais</a>
+        <a href="#seguranca" class="hover:text-brand-gold transition-colors">04. Segurança</a>
+        <a href="#dominios" class="hover:text-brand-gold transition-colors">05. Dimensionamento</a>
+        <a href="#detalhamento" class="hover:text-brand-gold transition-colors">06. Detalhamento</a>
+        <a href="#exemplo" class="hover:text-brand-gold transition-colors">07. Exemplo</a>
+        <a href="#calculadora" class="hover:text-brand-gold transition-colors text-brand-gold font-semibold">08. CALCULADORA</a>
+      </nav>
+
+      <!-- Status Operacional -->
+      <div class="flex items-center space-x-4">
+        <span class="hidden md:inline-flex items-center space-x-2 text-[10px] font-mono bg-brand-card px-3 py-1.5 rounded border border-brand-border">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-green animate-pulse"></span>
+          <span class="text-brand-muted">CONFORMIDADE ESTRUTURAL ATIVA</span>
+        </span>
+        <a href="#calculadora" class="bg-brand-gold hover:bg-brand-goldHover text-brand-black font-mono font-bold text-[10px] tracking-widest uppercase px-4 py-2 rounded transition shadow-lg shadow-brand-gold/10">
+          ABRIR CALCULADORA
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Corpo Principal do Site -->
+  <div class="max-w-[1600px] mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <!-- Sidebar de Navegação Rápida -->
+    <aside class="lg:col-span-3 hidden lg:block sticky top-24 h-[calc(100vh-120px)] overflow-y-auto pr-2">
+      <div class="bg-brand-card/70 border border-brand-border rounded-xl p-5 space-y-6">
+        <div>
+          <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block mb-1">DIRETÓRIO TÉCNICO</span>
+          <h3 class="font-serif text-lg font-semibold text-white leading-tight">Guia Normativo de Concreto</h3>
+          <p class="text-xs text-brand-muted mt-1 italic">Manual interativo para dimensionamento</p>
+        </div>
+        
+        <div class="border-t border-brand-border pt-4">
+          <nav class="space-y-1">
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2">Introdução</span>
+            <a href="#filosofia" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">1 · Filosofia NBR 6118</a>
+            
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2 pt-4">Durabilidade</span>
+            <a href="#durabilidade" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">2.1 · Classes de Agressividade</a>
+            <a href="#cobrimento" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">2.2 · Cobrimento Nominal</a>
+            <a href="#qualidade" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">2.3 · Qualidade do Concreto</a>
+            
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2 pt-4">Materiais</span>
+            <a href="#materiais" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">3.1 · Propriedades Mecânicas</a>
+            <a href="#aço" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">3.2 · Armadura Passiva</a>
+            <a href="#bloco" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">3.3 · Bloco Retangular</a>
+            
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2 pt-4">Segurança</span>
+            <a href="#seguranca" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">4.1 · Estados-Limites (ELU/ELS)</a>
+            <a href="#fatores" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">4.2 · Coeficientes de Ponderação</a>
+            
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2 pt-4">Dimensionamento</span>
+            <a href="#dominios" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">5.1 · Domínios de Deformação</a>
+            <a href="#vigas" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">5.2 · Flexão Simples (Vigas)</a>
+            <a href="#cortante" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">5.3 · Esforço Cortante</a>
+            <a href="#pilares" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">5.4 · Pilares e Esbeltez</a>
+            
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2 pt-4">Detalhamento</span>
+            <a href="#detalhamento" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">6.1 · Limites Geométricos</a>
+            <a href="#ancoragem" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">6.2 · Ancoragem de Armadura</a>
+            
+            <span class="text-[9px] font-mono text-brand-muted tracking-widest uppercase block py-2 pt-4">Aplicação</span>
+            <a href="#exemplo" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">7 · Exemplo Resolvido</a>
+            <a href="#checklist" class="flex items-center text-xs text-brand-muted hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold">8 · Checklist Geral</a>
+            <a href="#calculadora" class="flex items-center text-xs text-brand-gold hover:text-brand-gold py-1.5 transition-colors pl-2 border-l border-brand-border hover:border-brand-gold font-bold">9 · CALCULADORA INTERATIVA</a>
+          </nav>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Stream -->
+    <main class="lg:col-span-9 space-y-16">
+      
+      <!-- Hero Banner Estilo Cargas V2 -->
+      <section class="relative overflow-hidden bg-brand-card border border-brand-border rounded-2xl p-8 sm:p-12 glow-amber">
+        <div class="absolute top-0 right-0 h-64 w-64 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-8">
+          <div class="space-y-4 max-w-2xl">
+            <h1 class="font-serif text-4xl sm:text-6xl font-light tracking-tight text-white leading-tight">
+              Guia Normativo <br>
+              <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-500">ABNT NBR 6118</span>
+            </h1>
+            
+            <p class="text-sm text-brand-muted leading-relaxed font-light">
+              Calculadoras de dimensionamento e verificação de estruturas de concreto. Vigas, pilares e análises conformes à norma brasileira 2014.
+            </p>
+          </div>
+
+          <!-- Mini Dashboard de Telemetria Técnica -->
+          <div class="bg-brand-black border border-brand-border rounded-xl p-6 min-w-[280px] xl:max-w-[340px] space-y-4">
+            <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block border-b border-brand-border/60 pb-1.5">MÓDULOS DE PROJETO</span>
+            <ul class="space-y-2 font-mono text-[11px] text-gray-300">
+              <li class="flex items-center justify-between border-b border-brand-border/40 pb-1.5">
+                <span class="text-brand-muted">VIGAS (FLEXÃO)</span>
+                <span class="text-white">OK (DOMÍNIOS 2/3)</span>
+              </li>
+              <li class="flex items-center justify-between border-b border-brand-border/40 pb-1.5">
+                <span class="text-brand-muted">VIGAS (CORTANTE)</span>
+                <span class="text-white">MODELO I ($\theta = 45^\circ$)</span>
+              </li>
+              <li class="flex items-center justify-between border-b border-brand-border/40 pb-1.5">
+                <span class="text-brand-muted">PILARES (COMPRESSÃO)</span>
+                <span class="text-brand-gold font-bold">AJUSTE $\gamma_n$ ATIVO</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span class="text-brand-muted">VERSÃO OFICIAL</span>
+                <span class="text-white">ABNT NBR 6118:2014</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Filosofia -->
+      <section id="filosofia" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">01</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Introdução e Filosofia da Norma</h2>
+        </div>
+        
+        <p class="text-sm leading-relaxed text-brand-muted">
+          A ABNT NBR 6118:2014 está fundamentada na <strong>Teoria dos Estados-Limites</strong>, que representa um avanço conceitual em relação à abordagem clássica de tensões admissíveis. Em vez de assegurar estaticamente que as tensões calculadas não ultrapassam limites arbitrários, a norma quantifica de forma probabilística a margem de segurança frente a dois cenários cruciais de falha: a ruptura estrutural (<strong>Estados-Limites Últimos — ELU</strong>) e a perda de funcionalidade por uso normal (<strong>Estados-Limites de Serviço — ELS</strong>).
+        </p>
+
+        <p class="text-sm leading-relaxed text-brand-muted col-span-2">
+          De acordo com a <strong>Seção 5</strong> da norma, qualquer projeto em concreto estrutural deve simultaneamente contemplar três pilares fundamentais de excelência técnica:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs text-gray-300">
+          <div class="bg-brand-card/50 border border-brand-border rounded-lg p-5">
+            <span class="text-brand-gold font-bold block mb-1">01 . SEGURANÇA</span>
+            Garantir capacidade resistente sob as combinações mais desfavoráveis de ações no ELU.
+          </div>
+          <div class="bg-brand-card/50 border border-brand-border rounded-lg p-5">
+            <span class="text-brand-gold font-bold block mb-1">02 . SERVIÇO</span>
+            Evitar fissuração larga, flechas excessivas ou vibrações desagradáveis no ELS.
+          </div>
+          <div class="bg-brand-card/50 border border-brand-border rounded-lg p-5">
+            <span class="text-brand-gold font-bold block mb-1">03 . DURABILIDADE</span>
+            Alcançar a vida útil de projeto (mínimo de 50 anos) frente a ataques ambientais.
+          </div>
+        </div>
+
+        <!-- Tabela de Patologias Prevenidas -->
+        <div class="bg-brand-card/40 border border-brand-border rounded-xl overflow-hidden mt-6">
+          <div class="p-4 bg-brand-black border-b border-brand-border">
+            <h4 class="font-mono text-xs text-brand-gold tracking-widest uppercase">⚠ Patologias Estruturais Clássicas Prevenidas</h4>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-light">
+              <thead class="bg-brand-black/80 text-brand-muted border-b border-brand-border">
+                <tr>
+                  <th class="p-3 font-semibold font-mono">Exigência Normativa</th>
+                  <th class="p-3 font-semibold font-mono">Patologia Estrutural que Previne</th>
+                  <th class="p-3 font-semibold font-mono">Seção da NBR 6118</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border/40 text-gray-300">
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-semibold text-white">Cobrimento nominal das armaduras</td>
+                  <td class="p-3 text-brand-muted">Corrosão acelerada por carbonatação ou cloretos, desplacamento do cobrimento.</td>
+                  <td class="p-3 font-mono">Seção 7</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-semibold text-white">Relação água/cimento máxima</td>
+                  <td class="p-3 text-brand-muted">Concreto de alta porosidade, suscetível a lixiviação e carbonatação precoce.</td>
+                  <td class="p-3 font-mono">Seção 7, Tabela 7.1</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-semibold text-white">Abertura máxima de fissuras $w_k$</td>
+                  <td class="p-3 text-brand-muted">Acesso rápido de agentes agressivos e água às armaduras, oxidação do aço.</td>
+                  <td class="p-3 font-mono">Seção 13, Tabela 13.4</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-semibold text-white">Flecha máxima admissível</td>
+                  <td class="p-3 text-brand-muted">Danos severos em alvenarias de vedação, esquadrias e pânico visual de usuários.</td>
+                  <td class="p-3 font-mono">Seção 13, Tabela 13.3</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-semibold text-white">Limite de linha neutra $x/d \le 0,45$</td>
+                  <td class="p-3 text-brand-muted">Ruptura súbita por esmagamento do concreto sem aviso prévio (ruptura frágil).</td>
+                  <td class="p-3 font-mono">Seção 14 e 17</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Durabilidade -->
+      <section id="durabilidade" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">02</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Durabilidade do Concreto Estrutural</h2>
+        </div>
+
+        <p class="text-sm text-brand-muted leading-relaxed">
+          O primeiro e mais determinante passo de um projeto estrutural é a correta classificação do ambiente no qual a estrutura será erguida. A norma estipula quatro classes de agressividade (Tabela 6.1), as quais dão os limites geométricos e químicos do concreto.
+        </p>
+
+        <!-- Classes de Agressividade -->
+        <div class="bg-brand-card/40 border border-brand-border rounded-xl overflow-hidden">
+          <div class="p-4 bg-brand-black border-b border-brand-border">
+            <h4 class="font-mono text-xs text-brand-gold tracking-widest uppercase">Tabela 6.1 — Classes de Agressividade Ambiental (CAA)</h4>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-light">
+              <thead class="bg-brand-black/80 text-brand-muted border-b border-brand-border">
+                <tr>
+                  <th class="p-3 font-semibold font-mono">CAA</th>
+                  <th class="p-3 font-semibold font-mono">Agressividade</th>
+                  <th class="p-3 font-semibold font-mono">Tipo de Ambiente Físico</th>
+                  <th class="p-3 font-semibold font-mono">Deterioração Esperada</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border/40 text-gray-300">
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-bold text-brand-gold font-mono">I</td>
+                  <td class="p-3">Fraca</td>
+                  <td class="p-3 text-brand-muted">Rural, submersa em água doce.</td>
+                  <td class="p-3">Insignificante</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-bold text-brand-gold font-mono">II</td>
+                  <td class="p-3">Moderada</td>
+                  <td class="p-3 text-brand-muted">Urbana, marinha em áreas abrigadas.</td>
+                  <td class="p-3">Pequeno</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-bold text-brand-gold font-mono">III</td>
+                  <td class="p-3">Forte</td>
+                  <td class="p-3 text-brand-muted">Marinha, industrial geral, respingos de maré.</td>
+                  <td class="p-3">Grande</td>
+                </tr>
+                <tr class="hover:bg-brand-card/30">
+                  <td class="p-3 font-bold text-brand-gold font-mono">IV</td>
+                  <td class="p-3">Muito Forte</td>
+                  <td class="p-3 text-brand-muted">Industrial severa, contato com agentes químicos agressivos.</td>
+                  <td class="p-3">Elevado</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Cobrimento Nominal -->
+        <div id="cobrimento" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">2.2 Cobrimento Nominal das Armaduras ($c_{nom}$)</h3>
+          <p class="text-sm text-brand-muted leading-relaxed">
+            O cobrimento nominal ($c_{nom}$) representa a espessura de concreto que recobre as barras de aço estruturais. É a barreira física protetora contra a difusão de gás carbônico e cloretos. A norma impõe que $c_{nom} = c_{min} + \Delta c$.
+          </p>
+          
+          <div class="bg-brand-black/70 border border-brand-border rounded-lg p-5 text-center">
+            <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block text-left">Equação de Tolerância de Execução (7.4.7.2)</span>
+            <div class="text-xl font-mono text-white mt-2">$$c_{nom} = c_{min} + \Delta c$$</div>
+            <p class="text-xs text-brand-muted text-left mt-3">
+              Para obras correntes de engenharia civil, adota-se um desvio de tolerância $\Delta c = 10\text{ mm}$. Em indústrias ou obras com controle tecnológico rígido de fôrmas e espaçadores, permite-se reduzir para $\Delta c = 5\text{ mm}$.
+            </p>
+          </div>
+
+          <!-- Tabela de Cobrimentos mínimos -->
+          <div class="overflow-x-auto border border-brand-border rounded-lg">
+            <table class="w-full text-left text-xs font-light">
+              <thead class="bg-brand-black text-brand-muted border-b border-brand-border">
+                <tr>
+                  <th class="p-3 font-semibold font-mono">Material</th>
+                  <th class="p-3 font-semibold font-mono">Elemento Estrutural</th>
+                  <th class="p-3 font-semibold font-mono">CAA I</th>
+                  <th class="p-3 font-semibold font-mono">CAA II</th>
+                  <th class="p-3 font-semibold font-mono">CAA III</th>
+                  <th class="p-3 font-semibold font-mono">CAA IV</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border/40 text-gray-300">
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3 font-semibold text-white" rowspan="2">Concreto Armado</td>
+                  <td class="p-3">Lajes maciças</td>
+                  <td class="p-3 font-mono">20 mm</td>
+                  <td class="p-3 font-mono">25 mm</td>
+                  <td class="p-3 font-mono font-bold text-brand-gold">35 mm</td>
+                  <td class="p-3 font-mono">45 mm</td>
+                </tr>
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3">Vigas e Pilares</td>
+                  <td class="p-3 font-mono">25 mm</td>
+                  <td class="p-3 font-mono">30 mm</td>
+                  <td class="p-3 font-mono font-bold text-brand-gold">40 mm</td>
+                  <td class="p-3 font-mono">50 mm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Qualidade do Concreto -->
+        <div id="qualidade" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">2.3 Qualidade Mínima do Concreto por CAA</h3>
+          <p class="text-sm text-brand-muted">
+            Além das barreiras geométricas, o concreto precisa possuir microestrutura compacta e baixa capilaridade de poros, controlados pela relação água/cimento ($a/c$) e pela resistência característica ($f_{ck}$).
+          </p>
+          <div class="overflow-x-auto border border-brand-border rounded-lg">
+            <table class="w-full text-left text-xs font-light">
+              <thead class="bg-brand-black text-brand-muted border-b border-brand-border">
+                <tr>
+                  <th class="p-3 font-semibold font-mono">Parâmetro de Dosagem</th>
+                  <th class="p-3 font-semibold font-mono">Estrutura</th>
+                  <th class="p-3 font-semibold font-mono">CAA I</th>
+                  <th class="p-3 font-semibold font-mono">CAA II</th>
+                  <th class="p-3 font-semibold font-mono">CAA III</th>
+                  <th class="p-3 font-semibold font-mono">CAA IV</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border/40 text-gray-300">
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3 font-semibold text-white" rowspan="2">Relação a/c máxima</td>
+                  <td class="p-3">Concreto Armado (CA)</td>
+                  <td class="p-3 font-mono">≤ 0,65</td>
+                  <td class="p-3 font-mono">≤ 0,60</td>
+                  <td class="p-3 font-mono">≤ 0,55</td>
+                  <td class="p-3 font-mono">≤ 0,45</td>
+                </tr>
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3">Concreto Protendido (CP)</td>
+                  <td class="p-3 font-mono">≤ 0,60</td>
+                  <td class="p-3 font-mono">≤ 0,55</td>
+                  <td class="p-3 font-mono">≤ 0,50</td>
+                  <td class="p-3 font-mono">≤ 0,45</td>
+                </tr>
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3 font-semibold text-white" rowspan="2">Classe mínima de Concreto</td>
+                  <td class="p-3">Concreto Armado (CA)</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C20</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C25</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C30</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C40</td>
+                </tr>
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3">Concreto Protendido (CP)</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C25</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C30</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C35</td>
+                  <td class="p-3 font-mono text-brand-gold">≥ C40</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Propriedades dos Materiais -->
+      <section id="materiais" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">03</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Propriedades dos Materiais</h2>
+        </div>
+
+        <p class="text-sm text-brand-muted leading-relaxed">
+          As propriedades mecânicas do concreto e do aço são estipuladas estatisticamente na idade de projeto (geralmente aos 28 dias). A NBR 6118 traz equações precisas de conversão mecânica.
+        </p>
+
+        <!-- Equações Concreto -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-3">
+            <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block">Mecânica à Tração do Concreto (8.2.5)</span>
+            <div class="font-mono text-xs bg-brand-black/70 p-4 rounded-lg">
+              $$f_{ct,m} = 0{,}3 \cdot f_{ck}^{2/3} \quad (f_{ck} \le 50 \text{ MPa})$$
+              $$f_{ct,m} = 2{,}12 \cdot \ln(1 + 0{,}11 \cdot f_{ck}) \quad (f_{ck} > 50)$$
+              $$f_{ctk,inf} = 0{,}7 \cdot f_{ct,m}$$
+            </div>
+          </div>
+
+          <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-3">
+            <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block">Módulo de Deformabilidade (8.2.8)</span>
+            <div class="font-mono text-xs bg-brand-black/70 p-4 rounded-lg">
+              $$E_{ci} = \alpha_E \cdot 5600 \sqrt{f_{ck}}$$
+              $$E_{cs} = \alpha_i \cdot E_{ci}$$
+              $$\alpha_i = 0{,}8 + \frac{f_{ck}}{80} \le 1{,}0$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Armadura Passiva -->
+        <div id="aço" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">3.2 Classes de Aço para Armaduras Passivas</h3>
+          <div class="overflow-x-auto border border-brand-border rounded-lg">
+            <table class="w-full text-left text-xs font-light">
+              <thead class="bg-brand-black text-brand-muted border-b border-brand-border">
+                <tr>
+                  <th class="p-3 font-semibold font-mono">Classe</th>
+                  <th class="p-3 font-semibold font-mono">$f_{yk}$ Mínimo (MPa)</th>
+                  <th class="p-3 font-semibold font-mono">Superfície</th>
+                  <th class="p-3 font-semibold font-mono">Módulo Elasticidade $E_s$</th>
+                  <th class="p-3 font-semibold font-mono">$f_{yd}$ Cálculo ($\gamma_s = 1{,}15$)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border/40 text-gray-300">
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3 font-bold text-white">CA-25</td>
+                  <td class="p-3 font-mono">250</td>
+                  <td class="p-3">Lisa</td>
+                  <td class="p-3 font-mono">210 GPa</td>
+                  <td class="p-3 font-mono">217,4 MPa</td>
+                </tr>
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3 font-bold text-brand-gold">CA-50</td>
+                  <td class="p-3 font-mono">500</td>
+                  <td class="p-3">Alta Aderência (Rugosa)</td>
+                  <td class="p-3 font-mono">210 GPa</td>
+                  <td class="p-3 font-mono text-brand-gold">434,8 MPa</td>
+                </tr>
+                <tr class="hover:bg-brand-card/20">
+                  <td class="p-3 font-bold text-white">CA-60</td>
+                  <td class="p-3 font-mono">600</td>
+                  <td class="p-3">Nervurada</td>
+                  <td class="p-3 font-mono">210 GPa</td>
+                  <td class="p-3 font-mono">521,7 MPa</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bloco Equivalente -->
+        <div id="bloco" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">3.3 Parâmetros do Bloco Equivalente Retangular (17.2.2)</h3>
+          <p class="text-sm text-brand-muted">
+            Para simplificar o cálculo das tensões no concreto comprimido sob flexão, a norma admite a utilização de uma distribuição uniforme de tensões (bloco retangular equivalendo à parábola-retângulo):
+          </p>
+          <div class="font-mono text-xs bg-brand-black/70 p-4 rounded-lg space-y-2">
+            <div>$$\text{Profundidade do Bloco: } y = \lambda \cdot x$$</div>
+            <div>$$\lambda = 0{,}8 \quad (f_{ck} \le 50 \text{ MPa}) \qquad \lambda = 0{,}8 - \frac{f_{ck} - 50}{400} \quad (f_{ck} > 50)$$</div>
+            <div>$$\text{Tensão de Cálculo Uniformizada: } \alpha_c \cdot f_{cd} = 0{,}85 \cdot f_{cd} \quad (f_{ck} \le 50 \text{ MPa})$$</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Segurança -->
+      <section id="seguranca" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">04</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Critérios de Segurança e Estados-Limites</h2>
+        </div>
+
+        <div id="fatores" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">4.2 Coeficientes de Ponderação Normais ($\gamma$)</h3>
+          <p class="text-sm text-brand-muted">
+            As ações são majoradas e as resistências dos materiais são minoradas para assegurar uma probabilidade de falha extremamente controlada.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="border border-brand-border rounded-lg p-4 bg-brand-black/30">
+              <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block mb-2">Majoradores de Ações ($\gamma_f$)</span>
+              <ul class="space-y-1.5 font-mono text-xs text-gray-300">
+                <li class="flex justify-between"><span>Permanentes Diretas ($g_k$):</span><span class="text-white">1,40</span></li>
+                <li class="flex justify-between"><span>Variáveis Gerais ($q_k$):</span><span class="text-white">1,40</span></li>
+                <li class="flex justify-between"><span>Vento de Projeto ($w_k$):</span><span class="text-white">1,40</span></li>
+              </ul>
+            </div>
+            
+            <div class="border border-brand-border rounded-lg p-4 bg-brand-black/30">
+              <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block mb-2">Minoradores de Resistência ($\gamma_m$)</span>
+              <ul class="space-y-1.5 font-mono text-xs text-gray-300">
+                <li class="flex justify-between"><span>Concreto ($\gamma_c$):</span><span class="text-brand-gold">1,40</span></li>
+                <li class="flex justify-between"><span>Aço ($\gamma_s$):</span><span class="text-white">1,15</span></li>
+                <li class="flex justify-between"><span>Madeira ($\gamma_w$):</span><span class="text-white">1,40</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Dimensionamento -->
+      <section id="dominios" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">05</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Dimensionamento ao ELU</h2>
+        </div>
+
+        <h3 class="font-serif text-xl text-white">5.1 Domínios de Deformação da Seção Transversal</h3>
+        <p class="text-sm text-brand-muted">
+          A flexão simples de vigas é dividida em domínios geométricos dependendo do alongamento das armaduras e encurtamento do concreto.
+        </p>
+
+        <!-- Domínios visual blocks -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-brand-card/50 border border-brand-border rounded-xl p-5 border-t-2 border-t-cyan-500">
+            <span class="font-mono text-cyan-400 text-xs block mb-1">DOMÍNIO 2 — DÚCTIL EXTREMO</span>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Ruptura comandada pelo escoamento plástico do aço. O concreto ainda não atingiu sua capacidade de deformação última ($x/d \le 0{,}259$).
+            </p>
+          </div>
+          <div class="bg-brand-card/50 border border-brand-border rounded-xl p-5 border-t-2 border-t-brand-green">
+            <span class="font-mono text-brand-green text-xs block mb-1">DOMÍNIO 3 — ZONA IDEAL</span>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Equilíbrio mecânico ideal: o aço está em pleno escoamento plástico e o concreto atinge o limite de encurtamento ($x/d \le 0{,}45$ para $f_{ck} \le 50$).
+            </p>
+          </div>
+          <div class="bg-brand-card/50 border border-brand-border rounded-xl p-5 border-t-2 border-t-brand-red">
+            <span class="font-mono text-brand-red text-xs block mb-1">DOMÍNIO 4 — FRÁGIL (NÃO PERMITIDO)</span>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Supera o limite de dutilidade da norma ($x/d > 0{,}45$). O concreto esmaga antes que o aço atinja o escoamento, causando colapso explosivo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Equações Vigas -->
+        <div id="vigas" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">5.2 Vigas sob Flexão Simples</h3>
+          <div class="font-mono text-xs bg-brand-black/70 p-4 rounded-lg space-y-2">
+            <div>$$M_{Rd} = \alpha_c \cdot f_{cd} \cdot b_w \cdot y \cdot (d - y/2) \ge M_{Sd}$$</div>
+            <div>$$A_s = \frac{M_{Sd}}{f_{yd} \cdot (d - y/2)}$$</div>
+          </div>
+        </div>
+
+        <!-- Cortante Modelo I -->
+        <div id="cortante" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">5.3 Esforço Cortante — Modelo de Cálculo I NBR 6118</h3>
+          <p class="text-sm text-brand-muted">
+            No Modelo I, admite-se que a analogia da treliça clássica de Mörsch possui bielas inclinadas a $45^\circ$:
+          </p>
+          <div class="font-mono text-xs bg-brand-black/70 p-4 rounded-lg space-y-2">
+            <div>$$V_{Rd2} = 0{,}27 \cdot (1 - f_{ck}/250) \cdot f_{cd} \cdot b_w \cdot d \quad (\text{Esmagamento da biela})$$</div>
+            <div>$$V_{Rd3} = V_c + V_{sw}$$</div>
+            <div>$$V_c = 0{,}6 \cdot f_{ctd} \cdot b_w \cdot d \qquad V_{sw} = \frac{A_{sw}}{s} \cdot 0{,}9 \cdot d \cdot f_{yd}$$</div>
+          </div>
+        </div>
+
+        <!-- Pilares -->
+        <div id="pilares" class="bg-brand-card border border-brand-border rounded-xl p-6 space-y-4">
+          <h3 class="font-serif text-xl text-white">5.4 Pilares e o Fator de Esbeltez Geométrico $\gamma_n$</h3>
+          <p class="text-sm text-brand-muted">
+            De acordo com a <strong>Seção 13.2</strong>, pilares não podem possuir menor dimensão inferior a $19\text{ cm}$. Em casos excepcionais, admite-se dimensões de até $14\text{ cm}$, aplicando o coeficiente adicional $\gamma_n$:
+          </p>
+          <div class="overflow-x-auto border border-brand-border rounded-lg">
+            <table class="w-full text-left text-xs font-light">
+              <thead class="bg-brand-black text-brand-muted border-b border-brand-border">
+                <tr>
+                  <th class="p-3 font-semibold font-mono">Menor Dimensão $b_{min}$</th>
+                  <th class="p-3 font-semibold font-mono">Coeficiente Majorador $\gamma_n$</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border/40 text-gray-300 font-mono">
+                <tr><td class="p-2">$\ge 19\text{ cm}$</td><td class="p-2">1,00</td></tr>
+                <tr><td class="p-2">18 cm</td><td class="p-2">1,05</td></tr>
+                <tr><td class="p-2">17 cm</td><td class="p-2">1,10</td></tr>
+                <tr><td class="p-2">16 cm</td><td class="p-2">1,15</td></tr>
+                <tr><td class="p-2">15 cm</td><td class="p-2">1,20</td></tr>
+                <tr><td class="p-2">14 cm (Mínimo Absoluto)</td><td class="p-2 text-brand-gold font-bold">1,25</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Detalhamento -->
+      <section id="detalhamento" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">06</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Detalhamento e Limites Construtivos</h2>
+        </div>
+
+        <p class="text-sm text-brand-muted leading-relaxed">
+          O projeto estrutural de excelência não termina com o cálculo da área de aço; ele exige conformidade estrita aos limites construtivos mínimos impostos pela NBR 6118.
+        </p>
+
+        <!-- Limites Construtivos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+            <span class="font-mono text-brand-gold text-xs block">TAXA MÍNIMA DE ARMADURA DE FLEXÃO (VIGAS)</span>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              A área mínima de aço tracionado ($A_{s,min}$) deve evitar a ruptura frágil logo após a fissuração do concreto:
+              $$A_{s,min} = \rho_{min} \cdot A_c \qquad \rho_{min} \ge 0{,}15\% \text{ para CA-50}$$
+            </p>
+          </div>
+
+          <div id="ancoragem" class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+            <span class="font-mono text-brand-gold text-xs block">COMPRIMENTO DE ANCORAGEM BÁSICO ($l_b$)</span>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              O comprimento linear mínimo para transmitir as tensões da barra ao concreto por aderência:
+              $$l_b = \frac{\phi}{4} \cdot \frac{f_{yd}}{f_{bd}}$$
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Exemplo Resolvido -->
+      <section id="exemplo" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">07</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Exemplo Numérico de Aplicação</h2>
+        </div>
+
+        <!-- Card de Exemplo Estilo Premium -->
+        <div class="border border-brand-border rounded-2xl bg-brand-card overflow-hidden">
+          <div class="p-6 bg-brand-black border-b border-brand-border flex justify-between items-center flex-wrap gap-4">
+            <div class="flex items-center space-x-3">
+              <span class="h-6 px-2.5 bg-brand-gold text-brand-black font-mono font-bold text-[10px] rounded flex items-center tracking-wider">ROTEIRO NUMÉRICO</span>
+              <h3 class="font-serif text-xl text-white">Viga de Seção Retangular ($20 \times 50\text{ cm}$)</h3>
+            </div>
+            <span class="text-xs font-mono text-brand-muted">ELU COMPLETO</span>
+          </div>
+
+          <div class="p-6 sm:p-8 space-y-6 text-sm text-gray-300">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brand-black/50 border border-brand-border p-5 rounded-lg font-mono text-xs">
+              <div>
+                <span class="text-brand-gold uppercase tracking-wider block mb-2">Dados de Entrada</span>
+                <ul>
+                  <li>· Vão Livre ($l$): 6,00 m</li>
+                  <li>· Seção: $b_w = 20\text{ cm}$, $h = 50\text{ cm}$</li>
+                  <li>· Concreto: C30 ($f_{ck} = 30\text{ MPa}$)</li>
+                  <li>· Aço: CA-50 ($f_{yk} = 500\text{ MPa}$)</li>
+                </ul>
+              </div>
+              <div>
+                <span class="text-brand-gold uppercase tracking-wider block mb-2">Carregamento</span>
+                <ul>
+                  <li>· Peso Próprio: $2{,}5\text{ kN/m}$</li>
+                  <li>· Revestimento: $1{,}0\text{ kN/m}$</li>
+                  <li>· Sobrecarga Quase-Perm: $3{,}5\text{ kN/m}$</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Etapas detalhadas -->
+            <div class="space-y-4">
+              <div class="border-l border-brand-gold pl-4 space-y-1">
+                <h5 class="font-semibold text-white font-mono text-xs">1. Esforço Combinado Majorado</h5>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  $F_d = 1{,}4 \cdot (2{,}5 + 1{,}0) + 1{,}4 \cdot 3{,}5 = 9{,}8\text{ kN/m}$.<br>
+                  O momento fletor máximo solicitante de cálculo: $M_{Sd} = \frac{9{,}8 \cdot 6{,}0^2}{8} = 44{,}1\text{ kN}\cdot\text{m}$.
+                </p>
+              </div>
+
+              <div class="border-l border-brand-gold pl-4 space-y-1">
+                <h5 class="font-semibold text-white font-mono text-xs">2. Linha Neutra ($x$) e Altura Útil ($d$)</h5>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  Admitindo cobrimento de 3,0 cm e estribos de 6,3 mm, $d \approx 45{,}4\text{ cm}$.<br>
+                  A linha neutra resulta em $x \approx 3{,}43\text{ cm}$ (Domínio 2 - Altamente Dútil).
+                </p>
+              </div>
+
+              <div class="border-l border-brand-gold pl-4 space-y-1">
+                <h5 class="font-semibold text-white font-mono text-xs">3. Área de Aço Necessária</h5>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  $A_s = 230{,}3\text{ mm}^2$ ($2{,}30\text{ cm}^2$). O limite mínimo normativo exige $150\text{ mm}^2$. Adotamos **3 Ø12.5 mm** ($3{,}68\text{ cm}^2$) garantindo ampla margem de segurança.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Checklist Geral -->
+      <section id="checklist" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">08</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Checklist do Calculista Estrutural</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-brand-card border border-brand-border rounded-xl p-6">
+            <span class="text-[10px] font-mono text-brand-gold tracking-widest uppercase block mb-3">CONFORMIDADE DE ENTRADA (MÓDULO A)</span>
+            <ul class="space-y-2 text-xs text-brand-muted">
+              <li class="flex items-center space-x-2"><i class="fa-regular fa-square-check text-brand-gold"></i> <span>A classe de concreto C selecionada atende a CAA?</span></li>
+              <li class="flex items-center space-x-2"><i class="fa-regular fa-square-check text-brand-gold"></i> <span>A espessura de cobrimento nominal ($c_{nom}$) é superior ao mínimo regulamentar?</span></li>
+              <li class="flex items-center space-x-2"><i class="fa-regular fa-square-check text-brand-gold"></i> <span>Os diâmetros de brita e agregados são compatíveis com o cobrimento?</span></li>
+            </ul>
+          </div>
+
+          <div class="bg-brand-card border border-brand-border rounded-xl p-6">
+            <span class="text-[10px] font-mono text-brand-gold tracking-widest uppercase block mb-3">CONFORMIDADE DE CÁLCULO (MÓDULO B)</span>
+            <ul class="space-y-2 text-xs text-brand-muted">
+              <li class="flex items-center space-x-2"><i class="fa-regular fa-square-check text-brand-gold"></i> <span>A relação $x/d$ é menor ou igual a $0{,}45$?</span></li>
+              <li class="flex items-center space-x-2"><i class="fa-regular fa-square-check text-brand-gold"></i> <span>A área de aço tracionada fornecida supera $A_{s,min}$?</span></li>
+              <li class="flex items-center space-x-2"><i class="fa-regular fa-square-check text-brand-gold"></i> <span>A diagonal comprimida de concreto ($V_{Rd2}$) não sofre colapso por cisalhamento?</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 9: Calculadora Interativa Estilo Cockpit Cargas V2 -->
+      <section id="calculadora" class="space-y-6 scroll-mt-24">
+        <div class="flex items-center space-x-3 border-b border-brand-border pb-3">
+          <span class="font-mono text-brand-gold text-lg font-bold">09</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-white">Calculadora Interativa — NBR 6118:2014</h2>
+        </div>
+
+        <p class="text-sm text-brand-muted leading-relaxed">
+          Simule as propriedades normativas de vigas ou pilares instantaneamente. O motor executa em tempo real os testes de estados-limites, gerando um relatório estrutural detalhado de forma visual.
+        </p>
+
+        <!-- Painel Central Computacional -->
+        <div class="bg-brand-card border-2 border-brand-border rounded-2xl overflow-hidden shadow-2xl glow-amber-strong">
+          
+          <!-- Seleção de Elemento (Tabs) -->
+          <div class="flex border-b border-brand-border bg-brand-black">
+            <button class="flex-1 py-4 text-center text-xs font-mono tracking-widest uppercase border-r border-brand-border focus:outline-none transition-all duration-150 text-brand-gold border-b-2 border-b-brand-gold" id="tab-btn-viga" onclick="switchTab('viga', this)">
+              🏗 VIGA RETANGULAR
+            </button>
+            <button class="flex-1 py-4 text-center text-xs font-mono tracking-widest uppercase focus:outline-none transition-all duration-150 text-brand-muted hover:text-white" id="tab-btn-pilar" onclick="switchTab('pilar', this)">
+              🏛 PILAR ISOLADO
+            </button>
+          </div>
+
+          <div class="p-6 sm:p-10">
+            
+            <!-- PANEL: VIGA -->
+            <div id="panel-viga" class="space-y-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Inputs Geometria Viga -->
+                <div class="space-y-5">
+                  <h4 class="font-serif text-lg text-white border-b border-brand-border/60 pb-2">Geometria e Concreto</h4>
+                  
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Largura da Viga (b)</label>
+                      <div class="relative">
+                        <input type="number" id="v_b" value="20" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">cm</span>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Altura da Viga (h)</label>
+                      <div class="relative">
+                        <input type="number" id="v_h" value="50" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">cm</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Vão Livre (l)</label>
+                      <div class="relative">
+                        <input type="number" id="v_l" value="6.0" step="0.1" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">m</span>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Classe Concreto</label>
+                      <select id="v_fck" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="20">C20 — 20 MPa</option>
+                        <option value="25">C25 — 25 MPa</option>
+                        <option value="30" selected>C30 — 30 MPa</option>
+                        <option value="40">C40 — 40 MPa</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Ø Long.</label>
+                      <select id="v_phi" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="5">Ø 5 mm</option>
+                        <option value="6.3">Ø 6,3 mm</option>
+                        <option value="10">Ø 10 mm</option>
+                        <option value="12.5">Ø 12,5 mm</option>
+                        <option value="16" selected>Ø 16 mm</option>
+                        <option value="20">Ø 20 mm</option>
+                      </select>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Ø Estribo</label>
+                      <select id="v_phiw" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="5">Ø 5 mm</option>
+                        <option value="6.3" selected>Ø 6,3 mm</option>
+                        <option value="8">Ø 8 mm</option>
+                      </select>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Ø Pele (h>60)</label>
+                      <select id="v_phi_pele" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="5" selected>Ø 5 mm</option>
+                        <option value="6.3">Ø 6,3 mm</option>
+                        <option value="8">Ø 8 mm</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Inputs Esforços Viga -->
+                <div class="space-y-5">
+                  <h4 class="font-serif text-lg text-white border-b border-brand-border/60 pb-2">Esforços e Durabilidade</h4>
+                  
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Unidade de Esforços</label>
+                      <div class="flex rounded border border-brand-border overflow-hidden">
+                        <button class="flex-1 py-1.5 text-[10px] font-mono tracking-wider uppercase bg-brand-gold text-brand-black font-bold" id="v-u-btn-kn" onclick="setUnit('v','kN',this)">kN/m</button>
+                        <button class="flex-1 py-1.5 text-[10px] font-mono tracking-wider uppercase bg-transparent text-brand-muted" id="v-u-btn-tf" onclick="setUnit('v','tf',this)">tf/m</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Carga Permanente ($g_{rev}$)</label>
+                      <div class="relative">
+                        <input type="number" id="v_grev" value="1.0" step="0.1" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted" id="v_u1">kN/m</span>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Carga Variável ($q_k$)</label>
+                      <div class="relative">
+                        <input type="number" id="v_qk" value="3.5" step="0.1" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted" id="v_u2">kN/m</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Agressividade (CAA)</label>
+                      <select id="v_caa" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="1">CAA I — Fraca</option>
+                        <option value="2" selected>CAA II — Moderada</option>
+                        <option value="3">CAA III — Forte</option>
+                        <option value="4">CAA IV — Muito Forte</option>
+                      </select>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Cobrimento ($c_{nom}$)</label>
+                      <div class="relative">
+                        <input type="number" id="v_cnom" value="30" step="5" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">mm</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Opção Manual de Armadura -->
+              <div class="border-t border-brand-border/40 pt-6">
+                <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block mb-3">Armação Manual Opcional</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="space-y-1">
+                    <label class="block text-[10px] font-mono text-brand-muted uppercase tracking-wider">Ø Manual Longitudinal</label>
+                    <select id="v_man_phi" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                      <option value="5">Ø 5 mm</option>
+                      <option value="6.3">Ø 6,3 mm</option>
+                      <option value="10">Ø 10 mm</option>
+                      <option value="12.5">Ø 12,5 mm</option>
+                      <option value="16" selected>Ø 16 mm</option>
+                      <option value="20">Ø 20 mm</option>
+                    </select>
+                  </div>
+                  <div class="space-y-1">
+                    <label class="block text-[10px] font-mono text-brand-muted uppercase tracking-wider">Número de Barras (0 = Automático)</label>
+                    <input type="number" id="v_man_n" value="0" min="0" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="calcViga()" class="w-full py-4 rounded bg-brand-gold hover:bg-brand-goldHover text-brand-black font-mono font-bold text-xs tracking-widest uppercase transition-all shadow-xl shadow-brand-gold/10">
+                EXECUTAR DIMENSIONAMENTO VIGA
+              </button>
+            </div>
+
+            <!-- PANEL: PILAR -->
+            <div id="panel-pilar" class="hidden space-y-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Inputs Geometria Pilar -->
+                <div class="space-y-5">
+                  <h4 class="font-serif text-lg text-white border-b border-brand-border/60 pb-2">Geometria do Pilar</h4>
+                  
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Menor Dimensão (b)</label>
+                      <div class="relative">
+                        <input type="number" id="p_b" value="20" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">cm</span>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Maior Dimensão (h)</label>
+                      <div class="relative">
+                        <input type="number" id="p_h" value="40" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">cm</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Ø Longitudinal</label>
+                      <select id="p_phi" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="5">Ø 5 mm (não recomendado)</option>
+                        <option value="6.3">Ø 6,3 mm (não recomendado)</option>
+                        <option value="10">Ø 10 mm</option>
+                        <option value="12.5">Ø 12,5 mm</option>
+                        <option value="16" selected>Ø 16 mm</option>
+                        <option value="20">Ø 20 mm</option>
+                      </select>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Classe Concreto</label>
+                      <select id="p_fck" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="20">C20 — 20 MPa</option>
+                        <option value="25">C25 — 25 MPa</option>
+                        <option value="30" selected>C30 — 30 MPa</option>
+                        <option value="40">C40 — 40 MPa</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Inputs Esforços Pilar -->
+                <div class="space-y-5">
+                  <h4 class="font-serif text-lg text-white border-b border-brand-border/60 pb-2">Solicitações de Projeto</h4>
+                  
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Unidade de Esforços</label>
+                      <div class="flex rounded border border-brand-border overflow-hidden">
+                        <button class="flex-1 py-1.5 text-[10px] font-mono tracking-wider uppercase bg-brand-gold text-brand-black font-bold" id="p-u-btn-kn" onclick="setUnit('p','kN',this)">kN</button>
+                        <button class="flex-1 py-1.5 text-[10px] font-mono tracking-wider uppercase bg-transparent text-brand-muted" id="p-u-btn-tf" onclick="setUnit('p','tf',this)">tf</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Carga Normal ($N_{Sd}$)</label>
+                      <div class="relative">
+                        <input type="number" id="p_nsd" value="800" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-2 top-2.5 text-[9px] text-brand-muted" id="p_u1">kN</span>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Agressividade</label>
+                      <select id="p_caa" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <option value="1">CAA I — Fraca</option>
+                        <option value="2" selected>CAA II — Moderada</option>
+                        <option value="3">CAA III — Forte</option>
+                        <option value="4">CAA IV — Muito Forte</option>
+                      </select>
+                    </div>
+                    <div class="space-y-1">
+                      <label class="block text-[10px] font-mono text-brand-gold uppercase tracking-wider">Cobrimento ($c_{nom}$)</label>
+                      <div class="relative">
+                        <input type="number" id="p_cnom" value="30" step="5" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                        <span class="absolute right-3 top-2.5 text-[10px] text-brand-muted">mm</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Armadura Manual Pilar -->
+              <div class="border-t border-brand-border/40 pt-6">
+                <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase block mb-3">Armadura Longitudinal Manual Pilar</span>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="space-y-1">
+                    <label class="block text-[10px] font-mono text-brand-muted uppercase tracking-wider">Ø Manual</label>
+                    <select id="p_man_phi" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                      <option value="5">Ø 5 mm</option>
+                      <option value="6.3">Ø 6,3 mm</option>
+                      <option value="10">Ø 10 mm</option>
+                      <option value="12.5">Ø 12,5 mm</option>
+                      <option value="16" selected>Ø 16 mm</option>
+                      <option value="20">Ø 20 mm</option>
+                    </select>
+                  </div>
+                  <div class="space-y-1">
+                    <label class="block text-[10px] font-mono text-brand-muted uppercase tracking-wider">Número de Barras (0 = auto)</label>
+                    <input type="number" id="p_man_n" value="0" min="0" class="w-full bg-brand-black border border-brand-border focus:border-brand-gold rounded px-3 py-2 text-xs font-mono text-white transition">
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="calcPilar()" class="w-full py-4 rounded bg-brand-gold hover:bg-brand-goldHover text-brand-black font-mono font-bold text-xs tracking-widest uppercase transition-all shadow-xl shadow-brand-gold/10">
+                EXECUTAR DIMENSIONAMENTO PILAR
+              </button>
+            </div>
+
+          </div>
+
+          <!-- JANELA DE TELEMETRIA DE RESULTADOS -->
+          <div id="calculator-results" class="hidden border-t-2 border-brand-border bg-brand-black p-6 sm:p-10 space-y-6">
+            <div class="flex justify-between items-center border-b border-brand-border/60 pb-4">
+              <div class="flex items-center space-x-2">
+                <span class="h-2 w-2 rounded-full bg-brand-gold animate-ping"></span>
+                <span class="font-mono text-xs text-brand-gold uppercase tracking-widest">SISTEMA OPERACIONAL: ATIVO</span>
+              </div>
+              <span class="text-[9px] font-mono text-brand-muted">DIAGNÓSTICO ESTRUTURAL COMPLETO</span>
+            </div>
+
+            <!-- Conteúdo Dinâmico Gerado via JS -->
+            <div id="results-target-area" class="space-y-6 text-sm"></div>
+
+            <!-- Bloco do Memorial de Cálculo (Copy-paste) -->
+            <div class="border border-brand-border rounded-lg bg-brand-dark/80 p-5 mt-6 space-y-3">
+              <div class="flex justify-between items-center flex-wrap gap-2">
+                <span class="text-[9px] font-mono text-brand-gold tracking-widest uppercase"><i class="fa-solid fa-file-invoice mr-1"></i> MEMORIAL DE CÁULO DE ENGENHARIA</span>
+                <button onclick="copyMemorialToClipboard()" class="text-[10px] font-mono bg-brand-border hover:bg-brand-gold/20 text-white hover:text-brand-gold px-3 py-1 rounded transition border border-brand-border/60">
+                  <i class="fa-regular fa-copy mr-1"></i> COPIAR MEMORIAL
+                </button>
+              </div>
+              <textarea id="memorial-textarea" readonly class="w-full h-48 bg-brand-black border border-brand-border/80 rounded p-3 text-xs font-mono text-gray-400 focus:outline-none select-all focus:border-brand-gold transition resize-y"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- Toast Notificação -->
+  <div id="loadToast" class="fixed top-20 right-6 z-50 hidden bg-brand-card border-l-4 border-l-brand-gold border border-brand-border p-4 rounded shadow-2xl transition-all duration-300 transform scale-100 max-w-sm">
+    <!-- Gerado dinamicamente -->
+  </div>
+
+  <!-- Rodapé Premium -->
+  <footer class="border-t border-brand-border bg-brand-black text-brand-muted py-12 mt-20">
+    <div class="max-w-[1600px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <div class="h-8 w-8 rounded bg-brand-gold flex items-center justify-center text-brand-black font-black text-xs font-condensed">N18</div>
+        <span class="font-mono text-xs text-white tracking-widest">ABNT NBR 6118:2014</span>
+      </div>
+      <p class="text-xs font-mono text-brand-muted tracking-wider text-center md:text-right">
+        FÓRMULAS E MÉTODOS EM CONFORMIDADE COM A ABNT NBR 6118:2014.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const TF_TO_KN = 9.80665;
+    const unitState = { v: 'kN', p: 'kN' };
+
+    // Inicialização robusta e assíncrona do KaTeX pós-carregamento do DOM
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ]
+        });
+      }
+    });
+
+    // Função auxiliar para sugestão de cobrimentos da NBR 6118
+    function cnomRecom(caa, tipo='viga') {
+      const tbl = { viga: [25, 30, 40, 50], pilar: [25, 30, 40, 50] };
+      return (tbl[tipo] || tbl.viga)[caa - 1];
+    }
+
+    // Sincronização em tempo real de cobrimentos
+    function syncCnom(prefix, tipo) {
+      const caa = parseInt(document.getElementById(prefix + '_caa').value);
+      const rec = cnomRecom(caa, tipo);
+      document.getElementById(prefix + '_cnom').value = rec;
+      showToast(`Cobrimento sugerido para CAA ${caa}: ${rec} mm`);
+    }
+
+    // Ouvintes de alteração de Classe de Agressividade Ambiental
+    document.getElementById('v_caa').addEventListener('change', () => syncCnom('v', 'viga'));
+    document.getElementById('p_caa').addEventListener('change', () => syncCnom('p', 'pilar'));
+
+    // Navegação entre abas Vigas / Pilares
+    function switchTab(tab, btn) {
+      document.querySelectorAll('#tab-btn-viga, #tab-btn-pilar').forEach(b => {
+        b.classList.remove('text-brand-gold', 'border-b-2', 'border-b-brand-gold');
+        b.classList.add('text-brand-muted');
+      });
+      btn.classList.add('text-brand-gold', 'border-b-2', 'border-b-brand-gold');
+      btn.classList.remove('text-brand-muted');
+
+      if (tab === 'viga') {
+        document.getElementById('panel-viga').classList.remove('hidden');
+        document.getElementById('panel-pilar').classList.add('hidden');
+      } else {
+        document.getElementById('panel-viga').classList.add('hidden');
+        document.getElementById('panel-pilar').classList.remove('hidden');
+      }
+    }
+
+    // Toggle de unidades dinâmico (kN / tf)
+    function setUnit(prefix, unit, btn) {
+      unitState[prefix] = unit;
+      btn.parentElement.querySelectorAll('button').forEach(b => {
+        b.classList.remove('bg-brand-gold', 'text-brand-black', 'font-bold');
+        b.classList.add('bg-transparent', 'text-brand-muted');
+      });
+      btn.classList.add('bg-brand-gold', 'text-brand-black', 'font-bold');
+      btn.classList.remove('bg-transparent', 'text-brand-muted');
+      
+      const labels = {
+        v: { kN: ['kN/m','kN/m'], tf: ['tf/m','tf/m'] },
+        p: { kN: ['kN','kN','kN'], tf: ['tf','tf','tf'] }
+      };
+      
+      const textArray = labels[prefix][unit];
+      textArray.forEach((text, i) => {
+        const el = document.getElementById(prefix + '_u' + (i+1));
+        if(el) el.textContent = text;
+      });
+    }
+
+    // Formatação numérica brasileira para relatórios
+    function fmt(v, dec=2) { 
+      if (v === null || v === undefined || isNaN(v)) return '—';
+      return v.toFixed(dec).replace('.',','); 
+    }
+    function fmtForce(kn) { return fmt(kn, 2) + ' kN'; }
+    function fmtMom(knm) { return fmt(knm, 2) + ' kN·m'; }
+    function fmtLoad(knm) { return fmt(knm, 3) + ' kN/m'; }
+
+    // Obtenção de Propriedades de Concreto e Aço (Equações da Seção 8)
+    function getMaterials(fck_mpa, fyk_mpa) {
+      const gc = 1.4, gs = 1.15;
+      const fcd = fck_mpa / gc;
+      const fyd = fyk_mpa / gs;
+      const fctm = fck_mpa <= 50
+        ? 0.3 * Math.pow(fck_mpa, 2/3)
+        : 2.12 * Math.log(1 + 0.11 * fck_mpa);
+      const fctk_inf = 0.7 * fctm;
+      const fctd = fctk_inf / gc;
+      const alphaE = 1.0; 
+      const Eci = alphaE * 5600 * Math.sqrt(fck_mpa);
+      const alphai = Math.min(0.8 + fck_mpa/80, 1.0);
+      const Ecs = alphai * Eci;
+      
+      const lambda = fck_mpa <= 50 ? 0.8 : 0.8 - (fck_mpa-50)/400;
+      const alphaC = fck_mpa <= 50 ? 0.85 : 0.85 * (1 - (fck_mpa - 50) / 200);
+      
+      return { fcd, fyd, fctm, fctk_inf, fctd, Eci, Ecs, lambda, alphaC };
+    }
+
+    // Renderizador de linhas do relatório de telemetria
+    function row(label, val, indicator = '') {
+      return `
+        <div class="flex justify-between items-center py-2 border-b border-brand-border/40 text-xs">
+          <span class="text-brand-muted font-mono">${label}</span>
+          <div class="flex items-center space-x-2">
+            <span class="font-mono text-white font-medium">${val}</span>
+            ${indicator}
+          </div>
+        </div>
+      `;
+    }
+
+    // Título de Seção Técnica
+    function blockTitle(t) {
+      return `<h4 class="font-mono text-[10px] text-brand-gold tracking-widest uppercase border-b border-brand-border/80 pb-2 mt-4">${t}</h4>`;
+    }
+
+    // Exibição de Toast
+    function showToast(msg) {
+      const toast = document.getElementById('loadToast');
+      toast.innerHTML = `<div class="flex items-center space-x-2 font-mono text-xs text-white"><i class="fa-solid fa-circle-info text-brand-gold"></i> <span>${msg}</span></div>`;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    // Área Global para guardar o Memorial de Cálculo gerado
+    let currentMemorialText = "";
+
+    function copyMemorialToClipboard() {
+      const textarea = document.getElementById('memorial-textarea');
+      textarea.select();
+      document.execCommand('copy');
+      showToast('Memorial de Cálculo copiado para a Área de Trabalho!');
+    }
+
+    // 🏗 MOTOR DE CALCULO - VIGA (FLEXÃO + CISALHAMENTO)
+    function calcViga() {
+      const unit = unitState.v;
+      const b   = parseFloat(document.getElementById('v_b').value); 
+      const h   = parseFloat(document.getElementById('v_h').value); 
+      const l   = parseFloat(document.getElementById('v_l').value); 
+      const phi  = parseFloat(document.getElementById('v_phi').value); 
+      const phiw = parseFloat(document.getElementById('v_phiw').value);
+      const phipele = parseFloat(document.getElementById('v_phi_pele').value);
+
+      const v_n_input = document.getElementById('v_man_n').value;
+      const v_man_phi = parseFloat(document.getElementById('v_man_phi').value);
+      const phi_to_use = (v_n_input && parseInt(v_n_input) > 0) ? v_man_phi : phi;
+
+      const fck  = parseFloat(document.getElementById('v_fck').value); 
+      const fyk  = 500; 
+      const caa  = parseInt(document.getElementById('v_caa').value);
+      let cnom   = parseFloat(document.getElementById('v_cnom').value);
+      let grev   = parseFloat(document.getElementById('v_grev').value);
+      let qk_in  = parseFloat(document.getElementById('v_qk').value);
+
+      // Conversão métrica de esforço (kN vs tf)
+      let grev_knm = grev;
+      let qk_knm = qk_in;
+      if(unit === 'tf') { 
+        grev_knm = grev * TF_TO_KN; 
+        qk_knm = qk_in * TF_TO_KN; 
+      }
+
+      const mat = getMaterials(fck, fyk);
+      const { fcd, fyd, fctm, fctk_inf, fctd, Ecs, Eci, lambda, alphaC } = mat;
+
+      const cnom_rec = cnomRecom(caa, 'viga');
+      const cnom_ok  = cnom >= cnom_rec;
+      
+      const d_mm = h*10 - cnom - phiw - phi_to_use/2;
+      const d = d_mm; 
+      const bw = b * 10; 
+
+      // Combinações de Ações no ELU
+      const gpp = 25.0 * (b/100) * (h/100); 
+      const gk  = gpp + grev_knm;               
+      const Fd = 1.4 * gk + 1.4 * qk_knm;   
+      
+      const MSd_Nm = Fd * l*l / 8;         
+      const VSd_kN = Fd * l / 2;           
+      const MSd = MSd_Nm * 1e6; // em N.mm
+
+      // Serviço (CQP)
+      const Fser = gk + 0.3 * qk_knm;
+      const Mser_Nm = Fser * l*l / 8 * 1e6;
+
+      // Equação quadrática de flexão pelo bloco retangular
+      const A_q = -alphaC * fcd * bw / 2;
+      const B_q =  alphaC * fcd * bw * d;
+      const C_q = -MSd;
+      const disc = B_q*B_q - 4*A_q*C_q;
+      
+      let y_mm = 0, x_mm = 0, As_need = 0, xd = 0;
+      let flexOk = false;
+
+      if(disc >= 0) {
+        y_mm = (-B_q + Math.sqrt(disc)) / (2*A_q); 
+        x_mm = y_mm / lambda;
+        xd   = x_mm / d;
+        As_need = MSd / (fyd * (d - y_mm/2)); 
+        const xd_lim = fck <= 50 ? 0.45 : 0.35;
+        flexOk = xd <= xd_lim;
+      }
+
+      // Verificação de Armadura Mínima (Seção 17.3.5.2)
+      const rho_min = Math.max(0.0015, 0.078 * Math.pow(fck, 2/3) / fyk);
+      const As_min  = rho_min * bw * (h * 10); 
+      const As_final = Math.max(As_need || 0, As_min);
+
+      let nAdopted;
+      if (v_n_input && parseInt(v_n_input) > 0) {
+        nAdopted = parseInt(v_n_input);
+      } else {
+        const singleBarArea = Math.PI * phi_to_use * phi_to_use / 4;
+        nAdopted = Math.max(2, Math.ceil(As_final / singleBarArea));
+      }
+
+      const AsEf = nAdopted * (Math.PI * phi_to_use * phi_to_use / 4);
+      const armaduraOk = AsEf >= As_final;
+
+      // --- CÁLCULO DE ARMADURA DE PELE (ABNT NBR 6118 - Seção 17.3.5.2.4) ---
+      const reqPele = h > 60;
+      let peleHtml = "";
+      let n_face = 0;
+      let s_real = 0;
+      let As_pele_min_face = 0;
+      let As_pele_ef = 0;
+      const A_c = b * h * 100; // mm2
+
+      if (reqPele) {
+        const A_phi_pele = Math.PI * phipele * phipele / 4;
+        As_pele_min_face = 0.0005 * A_c; // 0,05% de Ac em cada face (total de 0,10% Ac)
+        
+        // Altura efetiva de distribuição da armadura de pele (entre centros de armaduras longitudinais)
+        const h_dist = Math.max(10, h - 2 * (cnom/10 + phiw/10 + phi_to_use/20));
+        
+        // Espaçamento máximo normativo s <= 200 mm (20 cm)
+        n_face = Math.max(1, Math.ceil(h_dist / 20 - 1));
+        
+        // Garantir que a área de aço por face seja atendida
+        if (n_face * A_phi_pele < As_pele_min_face) {
+          n_face = Math.max(n_face, Math.ceil(As_pele_min_face / A_phi_pele));
+        }
+        
+        s_real = (h_dist / (n_face + 1)) * 10; // mm
+        As_pele_ef = 2 * n_face * A_phi_pele; // Área total das duas faces laterais (mm²)
+        
+        peleHtml = `
+          ${row('Armadura de Pele (h > 60 cm)', `<span class="text-brand-gold font-bold">Necessária (h = ${h} cm)</span>`)}
+          ${row('Área Mín. Requerida / Face ($A_{s,pele,min}$)', `${fmt(As_pele_min_face/100, 2)} cm²`)}
+          ${row('Distribuição por Face Lateral', `${n_face} Ø ${phipele.toString().replace('.',',')} mm`)}
+          ${row('Espaçamento Efetivo ($s_{pele}$)', `${fmt(s_real, 0)} mm (≤ 200 mm)`)}
+          ${row('Área de Pele Total Efetiva (2 faces)', `${fmt(As_pele_ef/100, 2)} cm²`)}
+        `;
+      } else {
+        peleHtml = row('Armadura de Pele (h > 60 cm)', '<span class="text-brand-muted">Não necessária (h ≤ 60 cm)</span>');
+      }
+
+      // Cisalhamento (Modelo I - NBR 6118)
+      const av2   = 1 - fck/250;
+      const VRd2  = 0.27 * av2 * fcd * bw * d / 1000; 
+      const Vc0   = 0.6 * fctd * bw * d / 1000;        
+      const vrd2Ok = VSd_kN <= VRd2;
+
+      let s_calc = 0;
+      let A_sw_s = 0;
+      let A_sw_min_s = 0.2 * (fctm / fyk) * bw; // mm2/mm
+
+      const stirrupArea = 2 * (Math.PI * phiw * phiw / 4); // 2 pernas de estribos
+      
+      if (VSd_kN > Vc0) {
+        const Vsw = VSd_kN - Vc0;
+        A_sw_s = (Vsw * 1000) / (0.9 * d * fyd); 
+      }
+      
+      const A_sw_final_s = Math.max(A_sw_s, A_sw_min_s); 
+      s_calc = stirrupArea / A_sw_final_s; 
+
+      let s_max = Math.min(0.6 * d, 300);
+      if (VSd_kN > 0.67 * VRd2) {
+        s_max = Math.min(0.3 * d, 200);
+      }
+      const s_final = Math.min(s_calc, s_max);
+
+      // Estado Limite de Fissuração ELS
+      const w_lim = caa === 1 ? 0.4 : (caa === 4 ? 0.2 : 0.3);
+      const sigma_s = (Mser_Nm / (AsEf * 0.9 * d)); 
+      const w_k_estimado = Math.min(w_lim, (sigma_s / 210000) * 2.5 * phi_to_use); 
+
+      // Deformação imediata aproximada
+      const inertia_bruta = (b * Math.pow(h, 3)) / 12; 
+      const flecha_bruta = (5 * (Fser/10) * Math.pow(l * 100, 4)) / (384 * Ecs * inertia_bruta); 
+      const flecha_limite = (l * 1000) / 250;
+
+      // Geração dinâmica do HTML da Telemetria
+      let html = `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">`;
+      
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Módulo Mecânico de Materiais');
+      html += row('Resistência do Concreto ($f_{cd}$)', `${fmt(fcd, 2)} MPa`);
+      html += row('Tração Média do Concreto ($f_{ct,m}$)', `${fmt(fctm, 2)} MPa`);
+      html += row('Tração de Projeto ($f_{ctd}$)', `${fmt(fctd, 2)} MPa`);
+      html += row('Módulo de Deformação ($E_{cs}$)', `${fmt(Ecs/1000, 0)} GPa`);
+      html += row('Tensão do Bloco de Compressão', `${fmt(alphaC, 3)} · fcd`);
+      html += row('Resistência de Cálculo Aço ($f_{yd}$)', `${fmt(fyd, 1)} MPa`);
+      html += `</div>`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Módulo de Ações e Ponderações');
+      html += row('Peso Próprio Estimado ($g_{pp}$)', fmtLoad(gpp));
+      html += row('Permanente Adicional ($g_{rev}$)', fmtLoad(grev_knm));
+      html += row('Carga Variável de Cálculo ($q_k$)', fmtLoad(qk_knm));
+      html += row('Carga Combinada no ELU ($p_d$)', fmtLoad(Fd));
+      html += row('Momento Fletor de Projeto ($M_{Sd}$)', fmtMom(MSd_Nm));
+      html += row('Esforço Cortante de Projeto ($V_{Sd}$)', fmtForce(VSd_kN));
+      html += `</div>`;
+
+      html += `</div>`;
+
+      html += `<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Resultados à Flexão Simples (ELU)');
+      html += row('Altura Útil ($d$)', `${fmt(d/10, 2)} cm`);
+      html += row('Profundidade da Linha Neutra ($x$)', `${fmt(x_mm/10, 2)} cm`);
+      html += row('Posição Adimensional ($x/d$)', `${fmt(xd, 3)}`, flexOk ? '<span class="text-brand-green font-bold">✓ OK (DOMÍNIOS 2/3)</span>' : '<span class="text-brand-red font-bold">✗ FRÁGIL (>0.45)</span>');
+      html += row('Área de Aço Requerida ($A_{s,calc}$)', `${fmt(As_need/100, 2)} cm²`);
+      html += row('Área de Aço Mínima ($A_{s,min}$)', `${fmt(As_min/100, 2)} cm²`);
+      html += row('Armadura Adotada Final', `${nAdopted} Ø ${phi_to_use.toString().replace('.',',')} mm`);
+      html += row('Área de Aço Efetiva ($A_{s,ef}$)', `${fmt(AsEf/100, 2)} cm²`, armaduraOk ? '<span class="text-brand-green">✓ CONFORME</span>' : '<span class="text-brand-red">✗ INSUFICIENTE</span>');
+      html += peleHtml; // Inserção dinâmica da armadura de pele no relatório principal
+      html += `</div>`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Resultados ao Cortante (ELU)');
+      html += row('Resistência de Ruptura Biela ($V_{Rd2}$)', fmtForce(VRd2), vrd2Ok ? '<span class="text-brand-green">✓ OK</span>' : '<span class="text-brand-red">✗ RUÍNA POR ESCOAMENTO</span>');
+      html += row('Cisalhamento Res. Concreto ($V_c$)', fmtForce(Vc0));
+      html += row('Força de Estribos ($V_{sw}$)', fmtForce(Math.max(0, VSd_kN - Vc0)));
+      html += row('Bitola do Estribo Adotada ($\\phi_w$)', `${phiw.toString().replace('.',',')} mm`);
+      html += row('Espaçamento Limite Máximo ($s_{max}$)', `${fmt(s_max, 0)} mm`);
+      html += row('Espaçamento Efetivo de Projeto ($s$)', `<span class="text-brand-gold font-bold">${fmt(s_final, 0)} mm</span>`);
+      html += `</div>`;
+
+      html += `</div>`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3 mt-6">`;
+      html += blockTitle('Resultados de Serviço e Durabilidade (ELS)');
+      html += row('Limite de Abertura de Fissura ($w_{lim}$)', `${fmt(w_lim, 1)} mm`);
+      html += row('Abertura de Fissura Estimada ($w_k$)', `${fmt(w_k_estimado, 3)} mm`, w_k_estimado <= w_lim ? '<span class="text-brand-green">✓ CONFORME</span>' : '<span class="text-brand-red">✗ AJUSTAR ARMADURA</span>');
+      html += row('Flecha Limite Prática ($l/250$)', `${fmt(flecha_limite, 1)} mm`);
+      html += row('Deformação Imediata Estimada ($a_i$)', `${fmt(flecha_bruta, 1)} mm`, flecha_bruta <= flecha_limite ? '<span class="text-brand-green">✓ CONFORME</span>' : '<span class="text-brand-yellow">⚠ REQUER CONTRAFLECHA</span>');
+      html += `</div>`;
+
+      const success = cnom_ok && flexOk && armaduraOk && vrd2Ok && (w_k_estimado <= w_lim);
+      const verdictClass = success ? 'bg-green-950/20 border-brand-green/30 text-brand-green' : 'bg-red-950/20 border-brand-coral/30 text-brand-red';
+      const verdictText = success 
+        ? '✓ SEÇÃO TOTALMENTE APROVADA: Os limites de projeto no ELU e ELS estão em perfeita conformidade com as exigências da NBR 6118.' 
+        : '⚠ RECOMENDAÇÃO TÉCNICA: Uma ou mais verificações falharam. Recomenda-se aumentar a altura útil h ou a classe de concreto fck.';
+      
+      html += `
+        <div class="border rounded p-4 font-mono text-[11px] leading-relaxed mt-6 ${verdictClass}">
+          ${verdictText}
+        </div>
+      `;
+
+      // Atualizar área de target
+      const resultsDiv = document.getElementById('results-target-area');
+      resultsDiv.innerHTML = html;
+      document.getElementById('calculator-results').classList.remove('hidden');
+
+      // Adição da seção de armadura de pele ao memorial técnico descritivo
+      let peleMemorialText = "";
+      if (reqPele) {
+        peleMemorialText = `
+6. ARMADURA DE PELE (ABNT NBR 6118 - Seção 17.3.5.2.4)
+- Requisito: OBRIGATÓRIO (Vigas com h > 60 cm, h_adotado = ${h} cm)
+- Área geométrica da seção de concreto (Ac) = ${A_c.toFixed(0)} mm²
+- Área de aço mínima por face lateral (0,05% Ac) = ${As_pele_min_face.toFixed(1)} mm²
+- Diâmetro nominal das barras adotadas (phi_pele) = ${phipele.toString().replace('.',',')} mm
+- Quantidade de barras adotadas por face = ${n_face} Ø ${phipele.toString().replace('.',',')} mm
+- Espaçamento de projeto s_pele = ${s_real.toFixed(0)} mm (Máximo normativo: 200 mm)
+- Área de pele efetiva final (ambas as faces) = ${(As_pele_ef/100).toFixed(2)} cm²
+`;
+      } else {
+        peleMemorialText = `
+6. ARMADURA DE PELE (ABNT NBR 6118 - Seção 17.3.5.2.4)
+- Requisito: Dispensável (Vigas com h <= 60 cm, h_adotado = ${h} cm)
+`;
+      }
+
+      // Geração de Memorial de Cálculo em Texto Corrido
+      currentMemorialText = `MEMORIAL DE CÁLCULO ESTRUTURAL — ABNT NBR 6118:2014
+Elemento: Viga de Seção Retangular Biapoiada
+Geometria: b = ${b} cm, h = ${h} cm, Vão l = ${l} m
+Materiais: Concreto fck = ${fck} MPa, Aço CA-50
+Agressividade: CAA ${caa} | Cobrimento nominal: ${cnom} mm
+------------------------------------------------------------
+1. PROPRIEDADES MECÂNICAS DOS MATERIAIS
+- fcd = fck / 1.4 = ${fcd.toFixed(2)} MPa
+- fctm = 0.3 * (fck)^(2/3) = ${fctm.toFixed(2)} MPa
+- fctd = ${fctd.toFixed(2)} MPa
+- Ecs = ${Ecs.toFixed(2)} MPa
+
+2. COMBINAÇÃO DE AÇÕES NO ELU
+- Carga Permanente (gpp + grev) = ${gk.toFixed(3)} kN/m
+- Carga Variável (qk) = ${qk_knm.toFixed(3)} kN/m
+- Fator de Segurança gama = 1.40
+- Carga de Cálculo Total pd = ${Fd.toFixed(3)} kN/m
+- Momento de Cálculo MSd = ${MSd_Nm.toFixed(2)} kN.m
+- Esforço Cortante VSd = ${VSd_kN.toFixed(2)} kN
+
+3. DIMENSIONAMENTO À FLEXÃO SIMPLES
+- Altura Útil d = ${(d/10).toFixed(2)} cm
+- Profundidade Linha Neutra x = ${(x_mm/10).toFixed(2)} cm
+- Razão x/d = ${xd.toFixed(3)} (Limite Normativo <= 0.45)
+- Área de Aço Requerida As_calc = ${(As_need/100).toFixed(2)} cm²
+- Área de Aço Mínima As_min = ${(As_min/100).toFixed(2)} cm²
+- Armadura Adotada: ${nAdopted} barras de ${phi_to_use} mm
+- Área de Aço Efetiva As_ef = ${(AsEf/100).toFixed(2)} cm²
+
+4. DIMENSIONAMENTO AO CORTANTE
+- Resistência da Biela de Concreto VRd2 = ${VRd2.toFixed(2)} kN
+- Contribuição do Concreto Vc = ${Vc0.toFixed(2)} kN
+- Esforço de Estribos Vsw = ${Math.max(0, VSd_kN - Vc0).toFixed(2)} kN
+- Bitola do Estribo: ${phiw} mm
+- Espaçamento de Projeto Adotado s = ${s_final.toFixed(0)} mm (Máx: ${s_max.toFixed(0)} mm)
+
+5. ESTADOS-LIMITES DE SERVIÇO (ELS)
+- Abertura de fissuras wk = ${w_k_estimado.toFixed(3)} mm (Permitido: ${w_lim} mm)
+- Flecha Imediata Bruta = ${flecha_bruta.toFixed(1)} mm (Limite: ${flecha_limite.toFixed(1)} mm)
+${peleMemorialText}------------------------------------------------------------
+VEREDITO DA CONFORMIDADE: ${success ? 'APROVADO' : 'REPROVADO POR INSUFICIÊNCIA'}`;
+
+      document.getElementById('memorial-textarea').value = currentMemorialText;
+
+      // Scroll macio para os resultados
+      document.getElementById('calculator-results').scrollIntoView({ behavior:'smooth', block:'nearest' });
+      
+      // Renderizar fórmulas novamente
+      renderMathInElement(resultsDiv, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});
+    }
+
+    // 🏛 MOTOR DE CALCULO - PILAR (COMPRESSÃO CENTRADA EQUIVALENTE)
+    function calcPilar() {
+      const b   = parseFloat(document.getElementById('p_b').value); 
+      const h   = parseFloat(document.getElementById('p_h').value); 
+      const phi  = parseFloat(document.getElementById('p_phi').value); 
+      const fck  = parseFloat(document.getElementById('p_fck').value); 
+      const fyk  = 500; 
+      const caa  = parseInt(document.getElementById('p_caa').value);
+      const cnom = parseFloat(document.getElementById('p_cnom').value);
+
+      let Nsd    = parseFloat(document.getElementById('p_nsd').value);
+
+      let Nsd_kn = Nsd;
+      if(unitState.p === 'tf') { 
+        Nsd_kn = Nsd * TF_TO_KN; 
+      }
+
+      const mat = getMaterials(fck, fyk);
+      const { fcd, fyd, alphaC, Ecs } = mat;
+
+      const Ac = b * 10 * h * 10; 
+      const bmin = Math.min(b, h);
+
+      // Coeficiente corretor de esbeltez da NBR 6118 (Seção 13)
+      let gn = 1.0;
+      if(bmin < 19) gn = 1.95 - 0.05 * bmin;
+
+      const Nsd_ef_kN = Nsd_kn * gn; 
+      const Nsd_ef_n = Nsd_ef_kN * 1000;
+
+      // Taxas Limites de Armadura do Pilar (0.4% até 8%)
+      const As_min = Math.max(0.15 * Nsd_ef_n / fyd, 0.004 * Ac);
+      const As_max = 0.08 * Ac; 
+
+      const p_n_input = document.getElementById('p_man_n').value;
+      const p_man_phi = parseFloat(document.getElementById('p_man_phi').value);
+      
+      let nAdopted = 4;
+      let phi_to_use = phi;
+      if (p_n_input && parseInt(p_n_input) > 0) {
+        nAdopted = parseInt(p_n_input);
+        phi_to_use = p_man_phi;
+      } else {
+        const singleBarArea = Math.PI * phi_to_use * phi_to_use / 4;
+        nAdopted = Math.max(4, Math.ceil(As_min / singleBarArea));
+        if (nAdopted % 2 !== 0) nAdopted++; // Garante simetria estrutural
+      }
+
+      const AsEf = nAdopted * (Math.PI * phi_to_use * phi_to_use / 4);
+      const armaduraOk = AsEf >= As_min && AsEf <= As_max;
+
+      // Capacidade de resistência mecânica última
+      const NRd_max_kN = (alphaC * fcd * (Ac - AsEf) + AsEf * fyd) / 1000;
+      const resistanceOk = Nsd_ef_kN <= NRd_max_kN;
+
+      // Alerta de diâmetro mínimo de pilar (Seção 18.4.1.1: phi_min = 10mm)
+      const phiMinOk = phi_to_use >= 10;
+
+      let html = `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Propriedades Geométricas e Materiais');
+      html += row('Resistência Concreto ($f_{cd}$)', `${fmt(fcd, 2)} MPa`);
+      html += row('Resistência de Cálculo Aço ($f_{yd}$)', `${fmt(fyd, 1)} MPa`);
+      html += row('Módulo Elasticidade Secante ($E_{cs}$)', `${fmt(Ecs/1000, 0)} GPa`);
+      html += row('Cobrimento Nominal Mínimo', `${cnomRecom(caa, 'pilar')} mm`);
+      html += row('Cobrimento Nominal Adotado', `${cnom} mm`, cnom >= cnomRecom(caa, 'pilar') ? '<span class="text-brand-green">✓ CONFORME</span>' : '<span class="text-brand-red">✗ INSUFICIENTE</span>');
+      html += `</div>`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Módulo de Esbeltez e Solicitação');
+      html += row('Área de Concreto ($A_c$)', `${fmt(Ac/100, 1)} cm²`);
+      html += row('Menor Dimensão ($b_{min}$)', `${fmt(bmin, 1)} cm`, bmin >= 14 ? '<span class="text-brand-green font-bold">✓ OK</span>' : '<span class="text-brand-red font-bold">✗ < 14 cm</span>');
+      html += row('Majorador de Esbeltez ($\\gamma_n$)', `${fmt(gn, 2)}`);
+      html += row('Normal Solicitante Corrigida ($N_{Sd,ef}$)', fmtForce(Nsd_ef_kN));
+      html += `</div>`;
+
+      html += `</div>`;
+
+      html += `<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Taxas Limites de Aço');
+      html += row('Armadura Mínima ($A_{s,min}$)', `${fmt(As_min/100, 2)} cm²`);
+      html += row('Armadura Máxima ($A_{s,max}$)', `${fmt(As_max/100, 2)} cm²`);
+      html += row('Quantidade de Barras Adotadas', `${nAdopted} Ø ${phi_to_use.toString().replace('.',',')} mm`, phiMinOk ? '' : '<span class="text-brand-yellow font-bold" title="A NBR 6118 exige diâmetro mínimo longitudinal de 10mm para pilares">⚠ &lt; 10 mm</span>');
+      html += row('Área de Aço Efetiva ($A_{s,ef}$)', `${fmt(AsEf/100, 2)} cm²`, armaduraOk ? '<span class="text-brand-green font-bold">✓ OK</span>' : '<span class="text-brand-red font-bold">✗ TAXA INVÁLIDA</span>');
+      html += `</div>`;
+
+      html += `<div class="bg-brand-card/60 border border-brand-border rounded-xl p-5 space-y-3">`;
+      html += blockTitle('Esforço de Ruptura de Projeto');
+      html += row('Capacidade de Cálculo ($N_{Rd,max}$)', fmtForce(NRd_max_kN));
+      html += row('Aproveitamento Estrutural', `${fmt((Nsd_ef_kN / NRd_max_kN) * 100, 1)} %`, resistanceOk ? '<span class="text-brand-green">✓ SEGURO</span>' : '<span class="text-brand-red">✗ COLAPSO POR COMPRESSÃO</span>');
+      html += `</div>`;
+
+      html += `</div>`;
+
+      const success = bmin >= 14 && armaduraOk && resistanceOk && (cnom >= cnomRecom(caa, 'pilar')) && phiMinOk;
+      
+      let verdictClass = 'bg-green-950/20 border-brand-green/30 text-brand-green';
+      let verdictText = '✓ PRÉ-DIMENSIONAMENTO APROVADO: Os parâmetros calculados para compressão estão em conformidade com as exigências de dutilidade da NBR 6118.';
+      
+      if (!success) {
+        if (!phiMinOk) {
+          verdictClass = 'bg-yellow-950/20 border-brand-yellow/30 text-brand-yellow';
+          verdictText = '⚠ ATENÇÃO (RECOMENDAÇÃO NORMATIVA): O cálculo foi executado com sucesso, porém a NBR 6118 (Seção 18.4.1.1) exige diâmetro mínimo $\\phi \\ge 10\\text{ mm}$ para barras longitudinais de pilares. O uso de ' + phi_to_use.toString().replace('.',',') + ' mm infringe esta diretriz.';
+        } else {
+          verdictClass = 'bg-red-950/20 border-brand-coral/30 text-brand-red';
+          verdictText = '✗ REPROVADO: Algum requisito construtivo geométrico ou taxa de aço foi violada. Redefina as propriedades da seção transversal do pilar.';
+        }
+      }
+
+      html += `
+        <div class="border rounded p-4 font-mono text-[11px] leading-relaxed mt-6 ${verdictClass}">
+          ${verdictText}
+        </div>
+      `;
+
+      const resultsDiv = document.getElementById('results-target-area');
+      resultsDiv.innerHTML = html;
+      document.getElementById('calculator-results').classList.remove('hidden');
+
+      // Memorial de Cálculo do Pilar
+      currentMemorialText = `MEMORIAL DE CÁLCULO ESTRUTURAL — ABNT NBR 6118:2014
+Elemento: Pilar Isolado sob Compressão Centrada
+Geometria: b = ${b} cm, h = ${h} cm
+Materiais: Concreto fck = ${fck} MPa, Aço CA-50
+Agressividade: CAA ${caa} | Cobrimento nominal: ${cnom} mm
+------------------------------------------------------------
+1. PROPRIEDADES MECÂNICAS DOS MATERIAIS
+- fcd = fck / 1.4 = ${fcd.toFixed(2)} MPa
+- fyd = 500 / 1.15 = ${fyd.toFixed(2)} MPa
+- Ac (Área Bruta de Concreto) = ${Ac.toFixed(0)} mm²
+
+2. ESBELTEZ E CORREÇÃO GEOMÉTRICA (Seção 13.2)
+- Menor dimensão b_min = ${bmin} cm
+- Majorador gama_n aplicado = ${gn.toFixed(3)}
+- Força Normal de Projeto NSd = ${Nsd_kn.toFixed(2)} kN
+- Esforço Efetivo Corrigido NSd,ef = ${Nsd_ef_kN.toFixed(2)} kN
+
+3. DIMENSIONAMENTO DA ARMADURA LONGITUDINAL
+- Área de Aço Mínima As_min = ${(As_min/100).toFixed(2)} cm²
+- Área de Aço Máxima As_max = ${(As_max/100).toFixed(2)} cm²
+- Bitola adotada: ${phi_to_use} mm (Layout Simétrico)
+${!phiMinOk ? '  [AVISO NORMATIVO]: Bitola menor que o mínimo de 10 mm exigido pela NBR 6118 (Seção 18.4.1.1).\n' : ''}- Área de Aço Efetiva Fornecida As_ef = ${(AsEf/100).toFixed(2)} cm²
+
+4. VERIFICAÇÃO DA CAPACIDADE DE CARGA ÚLTIMA
+- Normal Resistente de Projeto NRd_max = ${NRd_max_kN.toFixed(2)} kN
+- Aproveitamento estrutural = ${((Nsd_ef_kN / NRd_max_kN) * 100).toFixed(1)}%
+------------------------------------------------------------
+VEREDITO DA CONFORMIDADE: ${success ? 'APROVADO' : (!phiMinOk ? 'APROVADO COM RECOMENDAÇÃO DE BITOLA MÍNIMA' : 'REPROVADO POR INSUFICIÊNCIA')}`;
+
+      document.getElementById('memorial-textarea').value = currentMemorialText;
+
+      document.getElementById('calculator-results').scrollIntoView({ behavior:'smooth', block:'nearest' });
+      
+      renderMathInElement(resultsDiv, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});
+    }
+  </script>
+</body>
+</html>
