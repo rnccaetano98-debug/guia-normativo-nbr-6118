@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Normativo — ABNT NBR 6118:2014</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #162032;
+    --navy-light: #1e3048;
+    --gold: #c9a84c;
+    --gold-light: #e8c77a;
+    --rust: #c05c2e;
+    --teal: #2a7f8c;
+    --teal-light: #3db0c0;
+    --cream: #f5f0e8;
+    --text: #2a1f12;
+    --text-light: #5a4a37;
+    --rule: rgba(201,168,76,0.35);
+    --sidebar-w: 270px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--text);
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:16px;
+    line-height:1.75;
+  }
+
+  /* ── SIDEBAR ── */
+  #sidebar{
+    position:fixed;top:0;left:0;bottom:0;
+    width:var(--sidebar-w);
+    background:var(--navy);
+    overflow-y:auto;
+    z-index:100;
+    padding:0 0 2rem 0;
+    border-right:2px solid var(--gold);
+  }
+  #sidebar-logo{
+    background:linear-gradient(135deg,var(--navy-light),var(--navy));
+    border-bottom:2px solid var(--gold);
+    padding:1.4rem 1.2rem;
+    position:sticky;top:0;z-index:1;
+  }
+  #sidebar-logo .norma{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.65rem;
+    color:var(--gold);
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    margin-bottom:0.3rem;
+  }
+  #sidebar-logo .titulo{
+    font-family:'Playfair Display',serif;
+    font-size:1.15rem;
+    font-weight:900;
+    color:#fff;
+    line-height:1.2;
+  }
+  #sidebar-logo .sub{
+    font-size:0.72rem;
+    color:rgba(255,255,255,0.5);
+    margin-top:0.3rem;
+    font-style:italic;
+  }
+  nav a{
+    display:block;
+    padding:0.5rem 1.2rem;
+    color:rgba(255,255,255,0.65);
+    text-decoration:none;
+    font-size:0.8rem;
+    line-height:1.3;
+    border-left:3px solid transparent;
+    transition:all 0.2s;
+  }
+  nav a:hover{color:#fff;border-left-color:var(--gold);background:rgba(201,168,76,0.08)}
+  nav .nav-section{
+    color:var(--gold);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.62rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    padding:1rem 1.2rem 0.3rem;
+    pointer-events:none;
+    border-left:none;
+  }
+  nav .nav-sub{padding-left:2rem;font-size:0.75rem;}
+
+  /* ── MAIN CONTENT ── */
+  main{
+    margin-left:var(--sidebar-w);
+    padding:3rem 4rem 5rem 4rem;
+    max-width:calc(var(--sidebar-w) + 860px);
+  }
+
+  /* ── HERO HEADER ── */
+  .hero{
+    background:var(--navy);
+    margin:-3rem -4rem 3rem;
+    padding:4rem 4rem 3rem;
+    border-bottom:4px solid var(--gold);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;top:0;right:0;bottom:0;left:0;
+    background:repeating-linear-gradient(
+      -45deg,
+      transparent,transparent 20px,
+      rgba(201,168,76,0.03) 20px,rgba(201,168,76,0.03) 21px
+    );
+  }
+  .hero-badge{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:0.8rem;
+  }
+  .hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:2.8rem;
+    font-weight:900;
+    color:#fff;
+    line-height:1.1;
+    margin-bottom:0.8rem;
+  }
+  .hero h1 span{color:var(--gold)}
+  .hero p{
+    color:rgba(255,255,255,0.65);
+    font-size:1rem;
+    max-width:580px;
+    font-style:italic;
+  }
+  .hero-meta{
+    display:flex;gap:2rem;margin-top:1.8rem;
+    flex-wrap:wrap;
+  }
+  .hero-meta-item{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    color:rgba(255,255,255,0.5);
+  }
+  .hero-meta-item strong{color:var(--gold-light);display:block;font-size:0.78rem;}
+
+  /* ── SECTION HEADERS ── */
+  h2.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:2rem;
+    font-weight:900;
+    color:var(--navy);
+    margin:3.5rem 0 0.5rem;
+    padding-bottom:0.6rem;
+    border-bottom:3px solid var(--gold);
+    display:flex;align-items:center;gap:0.6rem;
+  }
+  h2.section-title .num{
+    background:var(--navy);
+    color:var(--gold);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    padding:0.2rem 0.5rem;
+    border-radius:3px;
+  }
+  h3{
+    font-family:'Playfair Display',serif;
+    font-size:1.3rem;
+    color:var(--navy);
+    margin:2rem 0 0.6rem;
+    border-left:4px solid var(--teal);
+    padding-left:0.8rem;
+  }
+  h4{
+    font-family:'Source Serif 4',serif;
+    font-size:1rem;
+    font-weight:600;
+    color:var(--rust);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin:1.6rem 0 0.4rem;
+  }
+  p{margin-bottom:1rem;}
+
+  /* ── CALLOUT BOXES ── */
+  .callout{
+    border-radius:4px;
+    padding:1rem 1.2rem;
+    margin:1.4rem 0;
+    border-left:5px solid;
+  }
+  .callout-info{background:#e8f4f7;border-color:var(--teal);}
+  .callout-warn{background:#fdf4e7;border-color:var(--gold);}
+  .callout-danger{background:#fceee8;border-color:var(--rust);}
+  .callout-norm{background:var(--navy);color:#fff;border-color:var(--gold-light);}
+  .callout-norm strong{color:var(--gold-light);}
+  .callout strong{font-weight:700;}
+  .callout .label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:0.4rem;
+    display:block;
+    opacity:0.7;
+  }
+
+  /* ── TABLES ── */
+  .table-wrap{overflow-x:auto;margin:1.5rem 0;}
+  table{
+    width:100%;border-collapse:collapse;
+    font-size:0.88rem;
+    box-shadow:0 2px 12px rgba(0,0,0,0.1);
+  }
+  .table-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    color:var(--text-light);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:0.4rem;
+  }
+  table caption{
+    font-weight:700;
+    text-align:left;
+    padding:0.5rem 0;
+    color:var(--navy);
+    font-size:0.9rem;
+  }
+  thead th{
+    background:var(--navy);
+    color:var(--gold-light);
+    padding:0.7rem 0.9rem;
+    text-align:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  tbody td{
+    padding:0.55rem 0.9rem;
+    border:1px solid #d8cfc0;
+    text-align:center;
+    vertical-align:middle;
+  }
+  tbody tr:nth-child(even){background:#ede9e0;}
+  tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);}
+  tfoot td{background:#f0ece3;font-weight:600;font-style:italic;font-size:0.82rem;border:1px solid #d8cfc0;padding:0.5rem 0.9rem;}
+
+  /* ── EQUATIONS ── */
+  .eq-box{
+    background:var(--navy-light);
+    border:1px solid var(--gold);
+    border-radius:4px;
+    padding:1.2rem 1.5rem;
+    margin:1.4rem 0;
+    text-align:center;
+  }
+  .eq-box .eq-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    color:var(--gold);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:0.7rem;
+    text-align:left;
+  }
+  .eq-box .katex{color:#fff;font-size:1.15rem;}
+  .eq-note{font-size:0.82rem;color:rgba(255,255,255,0.65);margin-top:0.8rem;text-align:left;line-height:1.6;}
+  .eq-note code{font-family:'JetBrains Mono',monospace;color:var(--gold-light);font-size:0.8rem;}
+
+  /* ── DOMAINS DIAGRAM ── */
+  .domains-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:0.8rem;
+    margin:1.2rem 0;
+  }
+  .domain-card{
+    background:var(--navy);
+    border-radius:4px;
+    padding:0.8rem;
+    border-top:3px solid;
+    text-align:center;
+    color:#fff;
+  }
+  .domain-card .d-num{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;}
+  .domain-card .d-name{font-size:0.72rem;opacity:0.7;margin-top:0.2rem;}
+  .domain-card .d-desc{font-size:0.75rem;margin-top:0.5rem;opacity:0.85;line-height:1.4;}
+  .d1{border-color:#4fc3f7} .d2{border-color:#81c784} .d3{border-color:var(--gold)} .d4{border-color:var(--rust)} .d4a{border-color:#ce93d8} .d5{border-color:#ef9a9a}
+
+  /* ── STEPS ── */
+  .steps{counter-reset:step;margin:1.2rem 0;}
+  .step{
+    display:grid;grid-template-columns:3rem 1fr;
+    gap:0.8rem;margin-bottom:1.2rem;align-items:start;
+  }
+  .step-num{
+    background:var(--navy);color:var(--gold);
+    font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:700;
+    width:2.5rem;height:2.5rem;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;border:2px solid var(--gold);
+  }
+  .step-body h5{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem;}
+  .step-body p{margin:0;font-size:0.88rem;}
+
+  /* ── CHECKLIST ── */
+  .checklist{list-style:none;margin:0.8rem 0;}
+  .checklist li{
+    padding:0.4rem 0 0.4rem 1.8rem;
+    position:relative;border-bottom:1px solid #e0d8cd;
+    font-size:0.9rem;
+  }
+  .checklist li::before{
+    content:'☐';
+    position:absolute;left:0;
+    color:var(--teal);font-size:1rem;
+  }
+  .checklist li strong{color:var(--navy);}
+
+  /* ── EXAMPLE BOX ── */
+  .example-container{
+    border:2px solid var(--navy);
+    border-radius:6px;
+    overflow:hidden;
+    margin:2rem 0;
+  }
+  .example-header{
+    background:var(--navy);
+    padding:1rem 1.5rem;
+    display:flex;align-items:center;gap:0.8rem;
+  }
+  .example-header .ex-badge{
+    background:var(--gold);
+    color:var(--navy);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.65rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:0.2rem 0.6rem;
+    border-radius:2px;
+    font-weight:700;
+  }
+  .example-header h3{
+    color:#fff;font-size:1.1rem;margin:0;border:none;padding:0;
+  }
+  .example-body{padding:1.5rem;}
+  .ex-section{
+    background:#f7f3ed;
+    border-radius:4px;
+    padding:1rem 1.2rem;
+    margin:1rem 0;
+    border-left:4px solid var(--teal);
+  }
+  .ex-section h5{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:0.6rem;
+  }
+  .ex-result{
+    background:var(--navy);
+    color:var(--gold-light);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    padding:0.6rem 1rem;
+    border-radius:3px;
+    margin:0.5rem 0;
+    display:inline-block;
+  }
+  .ok-badge{
+    background:#2e7d32;color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.5rem;
+  }
+  .fail-badge{
+    background:var(--rust);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.5rem;
+  }
+  code{
+    font-family:'JetBrains Mono',monospace;
+    background:#e8e2d8;
+    padding:0.1em 0.4em;
+    border-radius:3px;
+    font-size:0.85em;
+    color:var(--navy);
+  }
+  ul,ol{margin:0.5rem 0 1rem 1.5rem;}
+  ul li,ol li{margin-bottom:0.3rem;}
+  .divider{
+    height:1px;
+    background:linear-gradient(to right,var(--gold),transparent);
+    margin:3rem 0;
+  }
+  @media(max-width:900px){
+    #sidebar{display:none}
+    main{margin-left:0;padding:2rem 1.5rem 4rem}
+    .hero{margin:-2rem -1.5rem 2rem;padding:2.5rem 1.5rem 2rem}
+    .hero h1{font-size:2rem}
+  }
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div id="sidebar-logo">
+    <div class="norma">ABNT NBR 6118 : 2014</div>
+    <div class="titulo">Guia de Projeto em Concreto Armado</div>
+    <div class="sub">Roteiros, limites e aplicações práticas</div>
+  </div>
+  <nav>
+    <span class="nav-section">Introdução</span>
+    <a href="#filosofia">1 · Filosofia da Norma</a>
+    <span class="nav-section">Durabilidade</span>
+    <a href="#caa">2.1 · Classes de Agressividade (CAA)</a>
+    <a href="#cobrimento">2.2 · Cobrimento Nominal</a>
+    <a href="#qualidade-concreto">2.3 · Qualidade do Concreto</a>
+    <span class="nav-section">Materiais</span>
+    <a href="#concreto-prop">3.1 · Propriedades do Concreto</a>
+    <a href="#aco-prop">3.2 · Propriedades do Aço</a>
+    <a href="#diagrama-td">3.3 · Diagramas Tensão-Deformação</a>
+    <span class="nav-section">Segurança</span>
+    <a href="#estados-limites">4.1 · Estados-Limites (ELU / ELS)</a>
+    <a href="#coef-ponderacao">4.2 · Coeficientes γf, γc, γs</a>
+    <a href="#combinacoes">4.3 · Combinações de Ações</a>
+    <span class="nav-section">Dimensionamento</span>
+    <a href="#dominios">5.1 · Domínios de Deformação</a>
+    <a href="#flexao">5.2 · Flexão Simples (Vigas)</a>
+    <a href="#forca-cortante">5.3 · Força Cortante</a>
+    <a href="#pilares">5.4 · Pilares — Flexo-Compressão</a>
+    <span class="nav-section">Detalhamento</span>
+    <a href="#armadura-minima">6.1 · Armaduras Min/Max</a>
+    <a href="#ancoragem">6.2 · Ancoragem e Emendas</a>
+    <a href="#flechas">6.3 · Flechas e Fissuração</a>
+    <span class="nav-section">Aplicação Prática</span>
+    <a href="#exemplo">7 · Exemplo Numérico (Viga)</a>
+    <a href="#checklist">8 · Checklist de Projeto</a>
+    <span class="nav-section">🧮 Calculadora Interativa</span>
+    <a href="#calculadora">9 · Calculadora Vigas &amp; Pilares</a>
+    <a href="#calc-viga" class="nav-sub">&#x2937; Viga Biapoiada</a>
+    <a href="#calc-pilar" class="nav-sub">&#x2937; Pilar Isolado</a>
+  </nav>
+</aside>
+
+<main>
+
+<header class="hero">
+  <div class="hero-badge">📐 Manual de Engenharia Estrutural</div>
+  <h1>Guia Normativo <span>NBR 6118:2014</span><br>Projeto de Estruturas de Concreto</h1>
+  <p>Roteiros de cálculo, limites normativos, coeficientes de ponderação e aplicações práticas para projetistas estruturais.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>NORMA</strong>ABNT NBR 6118:2014</div>
+    <div class="hero-meta-item"><strong>VIGÊNCIA</strong>Ver. 07.08.2014</div>
+    <div class="hero-meta-item"><strong>ESCOPO</strong>Concreto Armado e Protendido</div>
+    <div class="hero-meta-item"><strong>SEÇÕES</strong>25 seções normativas + 2 anexos</div>
+  </div>
+</header>
+
+
+<section id="filosofia">
+<h2 class="section-title"><span class="num">01</span> Introdução e Filosofia da Norma</h2>
+
+<p>A ABNT NBR 6118:2014 está fundamentada na <strong>Teoria dos Estados-Limites</strong>, que representa um avanço conceitual em relação à abordagem de tensões admissíveis. Em lugar de garantir que tensões calculadas não ultrapassem um limite fixo, a norma quantifica probabilisticamente a margem de segurança contra dois tipos de falha: a <strong>ruptura física</strong> (Estados-Limites Últimos — ELU) e a <strong>perda de funcionalidade</strong> (Estados-Limites de Serviço — ELS). Essa distinção é essencial: uma estrutura pode estar longe do colapso e ainda assim ser inaceitável por apresentar flechas excessivas, fissuras largas ou vibrações desconfortáveis.</p>
+
+<p>A norma prescreve que toda estrutura de concreto deve satisfazer três requisitos simultâneos de qualidade, definidos na <strong>Seção 5</strong>:</p>
+<ul>
+  <li><strong>Capacidade resistente:</strong> segurança à ruptura sob as ações de cálculo (domínio do ELU).</li>
+  <li><strong>Desempenho em serviço:</strong> comportamento adequado em uso normal, sem danos que comprometam a funcionalidade (domínio do ELS).</li>
+  <li><strong>Durabilidade:</strong> capacidade de resistir às influências ambientais previstas durante toda a vida útil de projeto, tipicamente <strong>50 anos</strong> para estruturas comuns.</li>
+</ul>
+
+<h3>Por que as exigências existem — Patologias Prevenidas</h3>
+
+<div class="callout callout-danger">
+  <span class="label">⚠ Patologias Estruturais</span>
+  A maioria das patologias em concreto armado decorre do descumprimento de exigências que a norma prescreve explicitamente. Compreender a causa evita o erro de projeto.
+</div>
+
+<table>
+  <thead><tr><th>Exigência Normativa</th><th>Patologia que Previne</th><th>Seção NBR 6118</th></tr></thead>
+  <tbody>
+    <tr><td>Cobrimento mínimo da armadura</td><td>Corrosão das barras por carbonatação e cloretos, desplacamento do cobrimento</td><td>Seção 7</td></tr>
+    <tr><td>Relação água/cimento máxima</td><td>Concreto poroso, lixiviação, expansão por sulfato, reação álcali-agregado</td><td>Seção 7, Tab. 7.1</td></tr>
+    <tr><td>Limite de abertura de fissuras $w_k$</td><td>Corrosão acelerada em ambientes agressivos, perda de estanqueidade</td><td>Seção 13, Tab. 13.4</td></tr>
+    <tr><td>Flecha máxima $l/250$ e $l/350$</td><td>Danos em vedações (alvenaria, caixilhos), desconforto visual e sensorial</td><td>Seção 13, Tab. 13.3</td></tr>
+    <tr><td>Limite de dutilidade $x/d \leq 0,45$</td><td>Ruptura frágil sem aviso (domínio 4A/5), colapso súbito</td><td>Seção 14, 17</td></tr>
+    <tr><td>Armadura mínima de tração</td><td>Ruptura frágil na fissuração inicial, sem redistribuição de esforços</td><td>Seção 17, 18</td></tr>
+    <tr><td>Verificação de 2ª ordem (pilares)</td><td>Flambagem, instabilidade global de estruturas esbeltas</td><td>Seção 15</td></tr>
+  </tbody>
+</table>
+
+</section>
+<div class="divider"></div>
+
+
+<section id="caa">
+<h2 class="section-title"><span class="num">02</span> Durabilidade — Critérios de Projeto</h2>
+
+<h3>2.1 Classes de Agressividade Ambiental (CAA)</h3>
+
+<p>A classificação do ambiente em que a estrutura será inserida é o primeiro passo do projeto de durabilidade. A NBR 6118 define quatro classes (Tabela 6.1), que determinam todos os requisitos subsequentes: qualidade mínima do concreto, relação a/c máxima e cobrimento nominal.</p>
+
+<div class="table-wrap">
+  <div class="table-title">Tabela 6.1 da NBR 6118:2014 — Classes de Agressividade Ambiental</div>
+  <table>
+    <thead>
+      <tr><th>CAA</th><th>Agressividade</th><th>Tipo de Ambiente Típico</th><th>Risco de Deterioração</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>I</strong></td><td>Fraca</td><td>Rural / Submersa</td><td>Insignificante</td></tr>
+      <tr><td><strong>II</strong></td><td>Moderada</td><td>Urbana / Marinha (interior)</td><td>Pequeno</td></tr>
+      <tr><td><strong>III</strong></td><td>Forte</td><td>Marinha / Industrial / Respingos de maré</td><td>Grande</td></tr>
+      <tr><td><strong>IV</strong></td><td>Muito Forte</td><td>Industrial química agressiva / Galvanoplastia</td><td>Elevado</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="4">Nota: Ambientes internos secos (salas, dormitórios) permitem redução de uma classe (CAA mais branda). Regiões com umidade relativa ≤ 65% também permitem redução.</td></tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="callout callout-warn">
+  <span class="label">⚡ Atenção do Projetista</span>
+  O responsável pelo projeto pode adotar uma classe <em>mais agressiva</em> que a tabela indica, se dados locais assim justificarem. O inverso — relaxar a classe sem fundamento — é vedado.
+</div>
+</section>
+
+
+<section id="cobrimento">
+<h3>2.2 Cobrimento Nominal das Armaduras</h3>
+
+<p>O cobrimento é a dimensão mais critical para durabilidade. A norma distingue dois conceitos fundamentais:</p>
+<ul>
+  <li><strong>Cobrimento mínimo ($c_{min}$):</strong> valor mínimo absoluto que deve ser respeitado em qualquer ponto da peça — é um critério de aceitação da obra.</li>
+  <li><strong>Cobrimento nominal ($c_{nom}$):</strong> valor que deve constar nos desenhos de projeto, igual a $c_{nom} = c_{min} + \Delta c$, onde $\Delta c$ é a tolerância de execução.</li>
+</ul>
+
+<div class="eq-box">
+  <span class="eq-label">Relação Fundamental — Seção 7.4.7.2</span>
+  $$c_{nom} = c_{min} + \Delta c$$
+  <div class="eq-note">
+    <code>Δc = 10 mm</code> para obras correntes (padrão normativo) · <code>Δc = 5 mm</code> permitido com controle rigoroso de qualidade explicitado em projeto.
+  </div>
+</div>
+
+<div class="table-wrap">
+  <div class="table-title">Tabela 7.2 da NBR 6118:2014 — Cobrimento Nominal (mm) para Δc = 10 mm</div>
+  <table>
+    <thead>
+      <tr><th rowspan="2">Tipo de Estrutura</th><th rowspan="2">Elemento</th><th colspan="4">Classe de Agressividade Ambiental</th></tr>
+      <tr><th>CAA I</th><th>CAA II</th><th>CAA III</th><th>CAA IV</th></tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="3">Concreto Armado</td><td>Laje</td><td>20</td><td>25</td><td>35</td><td>45</td></tr>
+      <tr><td>Viga / Pilar</td><td>25</td><td>30</td><td>40</td><td>50</td></tr>
+      <tr><td>Elem. em contato com solo</td><td>—</td><td>—</td><td>30</td><td>40 e 50</td></tr>
+      <tr><td rowspan="2">Concreto Protendido</td><td>Laje</td><td>25</td><td>30</td><td>40</td><td>50</td></tr>
+      <tr><td>Viga / Pilar</td><td>30</td><td>35</td><td>45</td><td>55</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="6">Para lajes com revestimento sobre a face superior, o cobrimento nominal pode ser reduzido ao mínimo de 15 mm. O trecho de pilar em contato com o solo junto à fundação exige $c_{nom} \geq 45$ mm.</td></tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="callout callout-info">
+  <span class="label">📐 Regras complementares (7.4.7.5 e 7.4.7.6)</span>
+  <ul style="margin:0;padding-left:1.2rem;">
+    <li>$c_{nom} \geq \phi_{barra}$ (cobrimento nunca menor que o diâmetro da barra coberta)</li>
+    <li>$c_{nom} \geq 0{,}5\,\phi_{bainha}$ (for armadura ativa)</li>
+    <li>Dimensão máxima do agregado: $d_{max} \leq 1{,}2\, c_{nom}$</li>
+    <li>Concretos de classe superior ao mínimo exigido permitem redução de até 5 mm no cobrimento.</li>
+  </ul>
+</div>
+</section>
+
+
+<section id="qualidade-concreto">
+<h3>2.3 Qualidade Mínima do Concreto por CAA</h3>
+
+<div class="table-wrap">
+  <div class="table-title">Tabela 7.1 da NBR 6118:2014 — Concreto × Classe de Agressividade</div>
+  <table>
+    <thead>
+      <tr><th>Parâmetro</th><th>Tipo</th><th>CAA I</th><th>CAA II</th><th>CAA III</th><th>CAA IV</th></tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="2">Rel. água/cimento máx.</td><td>CA (armado)</td><td>≤ 0,65</td><td>≤ 0,60</td><td>≤ 0,55</td><td>≤ 0,45</td></tr>
+      <tr><td>CP (protendido)</td><td>≤ 0,60</td><td>≤ 0,55</td><td>≤ 0,50</td><td>≤ 0,45</td></tr>
+      <tr><td rowspan="2">Classe mínima de concreto</td><td>CA (armado)</td><td>≥ C20</td><td>≥ C25</td><td>≥ C30</td><td>≥ C40</td></tr>
+      <tr><td>CP (protendido)</td><td>≥ C25</td><td>≥ C30</td><td>≥ C35</td><td>≥ C40</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-norm">
+  <span class="label">📌 Prescrição Normativa — 8.2.1</span>
+  <strong>Classe mínima absoluta:</strong> C20 para concreto armado; C25 para concreto protendido. A classe C15 é admitida <em>somente</em> em obras provisórias ou concreto sem fins estruturais. Faixa de aplicação da norma: C20 a C90.
+</div>
+</section>
+<div class="divider"></div>
+
+
+<section id="concreto-prop">
+<h2 class="section-title"><span class="num">03</span> Propriedades dos Materiais</h2>
+
+<h3>3.1 Concreto — Resistências e Módulos</h3>
+
+<h4>Resistência à Compressão</h4>
+<p>As propriedades do concreto são referidas à idade de <strong>28 dias</strong> e ao ensaio em corpos de prova cilíndricos (ABNT NBR 5738/5739). O valor característico $f_{ck}$ é aquele com 5% de probabilidade de não ser atingido.</p>
+
+<h4>Resistência à Tração</h4>
+<div class="eq-box">
+  <span class="eq-label">Resistência à tração — 8.2.5 (valores médio e característicos)</span>
+  $$f_{ct,m} = 0{,}3 \cdot f_{ck}^{2/3} \quad \text{(para } f_{ck} \leq 50 \text{ MPa)}$$
+  $$f_{ct,m} = 2{,}12 \cdot \ln(1 + 0{,}11 \cdot f_{ck}) \quad \text{(para } 55 \leq f_{ck} \leq 90 \text{ MPa)}$$
+  $$f_{ctk,inf} = 0{,}7 \cdot f_{ct,m} \qquad f_{ctk,sup} = 1{,}3 \cdot f_{ct,m}$$
+  <div class="eq-note">Todas as resistências em <code>MPa</code>. Na maioria dos cálculos de projeto usa-se $f_{ctk,inf}$ (valor característico inferior).</div>
+</div>
+
+<h4>Módulo de Elasticidade</h4>
+<div class="eq-box">
+  <span class="eq-label">Módulo de elasticidade inicial — 8.2.8</span>
+  $$E_{ci} = \alpha_E \cdot 5600 \sqrt{f_{ck}} \quad \text{(para } f_{ck} \text{ de 20 a 50 MPa)}$$
+  $$E_{cs} = \alpha_i \cdot E_{ci} \qquad \alpha_i = 0{,}8 + \frac{f_{ck}}{80} \leq 1{,}0$$
+  <div class="eq-note">
+    Coeficiente $\alpha_E$: <code>1,2</code> basalto/diabásio · <code>1,0</code> granito/gnaisse · <code>0,9</code> calcário · <code>0,7</code> arenito.<br>
+    Em cálculos correntes usa-se o módulo secante $E_{cs}$ para o comportamento elástico da seção.
+  </div>
+</div>
+
+<div class="table-wrap">
+  <div class="table-title">Tabela 8.1 — Módulos de Elasticidade Estimados (granito como agregado, αE = 1,0)</div>
+  <table>
+    <thead><tr><th>Classe</th><th>C20</th><th>C25</th><th>C30</th><th>C35</th><th>C40</th><th>C45</th><th>C50</th><th>C60</th></tr></thead>
+    <tbody>
+      <tr><td>$E_{ci}$ (GPa)</td><td>25</td><td>28</td><td>31</td><td>33</td><td>35</td><td>38</td><td>40</td><td>42</td></tr>
+      <tr><td>$E_{cs}$ (GPa)</td><td>21</td><td>24</td><td>27</td><td>29</td><td>32</td><td>34</td><td>37</td><td>40</td></tr>
+      <tr><td>$\alpha_i$</td><td>0,85</td><td>0,86</td><td>0,88</td><td>0,89</td><td>0,90</td><td>0,91</td><td>0,93</td><td>0,95</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h4>Resistência de Cálculo do Concreto</h4>
+<div class="eq-box">
+  <span class="eq-label">Resistência de cálculo — 12.3.3</span>
+  $$f_{cd} = \frac{f_{ck}}{\gamma_c}$$
+  <div class="eq-note">$\gamma_c = 1{,}4$ para combinações normais; $\gamma_c = 1{,}2$ para especiais/excepcionais. O valor de pico do bloco de compressão no ELU é $0{,}85 f_{cd}$, com o coeficiente $\alpha_c = 0{,}85$ para $f_{ck} \leq 50$ MPa.</div>
+</div>
+</section>
+
+<section id="aco-prop">
+<h3>3.2 Aço de Armadura Passiva</h3>
+
+<table>
+  <thead><tr><th>Categoria</th><th>$f_{yk}$ (MPa)</th><th>$f_{stk}$ (MPa)</th><th>Superfície</th><th>$E_s$ (GPa)</th></tr></thead>
+  <tbody>
+    <tr><td>CA-25</td><td>250</td><td>≥ 290</td><td>Lisa</td><td>210</td></tr>
+    <tr><td>CA-50</td><td>500</td><td>≥ 540</td><td>Alta aderência</td><td>210</td></tr>
+    <tr><td>CA-60</td><td>600</td><td>≥ 660</td><td>Alta aderência / nervurada</td><td>210</td></tr>
+  </tbody>
+</table>
+
+<div class="eq-box">
+  <span class="eq-label">Resistência de cálculo do aço — 8.3.6</span>
+  $$f_{yd} = \frac{f_{yk}}{\gamma_s} \qquad \text{onde}\quad \gamma_s = 1{,}15 \text{ (combinações normais)}$$
+  <div class="eq-note">
+    CA-50: $f_{yd} = 500/1{,}15 \approx 435$ MPa (valor de uso corrente em projetos).<br>
+    Limite: a tensão na armadura transversal (estribos) não pode superar 435 MPa para fins de cálculo de $V_{Rd3}$.
+  </div>
+</div>
+</section>
+
+<section id="diagrama-td">
+<h3>3.3 Diagrama Tensão-Deformação para o ELU</h3>
+
+<p>No cálculo do Estado-Limite Último, a distribuição de tensões no concreto comprimido segue o <strong>diagrama parábola-retângulo</strong> (Figura 8.2) ou, de forma simplificada, o <strong>bloco retangular equivalente</strong>:</p>
+
+<div class="eq-box">
+  <span class="eq-label">Bloco retangular equivalente de compressão — 17.2.2 alínea e)</span>
+  $$\text{Profundidade da zona comprimida: } y = \lambda \cdot x$$
+  $$\lambda = 0{,}8 \quad \text{para } f_{ck} \leq 50 \text{ MPa}$$
+  $$\lambda = 0{,}8 - \frac{f_{ck} - 50}{400} \quad \text{para } f_{ck} > 50 \text{ MPa}$$
+  <div class="eq-note">
+    Tensão uniforme no bloco: $\alpha_c \cdot f_{cd} = 0{,}85 \cdot f_{cd}$ (seção de largura não decrescente até a borda comprimida).
+    Deformações de ruptura: $\varepsilon_{c2} = 2{,}0 \times 10^{-3}$; $\varepsilon_{cu} = 3{,}5 \times 10^{-3}$ para $f_{ck} \leq 50$ MPa.
+  </div>
+</div>
+</section>
+<div class="divider"></div>
+
+
+<section id="estados-limites">
+<h2 class="section-title"><span class="num">04</span> Segurança e Estados-Limites</h2>
+
+<h3>4.1 Tipos de Estados-Limites</h3>
+
+<table>
+  <thead><tr><th>Tipo</th><th>Sigla</th><th>O que caracteriza</th><th>Verificação</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Estado-Limite Último de Resistência</strong></td><td>ELU</td><td>Esgotamento da capacidade portante; colapso iminente</td><td>$R_d \geq S_d$</td></tr>
+    <tr><td><strong>ELS — Deformação Excessiva</strong></td><td>ELS-DEF</td><td>Flecha excessiva; danos a não estruturais</td><td>$a \leq l/250$</td></tr>
+    <tr><td><strong>ELS — Fissuração</strong></td><td>ELS-W</td><td>Abertura de fissura supera $w_{k,lim}$</td><td>$w_k \leq w_{k,lim}$</td></tr>
+    <tr><td><strong>ELS — Formação de Fissuras</strong></td><td>ELS-F</td><td>Surgimento da primeira fissura</td><td>$\sigma_{ct} \leq f_{ctk,inf}$</td></tr>
+    <tr><td><strong>ELS — Descompressão</strong></td><td>ELS-D</td><td>Tensão de compressão anula-se (protendido)</td><td>$\sigma \geq 0$</td></tr>
+    <tr><td><strong>ELS — Vibrações Excessivas</strong></td><td>ELS-VIB</td><td>Frequências naturais próximas às de excitação</td><td>Ver Seção 23</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section id="coef-ponderacao">
+<h3>4.2 Coeficientes de Ponderação das Ações — $\gamma_f$</h3>
+
+<p>Os esforços solicitantes de cálculo $F_d$ são obtidos multiplicando-se os valores característicos pelo coeficiente $\gamma_f = \gamma_{f1} \cdot \gamma_{f2} \cdot \gamma_{f3}$. A Tabela 11.1 fornece os valores de $\gamma_{f1} \cdot \gamma_{f3}$:</p>
+
+<div class="table-wrap">
+  <div class="table-title">Tabela 11.1 — Coeficiente γf = γf1·γf3 (para o ELU)</div>
+  <table>
+    <thead>
+      <tr><th rowspan="2">Combinação</th><th colspan="2">Permanentes (g)</th><th colspan="2">Variáveis (q)</th><th colspan="2">Protensão (p)</th></tr>
+      <tr><th>Desf. (D)</th><th>Fav. (F)</th><th>D (geral)</th><th>D (temp.)</th><th>D</th><th>F</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Normais</td><td>1,4 *</td><td>1,0</td><td>1,4</td><td>1,2</td><td>1,2</td><td>0,9</td></tr>
+      <tr><td>Especiais / Construção</td><td>1,3</td><td>1,0</td><td>1,2</td><td>1,0</td><td>1,2</td><td>0,9</td></tr>
+      <tr><td>Excepcionais</td><td>1,2</td><td>1,0</td><td>1,0</td><td>—</td><td>1,2</td><td>0,9</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="7">* Para cargas permanentes de pequena variabilidade (peso próprio de estruturas pré-moldadas), pode-se reduzir para 1,3.</td></tr></tfoot>
+  </table>
+</div>
+
+<div class="table-wrap">
+  <div class="table-title">Tabela 11.2 — Fatores de redução γf2 = ψ0, ψ1, ψ2</div>
+  <table>
+    <thead><tr><th>Tipo de Ação</th><th>Uso / Descrição</th><th>ψ₀</th><th>ψ₁</th><th>ψ₂</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3">Cargas acidentais de edifícios</td><td>Residencial (salas, dormitórios)</td><td>0,5</td><td>0,4</td><td>0,3</td></tr>
+      <tr><td>Comercial/escritório/estações públicas</td><td>0,7</td><td>0,6</td><td>0,4</td></tr>
+      <tr><td>Bibliotecas, garagens, oficinas</td><td>0,8</td><td>0,7</td><td>0,6</td></tr>
+      <tr><td>Vento</td><td>Pressão dinâmica (estruturas em geral)</td><td>0,6</td><td>0,3</td><td>0,0</td></tr>
+      <tr><td>Temperatura</td><td>Variações uniformes (relação à média anual)</td><td>0,6</td><td>0,5</td><td>0,3</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h4>Coeficientes de Ponderação das Resistências (Seção 12, Tabela 12.1)</h4>
+
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Combinação</th><th>Concreto — $\gamma_c$</th><th>Aço — $\gamma_s$</th></tr></thead>
+    <tbody>
+      <tr><td>Normais (ELU)</td><td><strong>1,4</strong></td><td><strong>1,15</strong></td></tr>
+      <tr><td>Especiais ou de construção</td><td>1,2</td><td>1,15</td></tr>
+      <tr><td>Excepcionais</td><td>1,2</td><td>1,0</td></tr>
+      <tr><td>Serviço (ELS)</td><td>1,0</td><td>1,0</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">Se houver condições desfavoráveis de execução (adensamento manual, concretagem deficiente), $\gamma_c$ deve ser multiplicado por 1,1.</td></tr></tfoot>
+  </table>
+</div>
+</section>
+
+<section id="combinacoes">
+<h3>4.3 Combinações de Ações</h3>
+
+<h4>Combinação Última Normal (ELU) — Equação principal</h4>
+<div class="eq-box">
+  <span class="eq-label">Tabela 11.3 da NBR 6118:2014 — Combinação última normal</span>
+  $$F_d = \gamma_g F_{gk} + \gamma_q \left(F_{q1k} + \sum_{j \geq 2} \psi_{0j} F_{qjk}\right)$$
+  <div class="eq-note">
+    <code>Fgk</code> = ações permanentes · <code>Fq1k</code> = ação variável principal (a mais desfavorável) · <code>Fqjk</code> = ações variáveis secundárias (reduzidas por ψ₀).
+    Para ações indiretas permanentes (retração) e variáveis (temperatura), acrescentam-se termos normativos pertinentes.
+  </div>
+</div>
+
+<h4>Combinações de Serviço (ELS)</h4>
+<div class="eq-box">
+  <span class="eq-label">Tabela 11.4 — Combinações de serviço</span>
+  $$\text{Quase Permanente (CQP): } F_{d,ser} = \sum F_{gi,k} + \sum \psi_{2j} F_{qj,k}$$
+  $$\text{Frequente (CF): } F_{d,ser} = \sum F_{gi,k} + \psi_1 F_{q1,k} + \sum \psi_{2j} F_{qj,k}$$
+  $$\text{Rara (CR): } F_{d,ser} = \sum F_{gi,k} + F_{q1,k} + \sum \psi_{1j} F_{qj,k}$$
+  <div class="eq-note">
+    <strong>Uso:</strong> CQP → verificação de flechas e fluência; CF → fissuração e vibrações.
+  </div>
+</div>
+</section>
+<div class="divider"></div>
+
+
+<section id="dominios">
+<h2 class="section-title"><span class="num">05</span> Dimensionamento ao ELU</h2>
+
+<h3>5.1 Domínios de Deformação (Seção 17.2.2)</h3>
+
+<p>O Estado-Limite Último é caracterizado quando o estado de deformação na seção atinge um dos cinco domínios definidos abaixo. O domínio identifica o modo de ruptura e condiciona a disposição das armaduras.</p>
+
+<div class="domains-grid">
+  <div class="domain-card d1">
+    <div class="d-num">1</div>
+    <div class="d-name">Tração simples ou composta</div>
+    <div class="d-desc">Todo concreto tracionado. Armadura em escoamento ($\varepsilon_s = \varepsilon_{su}$). Tirantes.</div>
+  </div>
+  <div class="domain-card d2">
+    <div class="d-num">2</div>
+    <div class="d-name">Flexão com grande excentricidade</div>
+    <div class="d-desc">Seção parcialmente comprimida. Armadura traciona em $\varepsilon_{su}$; concreto ainda não atinge $\varepsilon_{cu}$.</div>
+  </div>
+  <div class="domain-card d3">
+    <div class="d-num">3</div>
+    <div class="d-name">Flexão simples / composta</div>
+    <div class="d-desc">Região ideal: concreto atinge $\varepsilon_{cu}$ e armadura escoou ($\varepsilon_s \geq \varepsilon_{yd}$). Ruptura dúctil.</div>
+  </div>
+  <div class="domain-card d4">
+    <div class="d-num">4</div>
+    <div class="d-name">Flexão composta (próx. equilíbrio)</div>
+    <div class="d-desc">Concreto atinge $\varepsilon_{cu}$; armadura abaixo do escoamento. Ainda dúctil.</div>
+  </div>
+  <div class="domain-card d4a">
+    <div class="d-num">4A</div>
+    <div class="d-name">Transição — dutilidade limitada</div>
+    <div class="d-desc">$x/d > 0{,}45$ (fck ≤ 50 MPa): PROIBIDO sem confinamento especial. Risco de ruptura frágil.</div>
+  </div>
+  <div class="domain-card d5">
+    <div class="d-num">5</div>
+    <div class="d-name">Compressão simples ou centrada</div>
+    <div class="d-desc">Todo concreto comprimido até $\varepsilon_{c2}$. Pilares com baixa excentricidade.</div>
+  </div>
+</div>
+
+<div class="callout callout-danger">
+  <span class="label">🚨 Limite de Ductilidade — 14.6.4.3 e 17.2.3</span>
+  Para garantir comportamento dúctil (aviso antes do colapso), a norma impõe:
+  $$x/d \leq 0{,}45 \quad \text{para } f_{ck} \leq 50 \text{ MPa}$$
+  $$x/d \leq 0{,}35 \quad \text{para } 50 < f_{ck} \leq 90 \text{ MPa}$$
+  Violar esses limites coloca a estrutura nos domínios 4A/5, onde a ruptura ocorre sem aviso e redistribuição de momentos é impossível.
+</div>
+</section>
+
+
+<section id="flexao">
+<h3>5.2 Dimensionamento à Flexão Simples (Vigas) — Domínio 3</h3>
+
+<p>Para uma seção retangular de largura $b$ e altura útil $d$, aplicando o bloco retangular equivalente ($\lambda = 0{,}8$; $\alpha_c = 0{,}85$):</p>
+
+<div class="eq-box">
+  <span class="eq-label">Equilíbrio de forças internas na seção — Flexão simples, Domínio 3</span>
+  $$F_c = \alpha_c \cdot f_{cd} \cdot b \cdot y \qquad \text{(resultante de compressão)}$$
+  $$F_s = A_s \cdot f_{yd} \qquad \text{(força de tração)}$$
+  $$F_c = F_s \implies y = \frac{A_s \cdot f_{yd}}{\alpha_c \cdot f_{cd} \cdot b}$$
+  $$M_{Rd} = F_s \cdot \left(d - \frac{y}{2}\right) \geq M_{Sd}$$
+  <div class="eq-note">
+    Processo inverso (dimensionamento): dado $M_{Sd}$, calcular a armadura necessária $A_s$.<br>
+    Adimensionais: $\mu = \frac{M_{Sd}}{b \cdot d^2 \cdot f_{cd}}$ · $\xi = x/d$ · $A_s = \frac{M_{Sd}}{f_{yd}(d - y/2)}$
+  </div>
+</div>
+
+<h4>Taxa de Armadura Mecânica Mínima para Vigas</h4>
+<div class="eq-box">
+  <span class="eq-label">Armadura mínima de flexão — 17.3.5 e 18.3.2</span>
+  $$A_{s,min} = \rho_{min} \cdot A_c = \rho_{min} \cdot b_w \cdot h$$
+  $$\rho_{min} \text{ é função de } f_{ck}: \text{ tipicamente } 0{,}15\% \text{ para fck} \leq 30 \text{MPa}$$
+  <div class="eq-note">Para CA-50 a taxa mínima de 0,15% deve incidir sobre a área transversal bruta (bw · h).</div>
+</div>
+</section>
+
+
+<section id="forca-cortante">
+<h3>5.3 Força Cortante — Modelos de Cálculo I e II</h3>
+
+<p>A verificação à força cortante exige satisfazer simultaneamente duas condições (17.4.2.1): resistência das diagonais de compressão ($V_{Sd} \leq V_{Rd2}$) e resistência à tração diagonal ($V_{Sd} \leq V_{Rd3}$).</p>
+
+<h4>Modelo I — Treliça com θ = 45°</h4>
+<div class="eq-box">
+  <span class="eq-label">Modelo I — 17.4.2.2</span>
+  $$V_{Rd2} = 0{,}27 \cdot \alpha_{v2} \cdot f_{cd} \cdot b_w \cdot d \qquad (\alpha_{v2} = 1 - f_{ck}/250)$$
+  $$V_{Rd3} = V_c + V_{sw}$$
+  $$V_{sw} = \frac{A_{sw}}{s} \cdot 0{,}9d \cdot f_{ywd}(\sin\alpha + \cos\alpha)$$
+  $$V_{c0} = 0{,}6 \cdot f_{ctd} \cdot b_w \cdot d \qquad (f_{ctd} = f_{ctk,inf}/\gamma_c)$$
+  <div class="eq-note">
+    <code>bw</code> = largura mínima da alma · <code>d</code> = altura útil · <code>s</code> = espaçamento dos estribos · <code>α</code> = ângulo dos estribos (90° para estribos verticais).<br>
+    Para flexão simples: $V_c = V_{c0}$.
+  </div>
+</div>
+</section>
+
+
+<section id="pilares">
+<h3>5.4 Pilares — Flexo-Compressão e Dimensão Mínima</h3>
+
+<p>Pilares são elementos com $N_{Sd}$ predominante. A norma impõe dimensão mínima de <strong>19 cm</strong> para a menor dimensão da seção transversal. Para dimensões entre 14 e 19 cm, aplica-se o coeficiente adicional $\gamma_n$ (Tabela 13.1):</p>
+
+<div class="eq-box">
+  <span class="eq-label">Coeficiente adicional para pilares esbeltos — 13.2.3</span>
+  $$\gamma_n = 1{,}95 - 0{,}05 \cdot b \qquad (b \text{ em cm, para } 14 \leq b \leq 19 \text{ cm})$$
+  <div class="eq-note">Nunca admitir área de seção transversal inferior a 360 cm². O $\gamma_n$ majora os esforços solicitantes de cálculo finais.</div>
+</div>
+
+<h4>Momento Mínimo de 1ª Ordem (Imperfeições Geométricas)</h4>
+<div class="eq-box">
+  <span class="eq-label">Momento mínimo — 11.3.3.4.3</span>
+  $$M_{1d,min} = N_d \cdot (0{,}015 + 0{,}03 \cdot h)$$
+  <div class="eq-note"><code>h</code> = maior dimensão da seção transversal em metros (m). Este momento deve ser comparado com o momento de 1ª ordem calculado; o maior valor é usado no dimensionamento.</div>
+</div>
+</section>
+<div class="divider"></div>
+
+
+<section id="armadura-minima">
+<h2 class="section-title"><span class="num">06</span> Detalhamento — Limites Normativos</h2>
+
+<h3>6.1 Dimensões Mínimas de Elementos Estruturais (Seção 13)</h3>
+
+<table>
+  <thead><tr><th>Elemento</th><th>Parâmetro</th><th>Limite Normativo</th></tr></thead>
+  <tbody>
+    <tr><td>Viga</td><td>Largura da alma $b_w$</td><td>≥ 12 cm (mínimo absoluto: 10 cm em casos excepcionais)</td></tr>
+    <tr><td>Viga-parede</td><td>Espessura</td><td>≥ 15 cm</td></tr>
+    <tr><td>Pilar / Pilar-parede</td><td>Menor dimensão</td><td>≥ 19 cm (entre 14 e 19 cm: aplicar $\gamma_n$; mín. 360 cm²)</td></tr>
+    <tr><td>Laje maciça — cobertura</td><td>Espessura $h$</td><td>≥ 7 cm</td></tr>
+    <tr><td>Laje maciça — piso</td><td>Espessura $h$</td><td>≥ 8 cm</td></tr>
+    <tr><td>Laje maciça — balanço</td><td>Espessura $h$</td><td>≥ 10 cm (aplicar $\gamma_n$ para h &lt; 19 cm)</td></tr>
+    <tr><td>Laje lisa</td><td>Espessura</td><td>≥ 16 cm (fora do capitel)</td></tr>
+    <tr><td>Laje-cogumelo</td><td>Espessura</td><td>≥ 14 cm (fora do capitel)</td></tr>
+    <tr><td>Nervura de laje</td><td>Espessura</td><td>≥ 5 cm; armadura comprimida só se ≥ 8 cm</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section id="ancoragem">
+<h3>6.2 Ancoragem e Emendas de Barras</h3>
+
+<h4>Ancoragem por Aderência — Comprimento Básico (9.4.2)</h4>
+<div class="eq-box">
+  <span class="eq-label">Comprimento básico de ancoragem — 9.4.2.3</span>
+  $$l_b = \frac{\phi}{4} \cdot \frac{f_{yd}}{f_{bd}}$$
+  $$l_{b,nec} = l_b \cdot \frac{A_{s,calc}}{A_{s,ef}} \geq l_{b,min}$$
+  <div class="eq-note">
+    $f_{bd}$ = resistência de aderência de cálculo (depende de posição da barra e tipo de superfície).<br>
+    Posição I (boa aderência): $f_{bd} = \eta_1 \cdot \eta_2 \cdot f_{ctd}$, com $\eta_1 = 1{,}0$ (barras com diâmetro ≤ 32 mm).<br>
+    Posição II (má aderência, face superior de peças concretadas): $\eta_1 = 0{,}7$.
+  </div>
+</div>
+
+<h4>Comprimento de Traspasse (9.5.2)</h4>
+<div class="eq-box">
+  <span class="eq-label">Traspasse de barras tracionadas — 9.5.2.2.1</span>
+  $$l_{0t} = \alpha_{0t} \cdot l_{b,nec} \geq l_{0t,min}$$
+  <div class="eq-note">
+    Tabela 9.4: $\alpha_{0t} = 1{,}2$ para ≤ 20% de barras emendadas na mesma seção; $\alpha_{0t} = 2{,}0$ para > 50%.<br>
+    $l_{0t,min} = \max(0{,}3\alpha_{0t}l_b;\; 15\phi;\; 200 \text{ mm})$.
+  </div>
+</div>
+</section>
+
+<section id="flechas">
+<h3>6.3 Deslocamentos-Limites e Controle de Fissuração</h3>
+
+<h4>Flechas Máximas (Tabela 13.3)</h4>
+<table>
+  <thead><tr><th>Efeito a verificar</th><th>Limite de flecha</th><th>Deslocamento considerado</th></tr></thead>
+  <tbody>
+    <tr><td>Efeito visual desagradável</td><td>$a \leq l/250$</td><td>Total</td></tr>
+    <tr><td>Danos em alvenaria e revestimentos</td><td>$a \leq l/500$ e 10 mm</td><td>Após construção da parede</td></tr>
+    <tr><td>Danos em divisórias leves / caixilhos</td><td>$a \leq l/250$ e 25 mm</td><td>Após instalação da divisória</td></tr>
+    <tr><td>Piso que deve permanecer plano</td><td>$a \leq l/350 + \text{contraflecha}$</td><td>Total</td></tr>
+    <tr><td>Deslocamento lateral por vento (edifícios)</td><td>$H/1700$ (total) e $H_i/850$ (entre pavimentos)</td><td>Combinação frequente ($\psi_1 = 0{,}30$)</td></tr>
+  </tbody>
+  <tfoot><tr><td colspan="3">Para balanços: usar vão equivalente = 2× o comprimento do balanço.</td></tr></tfoot>
+</table>
+
+<h4>Limites de Abertura de Fissuras (Tabela 13.4)</h4>
+<table>
+  <thead><tr><th>Tipo de concreto / CAA</th><th>Limite $w_k$ (mm)</th><th>Combinação de serviço</th></tr></thead>
+  <tbody>
+    <tr><td>Concreto armado — CAA I</td><td>≤ 0,4</td><td>Frequente</td></tr>
+    <tr><td>Concreto armado — CAA II e III</td><td>≤ 0,3</td><td>Frequente</td></tr>
+    <tr><td>Concreto armado — CAA IV</td><td>≤ 0,2</td><td>Frequente</td></tr>
+    <tr><td>Protendido nível 1 (CAA I ou pós-tração CAA II)</td><td>≤ 0,2</td><td>Frequente</td></tr>
+    <tr><td>Protendido nível 2 — ELS-F</td><td>Não fissurar</td><td>Frequente</td></tr>
+    <tr><td>Protendido nível 2 — ELS-D</td><td>Não descomprimir</td><td>Quase permanente</td></tr>
+  </tbody>
+</table>
+</section>
+<div class="divider"></div>
+
+
+<section>
+<h2 class="section-title"><span class="num">06B</span> Roteiro de Verificação de Projeto — Passo a Passo</h2>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h5>Caracterização do ambiente e vida útil de projeto</h5>
+      <p>Identificar a Classe de Agressividade Ambiental (CAA I a IV) conforme a Tabela 6.1. Definir a vida útil de projeto (padrão: 50 anos). Verificar se microclima interno permite redução de classe.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h5>Seleção dos materiais mínimos</h5>
+      <p>Determinar classe mínima de concreto e relação a/c máxima (Tabela 7.1). Definir categoria de aço (CA-50 ou CA-60 para estruturas usuais). Registrar $f_{ck}$, $f_{yk}$, $E_s$, $E_{ci}$ e $E_{cs}$.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h5>Definição dos cobrimentos nominais</h5>
+      <p>Consultar a Tabela 7.2 com a CAA identificada. Verificar $c_{nom} \geq \phi_{barra}$ e $d_{max} \leq 1{,}2 \cdot c_{nom}$. Registrar $c_{nom}$ nos desenhos de projeto com tolerância $\Delta c = 10$ mm (ou 5 mm com controle rigoroso).</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h5>Levantamento e classificação das ações</h5>
+      <p>Separar ações permanentes ($g_k$), variáveis ($q_{1k}$, ações secundárias) e indiretas (temperatura, recalque). Para cargas de piso: ABNT NBR 6120. Para vento: ABNT NBR 6123. Verificar fase de construção se aplicável.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h5>Formação das combinações de ações</h5>
+      <p><strong>ELU:</strong> combinação normal com $\gamma_g = 1{,}4$ (desfavorável), $\gamma_q = 1{,}4$ (geral) e $\psi_0$ para ações secundárias. Verificar também combinações com $\gamma_g = 1{,}0$ (efeito favorável).<br><strong>ELS:</strong> combinações rara, frequente e quase permanente conforme Tabela 11.4.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h5>Análise estrutural e obtenção dos esforços solicitantes</h5>
+      <p>Análise linear (com módulo $E_{cs}$ e seção bruta) para obtenção de $M_{Sd}$, $V_{Sd}$, $N_{Sd}$. Em estruturas de nós móveis: verificar necessidade de análise de 2ª ordem (coeficiente $\gamma_z$ ou parâmetro $\alpha$). Verificar redistribuição de momentos (limite $x/d$).</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-body">
+      <h5>Dimensionamento ao ELU (resistência)</h5>
+      <p>Flexão simples/composta: calcular $A_s$ garantindo domínio 3 ($x/d \leq 0{,}45$). Verificar armadura mínima. Força cortante: verificar $V_{Sd} \leq V_{Rd2}$ (diagonais) e dimensionar $A_{sw}/s$ para $V_{Sd} \leq V_{Rd3}$. Torção: quando aplicável, verificar seção 17.5.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">8</div>
+    <div class="step-body">
+      <h5>Verificação aos ELS (serviço)</h5>
+      <p>Flecha total (CQP): calcular com momento de inércia fissurado (estádio II) considerando fluência. Verificar $a \leq l/250$ e $a \leq l/500$ (danos em alvenaria). Fissuração (CF): estimar abertura $w_k$ e comparar com os limites da Tabela 13.4.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">9</div>
+    <div class="step-body">
+      <h5>Detalhamento e compatibilização</h5>
+      <p>Verificar comprimentos de ancoragem ($l_{b,nec}$), espaçamentos mínimos e máximos entre barras, diâmetros mínimos, armadura de pele em vigas altas ($h \geq 60$ cm), estribos de ligação mesa-alma, presença de armadura de suspensão em apoios indiretos.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">10</div>
+    <div class="step-body">
+      <h5>Avaliação da conformidade e documentação</h5>
+      <p>Conferência por profissional independente (5.3.1). Memorial de cálculo com identificação de todos os critérios de projeto. Manual de utilização e manutenção (25.3). Especificação de controle tecnológico do concreto (ABNT NBR 12655).</p>
+    </div>
+  </div>
+</div>
+</section>
+<div class="divider"></div>
+
+
+<section id="exemplo">
+<h2 class="section-title"><span class="num">07</span> Aplicação Prática — Exemplo Numérico Resolvido</h2>
+
+<div class="example-container">
+  <div class="example-header">
+    <span class="ex-badge">Exemplo Resolvido</span>
+    <h3>Viga de Concreto Armado — Dimensionamento Completo (ELU + ELS)</h3>
+  </div>
+  <div class="example-body">
+
+    <div class="ex-section">
+      <h5>📋 Dados do Problema</h5>
+      <ul>
+        <li><strong>Geometria:</strong> Viga biapoiada, vão $l = 6{,}0$ m, seção $b_w \times h = 20 \times 50$ cm</li>
+        <li><strong>Carregamento:</strong> Peso próprio $g_{pp} = 25 \times 0{,}20 \times 0{,}50 = 2{,}5$ kN/m · Revestimento $g_{rev} = 1{,}0$ kN/m · Carga acidental (residencial) $q_k = 3{,}5$ kN/m</li>
+        <li><strong>Material:</strong> Concreto C30 ($f_{ck} = 30$ MPa) · Aço CA-50 ($f_{yk} = 500$ MPa)</li>
+        <li><strong>Ambiente:</strong> CAA II (urbana)</li>
+        <li><strong>Cobrimento nominal:</strong> $c_{nom} = 30$ mm (Tabela 7.2, viga, CAA II)</li>
+        <li><strong>Altura útil projetada (d):</strong> $d = h - c_{nom} - \phi_w - \phi/2 = 500 - 30 - 8 - 16/2 = 454$ mm = <strong>45,4 cm</strong> (considerando estribo Ø8 e barra Ø16)</li>
+      </ul>
+    </div>
+
+    <h4>Passo 1 — Resistências de Cálculo</h4>
+    <div class="ex-section">
+      <h5>⚙ Parâmetros dos materiais</h5>
+      <p>$f_{cd} = f_{ck}/\gamma_c = 30/1{,}4 = 21{,}43$ MPa</p>
+      <p>$f_{yd} = f_{yk}/\gamma_s = 500/1{,}15 = 434{,}78 \approx$ <strong>435 MPa</strong></p>
+      <p>$f_{ct,m} = 0{,}3 \times 30^{2/3} = 0{,}3 \times 9{,}655 = 2{,}90$ MPa · $f_{ctk,inf} = 0{,}7 \times 2{,}90 = 2{,}03$ MPa</p>
+      <p>$f_{ctd} = f_{ctk,inf}/\gamma_c = 2{,}03/1{,}4 = 1{,}45$ MPa</p>
+      <div class="ex-result">fcd = 21,43 MPa · fyd = 435 MPa · fctd = 1,45 MPa</div>
+    </div>
+
+    <h4>Passo 2 — Combinação Última Normal (ELU)</h4>
+    <div class="ex-section">
+      <h5>⚙ Carga de cálculo e esforços</h5>
+      <p>$g_k = g_{pp} + g_{rev} = 2{,}5 + 1{,}0 = 3{,}5$ kN/m (permanente)</p>
+      <p>$q_k = 3{,}5$ kN/m (variável — residencial, $\psi_0 = 0{,}5$)</p>
+      <p>Carregamento de cálculo (viga biapoiada — ação única variável principal):</p>
+      <p>$$F_d = \gamma_g \cdot g_k + \gamma_q \cdot q_k = 1{,}4 \times 3{,}5 + 1{,}4 \times 3{,}5 = 4{,}9 + 4{,}9 = 9{,}8 \text{ kN/m}$$</p>
+      <p>Momento máximo no meio do vão:</p>
+      <p>$$M_{Sd} = \frac{F_d \cdot l^2}{8} = \frac{9{,}8 \times 6{,}0^2}{8} = \frac{352{,}8}{8} = 44{,}1 \; \text{kN} \cdot \text{m}$$</p>
+      <p>Cortante máximo no apoio:</p>
+      <p>$$V_{Sd} = \frac{F_d \cdot l}{2} = \frac{9{,}8 \times 6{,}0}{2} = 29{,}4 \text{ kN}$$</p>
+      <div class="ex-result">MSd = 44,1 kN·m · VSd = 29,4 kN</div>
+    </div>
+
+    <h4>Passo 3 — Dimensionamento à Flexão (ELU)</h4>
+    <div class="ex-section">
+      <h5>⚙ Armadura longitudinal de tração</h5>
+      <p>Parâmetro adimensional: $\mu = \frac{M_{Sd}}{b_w \cdot d^2 \cdot f_{cd}} = \frac{44{,}1 \times 10^6}{200 \times 454^2 \times 21{,}43} = 0{,}0499$</p>
+      <p>Resolução do bloco retangular de compressão pela equação de equilíbrio ($y = \lambda x$):</p>
+      <p>$$0{,}85 \cdot f_{cd} \cdot b_w \cdot y \cdot (d - y/2) = M_{Sd}$$</p>
+      <p>$$0{,}85 \times 21{,}43 \times 200 \times y \times (454 - y/2) = 44{,}1 \times 10^6$$</p>
+      <p>$$3643{,}1 \cdot y \cdot (454 - y/2) = 44{,}1 \times 10^6 \implies y \approx 27{,}5 \text{ mm}$$</p>
+      <p>Linha neutra: $x = y/\lambda = 27{,}5/0{,}8 = 34{,}4$ mm · $x/d = 34{,}4/454 = 0{,}076$</p>
+      <div class="ex-result">x/d = 0,076 ≤ 0,45 — Domínio 3 ✓ <span class="ok-badge">OK</span></div>
+      <p style="margin-top:0.8rem;">Área de aço necessária:</p>
+      <p>$$A_s = \frac{M_{Sd}}{f_{yd} \cdot (d - y/2)} = \frac{44{,}1 \times 10^6}{435 \times (454 - 13{,}75)} = 230{,}3 \text{ mm}^2$$</p>
+      <p>Verificação da armadura mínima para C30 (NBR 6118 Tab. 17.3 incide sobre área bruta da seção $b_w \cdot h$):</p>
+      <p>$$A_{s,min} = 0{,}15\% \times b_w \times h = 0{,}0015 \times 200 \times 500 = 150{,}0 \text{ mm}^2$$</p>
+      <p>$$A_{s,projeto} = \max(A_s, A_{s,min}) = 230{,}3 \text{ mm}^2$$</p>
+      <p>Adotar: <strong>3 Ø12,5 mm</strong> (CA-50) → $A_{s,ef} = 3 \times 122{,}7 = 368{,}1$ mm² (≥ 230,3 mm²) <span class="ok-badge">OK</span></p>
+      <div class="ex-result">As,ef = 3Ø12,5mm → 368,1 mm² ≥ As,projeto = 230,3 mm²</div>
+    </div>
+
+    <h4>Passo 4 — Verificação e Dimensionamento à Força Cortante</h4>
+    <div class="ex-section">
+      <h5>⚙ Modelo I — θ = 45°</h5>
+      <p>Verificação da resistência das diagonais de compressão:</p>
+      <p>$$\alpha_{v2} = 1 - f_{ck}/250 = 1 - 30/250 = 0{,}88$$</p>
+      <p>$$V_{Rd2} = 0{,}27 \times 0{,}88 \times 21{,}43 \times 200 \times 454 \approx 462{,}2 \text{ kN} \gg V_{Sd} = 29{,}4 \text{ kN}$$</p>
+      <div class="ex-result">VRd2 = 462,2 kN ≥ VSd = 29,4 kN <span class="ok-badge">Diagonal OK</span></div>
+      <p style="margin-top:0.8rem;">Parcela suportada pelos mecanismos complementares do concreto ($V_c$):</p>
+      <p>$$V_{c0} = 0{,}6 \times f_{ctd} \times b_w \times d = 0{,}6 \times 1{,}45 \times 200 \times 454 = 79{,}0 \text{ kN}$$</p>
+      <p>Como $V_{Sd} = 29{,}4 \text{ kN} < V_{c0} = 79{,}0 \text{ kN}$, não há exigência teórica para o esforço, mas a armadura transversal mínima ($A_{sw,min}$) é normativa.</p>
+      <p>Armadura mínima transversal (estribos verticais CA-50):</p>
+      <p>$$A_{sw}/s \ge \rho_{w,min} \cdot b_w \quad \text{onde } \rho_{w,min} = 0{,}2 \cdot \frac{f_{ct,m}}{f_{ywk}} = 0{,}2 \times \frac{2{,}90}{500} = 0{,}116\%$$</p>
+      <p>$$A_{sw}/s \ge 0{,}00116 \times 200 = 0{,}232 \text{ mm}^2/\text{mm} = 2{,}32 \text{ cm}^2/\text{m}$$</p>
+      <p>Adotar: <strong>Ø8 c/ 20 cm</strong> (2 ramos) → $A_{sw}/s_{disp} = 5{,}03$ cm²/m > 2,32 cm²/m. Espaçamento máximo normativo para $V_{Sd} \le 0{,}67 V_{Rd2}$ é $\min(0{,}6d; 300\text{mm}) \approx 270\text{mm}$. O espaçamento adotado (20 cm) atende. </p>
+      <div class="ex-result">Estribos: Ø8 mm / 20 cm (2 ramos) — Armadura mínima atendida <span class="ok-badge">OK</span></div>
+    </div>
+
+    <h4>Passo 5 — Verificação da Flecha (ELS-DEF)</h4>
+    <div class="ex-section">
+      <h5>⚙ Flecha imediata e de longa duração (simplificado)</h5>
+      <p>Combinação quasi-permanente ($\psi_2 = 0{,}3$ para uso residencial):</p>
+      <p>$F_{ser} = g_k + \psi_2 \cdot q_k = 3{,}5 + 0{,}3 \times 3{,}5 = 4{,}55$ kN/m</p>
+      <p>O momento de inércia da seção bruta:</p>
+      <p>$I_c = b_w \cdot h^3 / 12 = 200 \times 500^3 / 12 = 2{,}083 \times 10^9$ mm⁴</p>
+      <p>Módulo de elasticidade (C30, granito) $E_{cs} = 27 \text{ GPa} = 27000$ N/mm².</p>
+      <p>Calculando a flecha elástica imediata (F_{ser} em N/mm = kN/m numericamente):</p>
+      <p>$$a_{imediata} = \frac{5}{384} \cdot \frac{F_{ser} \cdot l^4}{E_{cs} \cdot I_c} = \frac{5}{384} \cdot \frac{4{,}55 \times 6000^4}{27000 \times 2{,}083 \times 10^9} = 1{,}36 \text{ mm}$$</p>
+      <p>Considerando fluência e fissuração com um multiplicador normativo $\phi = 2{,}0$ (fator de longo tempo isolado):</p>
+      <p>$$a_{total} \approx a_{imediata} \times (1 + \phi) = 1{,}36 \times 3{,}0 = 4{,}08 \approx 4{,}1 \text{ mm}$$</p>
+      <p>Limite normativo para evitar dano estético: $a_{lim} = l/250 = 6000/250 = 24$ mm.</p>
+      <div class="ex-result">a ≈ 4,1 mm ≤ alim = 24,0 mm <span class="ok-badge">Flecha OK</span></div>
+      <p style="margin-top:0.6rem;">Para verificação precisa e definitiva de ELS-DEF, sempre utilizar momento de inércia fissurado equivalente (estádio II) descrito em 17.3.2 da norma.</p>
+    </div>
+
+    <div style="background:var(--navy);color:#fff;padding:1.5rem;border-radius:4px;margin-top:1.5rem;">
+      <h4 style="color:var(--gold-light);margin:0 0 1rem;text-transform:uppercase;font-size:0.85rem;letter-spacing:0.1em;">✅ Resultado Final da Viga</h4>
+      <table style="color:#fff;font-size:0.85rem;">
+        <thead><tr><th style="background:rgba(255,255,255,0.1);color:var(--gold-light);padding:0.4rem 0.7rem;text-align:left;border:1px solid rgba(255,255,255,0.15);">Item</th><th style="background:rgba(255,255,255,0.1);color:var(--gold-light);padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.15);">Especificação</th><th style="background:rgba(255,255,255,0.1);color:var(--gold-light);padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.15);">Status</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);">Seção transversal</td><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);text-align:center;">20 × 50 cm</td><td style="padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.1);color:#81c784;">✓ bw ≥ 12 cm</td></tr>
+          <tr><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);">Cobrimento nominal</td><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);text-align:center;">cnom = 30 mm (CAA II)</td><td style="padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.1);color:#81c784;">✓ Tab. 7.2</td></tr>
+          <tr><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);">Armadura longitudinal</td><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);text-align:center;">3 Ø 12,5 mm (CA-50)</td><td style="padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.1);color:#81c784;">✓ As,ef ≥ As,min</td></tr>
+          <tr><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);">Dutilidade (x/d)</td><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);text-align:center;">x/d = 0,076 ≤ 0,45</td><td style="padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.1);color:#81c784;">✓ Domínio 3</td></tr>
+          <tr><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);">Estribos</td><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);text-align:center;">Ø 8 mm / 20 cm (2 ramos)</td><td style="padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.1);color:#81c784;">✓ VRd2 e Asw,min OK</td></tr>
+          <tr><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);">Flecha total estimada</td><td style="padding:0.4rem 0.7rem;border:1px solid rgba(255,255,255,0.1);text-align:center;">a ≈ 4,1 mm ≤ l/250 = 24 mm</td><td style="padding:0.4rem 0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.1);color:#81c784;">✓ ELS-DEF OK</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+<div class="divider"></div>
+
+
+<section id="checklist">
+<h2 class="section-title"><span class="num">08</span> Checklist de Conformidade com a NBR 6118:2014</h2>
+
+<p>Use este checklist como instrumento de autoavaliação antes da emissão do projeto:</p>
+
+<h4>A — Durabilidade e Materiais</h4>
+<ul class="checklist">
+  <li><strong>CAA identificada</strong> e registrada no memorial de cálculo (Tabela 6.1)</li>
+  <li>Classe de concreto mínima atendida conforme <strong>Tabela 7.1</strong></li>
+  <li>Relação a/c máxima especificada no projeto e memo de concretagem</li>
+  <li>Cobrimentos nominais definidos por elemento (viga, pilar, laje) conforme <strong>Tabela 7.2</strong></li>
+  <li>Verificado: $c_{nom} \geq \phi_{barra}$ e $d_{max} \leq 1{,}2 \cdot c_{nom}$</li>
+  <li>Proibição de aditivos à base de cloreto anotada em especificações (7.4.4)</li>
+</ul>
+
+<h4>B — Segurança e Ações</h4>
+<ul class="checklist">
+  <li>Todas as ações classificadas (permanentes, variáveis, excepcionais)</li>
+  <li>Coeficientes $\gamma_f$ aplicados corretamente ($\gamma_g = 1{,}4$ desfav.; $\gamma_q = 1{,}4$ geral)</li>
+  <li>Fatores $\psi_0$, $\psi_1$, $\psi_2$ selecionados conforme uso do edifício (<strong>Tabela 11.2</strong>)</li>
+  <li>Combinações de serviço (CQP, CF, CR) formadas para verificações ELS</li>
+  <li>Resistências minoradas com $\gamma_c = 1{,}4$ e $\gamma_s = 1{,}15$ (combinações normais, ELU)</li>
+  <li>Verificação de estabilidade como corpo rígido (quando pertinente)</li>
+</ul>
+
+<h4>C — Dimensionamento ELU</h4>
+<ul class="checklist">
+  <li>Dutilidade verificada: $x/d \leq 0{,}45$ (C20–C50) ou $x/d \leq 0{,}35$ (C55–C90)</li>
+  <li>Armadura mínima de tração atendida em vigas e lajes</li>
+  <li>Força cortante: $V_{Sd} \leq V_{Rd2}$ (diagonais) verificado</li>
+  <li>Dimensionamento de estribos: $V_{Rd3} \geq V_{Sd}$ com armadura mínima</li>
+  <li>Pilares: dimensão $\geq$ 19 cm (ou $\gamma_n$ aplicado) e momento mínimo considerado</li>
+  <li>Lajes: espessuras mínimas conforme uso (7 a 16 cm, <strong>Tabela 13.2</strong>)</li>
+</ul>
+
+<h4>D — Verificações ELS</h4>
+<ul class="checklist">
+  <li>Flecha total $a \leq l/250$ (efeito visual) e $a \leq l/500$ (danos em alvenaria)</li>
+  <li>Fissuração: $w_k$ calculada e comparada com limites da <strong>Tabela 13.4</strong></li>
+  <li>Efeitos de fluência e retração considerados no cálculo de flechas de longa duração</li>
+  <li>Deslocamentos laterais por vento verificados em estruturas de múltiplos pavimentos ($H/1700$)</li>
+</ul>
+
+<h4>E — Detalhamento</h4>
+<ul class="checklist">
+  <li>Comprimentos de ancoragem calculados e indicados em todos os elementos ($l_{b,nec}$)</li>
+  <li>Emendas por traspasse com $\alpha_{0t}$ correto e máximo de 50% de barras emendadas na mesma seção</li>
+  <li>Espaçamento mínimo entre barras respeitado (acesso para vibrador)</li>
+  <li>Armadura de pele em vigas com $h \geq 60$ cm (Seção 18.3.5)</li>
+  <li>Raios mínimos de dobramento respeitados por categoria de aço</li>
+  <li>Ancoragem de estribos com ganchos a 135° ou barras soldadas (Seção 9.4.6)</li>
+</ul>
+
+<h4>F — Documentação e Conformidade</h4>
+<ul class="checklist">
+  <li>Memorial de cálculo com todos os critérios de projeto registrados</li>
+  <li>Avaliação da conformidade por profissional independente (5.3.1)</li>
+  <li>Manual de utilização, inspeção e manutenção elaborado (25.3)</li>
+  <li>Especificação de controle tecnológico do concreto conforme ABNT NBR 12655</li>
+</ul>
+
+<div class="callout callout-norm" style="margin-top:2rem;">
+  <span class="label">📚 Normas Complementares ao Projeto NBR 6118</span>
+  <strong>ABNT NBR 6120</strong> — Cargas de pisos · <strong>ABNT NBR 6123</strong> — Forças devidas ao vento · <strong>ABNT NBR 8681</strong> — Ações e segurança · <strong>ABNT NBR 12655</strong> — Concreto de cimento Portland: preparo, controle e recebimento · <strong>ABNT NBR 14931</strong> — Execução de estruturas de concreto · <strong>ABNT NBR 9062</strong> — Projeto e execução de estruturas pré-moldadas · <strong>ABNT NBR 7480</strong> — Barras e fios de aço para armadura passiva.
+</div>
+
+</section>
+
+<div class="divider"></div>
+
+<section id="calculadora">
+<h2 class="section-title"><span class="num">09</span> Calculadora Interativa — NBR 6118:2014</h2>
+
+<p>Insira os dados do elemento estrutural. Todos os cálculos seguem rigorosamente as equações desta norma. As entradas podem ser fornecidas em <strong>kN</strong> ou <strong>tf</strong> — a conversão é automática (1 tf = 9,807 kN).</p>
+
+<style>
+/* ── CALCULATOR STYLES ── */
+.calc-wrapper{margin:1.5rem 0;font-family:'Source Serif 4',serif;}
+.calc-tabs{display:flex;gap:0;margin-bottom:0;border-bottom:3px solid var(--navy);}
+.calc-tab{
+  padding:0.7rem 1.8rem;
+  background:var(--navy-light);
+  color:rgba(255,255,255,0.55);
+  cursor:pointer;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.78rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  border:none;
+  transition:all 0.2s;
+  border-radius:4px 4px 0 0;
+  margin-right:2px;
+}
+.calc-tab.active{background:var(--navy);color:var(--gold);border-bottom:3px solid var(--gold);margin-bottom:-3px;}
+.calc-tab:hover:not(.active){color:#fff;background:var(--navy);}
+.calc-panel{display:none;background:var(--navy);border-radius:0 4px 4px 4px;padding:2rem;border:1px solid rgba(201,168,76,0.25);}
+.calc-panel.active{display:block;}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2rem;}
+ @media(max-width:700px){.calc-grid{grid-template-columns:1fr;}}
+.calc-fieldset{border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:1rem 1.2rem;margin-bottom:0;}
+.calc-fieldset legend{
+  color:var(--gold);
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.68rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  padding:0 0.5rem;
+}
+.field-group{margin-bottom:0.9rem;}
+.field-group:last-child{margin-bottom:0;}
+.field-label{
+  display:block;
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:0.25rem;
+  font-family:'JetBrains Mono',monospace;
+}
+.field-label .field-sym{color:var(--gold-light);font-style:italic;}
+.field-row{display:flex;gap:0.4rem;align-items:center;}
+.calc-input{
+  flex:1;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:3px;
+  color:#fff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.85rem;
+  padding:0.45rem 0.7rem;
+  transition:border-color 0.2s;
+  min-width:0;
+}
+.calc-input:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,0.1);}
+.calc-select{
+  flex:1;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:3px;
+  color:#fff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.82rem;
+  padding:0.45rem 0.5rem;
+  cursor:pointer;
+}
+.calc-select option{background:var(--navy);color:#fff;}
+.unit-badge{
+  background:rgba(201,168,76,0.15);
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:3px;
+  color:var(--gold-light);
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;
+  padding:0.4rem 0.5rem;
+  white-space:nowrap;
+  min-width:3.5rem;
+  text-align:center;
+}
+.unit-toggle{
+  display:flex;border-radius:3px;overflow:hidden;border:1px solid rgba(201,168,76,0.3);
+}
+.unit-toggle button{
+  flex:1;background:transparent;border:none;
+  color:rgba(255,255,255,0.5);font-family:'JetBrains Mono',monospace;
+  font-size:0.7rem;padding:0.35rem 0.5rem;cursor:pointer;transition:all 0.15s;
+}
+.unit-toggle button.on{background:var(--gold);color:var(--navy);font-weight:700;}
+.calc-run-btn{
+  width:100%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  border:none;
+  border-radius:4px;
+  color:var(--navy);
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.85rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.85rem;
+  cursor:pointer;
+  margin-top:1.5rem;
+  transition:transform 0.1s,box-shadow 0.2s;
+  box-shadow:0 4px 15px rgba(201,168,76,0.35);
+}
+.calc-run-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,0.5);}
+.calc-run-btn:active{transform:translateY(0);}
+/* Results Panel */
+.results-panel{
+  margin-top:1.5rem;
+  background:rgba(0,0,0,0.35);
+  border-radius:4px;
+  border:1px solid rgba(201,168,76,0.2);
+  overflow:hidden;
+  display:none;
+}
+.results-panel.visible{display:block;}
+.results-header{
+  background:rgba(201,168,76,0.12);
+  padding:0.7rem 1.2rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.7rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+}
+.results-body{padding:1.2rem;}
+.res-block{margin-bottom:1.2rem;}
+.res-block:last-child{margin-bottom:0;}
+.res-block-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  margin-bottom:0.5rem;
+  padding-bottom:0.3rem;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.res-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.3rem 0;
+  font-size:0.83rem;
+  color:rgba(255,255,255,0.8);
+}
+.res-label{flex:1;color:rgba(255,255,255,0.65);}
+.res-val{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.82rem;
+  color:#fff;
+  font-weight:700;
+}
+.res-conv{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;
+  color:var(--gold-light);
+  margin-left:0.5rem;
+  opacity:0.8;
+}
+.badge-ok{
+  display:inline-block;
+  background:#2e7d32;color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.5rem;
+}
+.badge-fail{
+  display:inline-block;
+  background:#c62828;color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.5rem;
+}
+.badge-warn{
+  display:inline-block;
+  background:#e65100;color:#fff;
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.5rem;
+}
+.verdict-box{
+  border-radius:4px;padding:1rem 1.2rem;margin-top:1rem;
+  font-family:'JetBrains Mono',monospace;font-size:0.82rem;
+  border-left:5px solid;
+}
+.verdict-ok{background:rgba(46,125,50,0.25);border-color:#4caf50;color:#a5d6a7;}
+.verdict-fail{background:rgba(198,40,40,0.25);border-color:#f44336;color:#ef9a9a;}
+.verdict-warn{background:rgba(230,81,0,0.2);border-color:#ff9800;color:#ffcc80;}
+.conv-banner{
+  background:rgba(42,127,140,0.15);
+  border:1px solid rgba(61,176,192,0.3);
+  border-radius:4px;
+  padding:0.5rem 1rem;
+  margin-bottom:1rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;
+  color:var(--teal-light);
+  display:flex;gap:1.5rem;flex-wrap:wrap;
+}
+.res-divider{height:1px;background:rgba(255,255,255,0.07);margin:0.8rem 0;}
+</style>
+
+<div class="calc-wrapper">
+  <div class="calc-tabs">
+    <button class="calc-tab active" onclick="switchTab('viga',this)">🏗 Viga Biapoiada</button>
+    <button class="calc-tab" onclick="switchTab('pilar',this)">🏛 Pilar Isolado</button>
+  </div>
+
+  <div class="calc-panel active" id="panel-viga">
+    <div class="conv-banner">
+      <span>1 tf = 9,807 kN</span>
+      <span>1 kN = 0,1020 tf</span>
+      <span>1 tf·m = 9,807 kN·m</span>
+      <span>Entradas aceitas em kN ou tf — selecione abaixo</span>
+    </div>
+
+    <div class="calc-grid">
+      <div>
+        <fieldset class="calc-fieldset">
+          <legend>Geometria da Seção</legend>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">b</span> — Largura da viga</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_b" type="number" value="20" min="10" step="1">
+              <span class="unit-badge">cm</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">h</span> — Altura total</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_h" type="number" value="50" min="15" step="1">
+              <span class="unit-badge">cm</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">l</span> — Vão biapoiado</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_l" type="number" value="6.0" min="1" step="0.1">
+              <span class="unit-badge">m</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Ø barra longitudinal</label>
+            <div class="field-row">
+              <select class="calc-select" id="v_phi">
+                <option value="5">Ø 5 mm</option>
+                <option value="6.3">Ø 6,3 mm</option>
+                <option value="8">Ø 8 mm</option>
+                <option value="10">Ø 10 mm</option>
+                <option value="12.5">Ø 12,5 mm</option>
+                <option value="16" selected>Ø 16 mm</option>
+                <option value="20">Ø 20 mm</option>
+                <option value="25">Ø 25 mm</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Ø estribo</label>
+            <div class="field-row">
+              <select class="calc-select" id="v_phiw">
+                <option value="5">Ø 5 mm</option>
+                <option value="6.3">Ø 6,3 mm</option>
+                <option value="8" selected>Ø 8 mm</option>
+                <option value="10">Ø 10 mm</option>
+                <option value="12.5">Ø 12,5 mm</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-fieldset" style="margin-top:1rem;border-color:rgba(61,176,192,0.4);">
+          <legend style="color:var(--teal-light);">Armadura Manual (opcional)</legend>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:0.7rem;font-style:italic;">
+            Deixe quantidade = 0 para sugestão automática.
+          </div>
+          <div class="field-group">
+            <label class="field-label">Ø barra manual (longitudinal)</label>
+            <select class="calc-select" id="v_man_phi">
+              <option value="5">Ø 5 mm</option>
+              <option value="6.3">Ø 6,3 mm</option>
+              <option value="8">Ø 8 mm</option>
+              <option value="10">Ø 10 mm</option>
+              <option value="12.5">Ø 12,5 mm</option>
+              <option value="16" selected>Ø 16 mm</option>
+              <option value="20">Ø 20 mm</option>
+              <option value="25">Ø 25 mm</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Quantidade de barras (0 = automático)</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_man_n" type="number" value="0" min="0" max="20" step="1">
+              <span class="unit-badge">barras</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-fieldset" style="margin-top:1rem;">
+          <legend>Materiais</legend>
+          <div class="field-group">
+            <label class="field-label">Concreto <span class="field-sym">f&#x2C;ₖ</span></label>
+            <select class="calc-select" id="v_fck">
+              <option value="20">C20 — 20 MPa</option>
+              <option value="25">C25 — 25 MPa</option>
+              <option value="30" selected>C30 — 30 MPa</option>
+              <option value="35">C35 — 35 MPa</option>
+              <option value="40">C40 — 40 MPa</option>
+              <option value="45">C45 — 45 MPa</option>
+              <option value="50">C50 — 50 MPa</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Aço</label>
+            <select class="calc-select" id="v_aco">
+              <option value="500" selected>CA-50 (fyk = 500 MPa)</option>
+              <option value="600">CA-60 (fyk = 600 MPa)</option>
+            </select>
+          </div>
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset class="calc-fieldset">
+          <legend>Carregamento Distribuído</legend>
+          <div class="field-group">
+            <label class="field-label">Unidade das cargas</label>
+            <div class="unit-toggle" id="v_unit_toggle">
+              <button class="on" onclick="setUnit('v','kN',this)">kN/m</button>
+              <button onclick="setUnit('v','tf',this)">tf/m</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">g&#x200B;<sub>rev</sub></span> — Revestimento / acabamento</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_grev" type="number" value="1.0" min="0" step="0.1">
+              <span class="unit-badge" id="v_u1">kN/m</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">q&#x2C;ₖ</span> — Carga acidental</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_qk" type="number" value="3.5" min="0" step="0.1">
+              <span class="unit-badge" id="v_u2">kN/m</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Tipo de uso (fator ψ₀)</label>
+            <select class="calc-select" id="v_psi">
+              <option value="0.5" selected>Residencial — ψ₀ = 0,5</option>
+              <option value="0.7">Comercial/escritório — ψ₀ = 0,7</option>
+              <option value="0.8">Biblioteca/garagem — ψ₀ = 0,8</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-fieldset" style="margin-top:1rem;">
+          <legend>Durabilidade</legend>
+          <div class="field-group">
+            <label class="field-label">Classe de agressividade (CAA)</label>
+            <select class="calc-select" id="v_caa">
+              <option value="1">CAA I — Fraca</option>
+              <option value="2" selected>CAA II — Moderada</option>
+              <option value="3">CAA III — Forte</option>
+              <option value="4">CAA IV — Muito Forte</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">c<sub>nom</sub></span> — Cobrimento nominal</label>
+            <div class="field-row">
+              <input class="calc-input" id="v_cnom" type="number" value="30" min="15" step="5">
+              <span class="unit-badge">mm</span>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <button class="calc-run-btn" onclick="calcViga()">⚙ CALCULAR VIGA — NBR 6118:2014</button>
+
+    <div class="results-panel" id="res-viga">
+      <div class="results-header">📊 Resultados do Dimensionamento — Viga Biapoiada</div>
+      <div class="results-body" id="res-viga-body"></div>
+    </div>
+  </div><div class="calc-panel" id="panel-pilar">
+    <div class="conv-banner">
+      <span>1 tf = 9,807 kN</span>
+      <span>1 kN = 0,1020 tf</span>
+      <span>1 tf·m = 9,807 kN·m</span>
+      <span>Entradas aceitas em kN ou tf — selecione abaixo</span>
+    </div>
+
+    <div class="calc-grid">
+      <div>
+        <fieldset class="calc-fieldset">
+          <legend>Geometria da Seção</legend>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">b</span> — Menor dimensão</label>
+            <div class="field-row">
+              <input class="calc-input" id="p_b" type="number" value="20" min="14" step="1">
+              <span class="unit-badge">cm</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">h</span> — Maior dimensão</label>
+            <div class="field-row">
+              <input class="calc-input" id="p_h" type="number" value="40" min="14" step="1">
+              <span class="unit-badge">cm</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Ø barra longitudinal</label>
+            <select class="calc-select" id="p_phi">
+              <option value="5">Ø 5 mm</option>
+              <option value="6.3">Ø 6,3 mm</option>
+              <option value="10">Ø 10 mm</option>
+              <option value="12.5">Ø 12,5 mm</option>
+              <option value="16" selected>Ø 16 mm</option>
+              <option value="20">Ø 20 mm</option>
+              <option value="25">Ø 25 mm</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Ø estribo</label>
+            <select class="calc-select" id="p_phiw">
+              <option value="5">Ø 5 mm</option>
+              <option value="6.3">Ø 6,3 mm</option>
+              <option value="8" selected>Ø 8 mm</option>
+              <option value="10">Ø 10 mm</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-fieldset" style="margin-top:1rem;border-color:rgba(61,176,192,0.4);">
+          <legend style="color:var(--teal-light);">Armadura Manual (opcional)</legend>
+          <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:0.7rem;font-style:italic;">
+            Deixe quantidade = 0 para sugestão automática.
+          </div>
+          <div class="field-group">
+            <label class="field-label">Ø barra manual (longitudinal)</label>
+            <select class="calc-select" id="p_man_phi">
+              <option value="5">Ø 5 mm</option>
+              <option value="6.3">Ø 6,3 mm</option>
+              <option value="10">Ø 10 mm</option>
+              <option value="12.5">Ø 12,5 mm</option>
+              <option value="16" selected>Ø 16 mm</option>
+              <option value="20">Ø 20 mm</option>
+              <option value="25">Ø 25 mm</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Quantidade de barras (0 = automático)</label>
+            <div class="field-row">
+              <input class="calc-input" id="p_man_n" type="number" value="0" min="0" max="24" step="1">
+              <span class="unit-badge">barras</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-fieldset" style="margin-top:1rem;">
+          <legend>Materiais</legend>
+          <div class="field-group">
+            <label class="field-label">Concreto</label>
+            <select class="calc-select" id="p_fck">
+              <option value="20">C20 — 20 MPa</option>
+              <option value="25">C25 — 25 MPa</option>
+              <option value="30" selected>C30 — 30 MPa</option>
+              <option value="35">C35 — 35 MPa</option>
+              <option value="40">C40 — 40 MPa</option>
+              <option value="50">C50 — 50 MPa</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Aço</label>
+            <select class="calc-select" id="p_aco">
+              <option value="500" selected>CA-50 (fyk = 500 MPa)</option>
+              <option value="600">CA-60 (fyk = 600 MPa)</option>
+            </select>
+          </div>
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset class="calc-fieldset">
+          <legend>Esforços Solicitantes de Cálculo</legend>
+          <div class="field-group">
+            <label class="field-label">Unidade dos esforços</label>
+            <div class="unit-toggle" id="p_unit_toggle">
+              <button class="on" onclick="setUnit('p','kN',this)">kN / kN·m</button>
+              <button onclick="setUnit('p','tf',this)">tf / tf·m</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">N<sub>Sd</sub></span> — Força normal de cálculo</label>
+            <div class="field-row">
+              <input class="calc-input" id="p_nsd" type="number" value="800" min="0" step="10">
+              <span class="unit-badge" id="p_u1">kN</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">M<sub>1d</sub></span> — Momento de 1ª ordem</label>
+            <div class="field-row">
+              <input class="calc-input" id="p_m1d" type="number" value="50" min="0" step="1">
+              <span class="unit-badge" id="p_u2">kN·m</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">M<sub>2d</sub></span> — Momento de 2ª ordem (0 se desprezado)</label>
+            <div class="field-row">
+              <input class="calc-input" id="p_m2d" type="number" value="0" min="0" step="1">
+              <span class="unit-badge" id="p_u3">kN·m</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-fieldset" style="margin-top:1rem;">
+          <legend>Durabilidade</legend>
+          <div class="field-group">
+            <label class="field-label">CAA</label>
+            <select class="calc-select" id="p_caa">
+              <option value="1">CAA I</option>
+              <option value="2" selected>CAA II</option>
+              <option value="3">CAA III</option>
+              <option value="4">CAA IV</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label"><span class="field-sym">c<sub>nom</sub></span></label>
+            <div class="field-row">
+              <input class="calc-input" id="p_cnom" type="number" value="30" min="15" step="5">
+              <span class="unit-badge">mm</span>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <button class="calc-run-btn" onclick="calcPilar()">⚙ CALCULAR PILAR — NBR 6118:2014</button>
+
+    <div class="results-panel" id="res-pilar">
+      <div class="results-header">📊 Resultados do Dimensionamento — Pilar Isolado</div>
+      <div class="results-body" id="res-pilar-body"></div>
+    </div>
+  </div></div></section>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  CALCULATOR ENGINE — NBR 6118:2014  (rev. Validação Completa)
+// ═══════════════════════════════════════════════════════
+
+const TF_TO_KN = 9.80665;
+const unitState = { v: 'kN', p: 'kN' };
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.calc-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+function setUnit(prefix, unit, btn) {
+  unitState[prefix] = unit;
+  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const labels = {
+    v: { kN: ['kN/m','kN/m'], tf: ['tf/m','tf/m'] },
+    p: { kN: ['kN','kN·m','kN·m'], tf: ['tf','tf·m','tf·m'] }
+  };
+  const l = labels[prefix][unit];
+  l.forEach((text, i) => {
+    const el = document.getElementById(prefix + '_u' + (i+1));
+    if(el) el.textContent = text;
+  });
+}
+
+function fmt(v, dec=2) { return v.toFixed(dec).replace('.',','); }
+function fmtTF(kn) { return fmt(kn / TF_TO_KN, 2) + ' tf'; }
+function fmtKN(v) { return fmt(v, 2) + ' kN'; }
+function fmtMom(knm) { return fmt(knm, 2) + ' kN·m  (' + fmt(knm/TF_TO_KN, 2) + ' tf·m)'; }
+function fmtForce(kn) { return fmt(kn, 2) + ' kN  (' + fmt(kn/TF_TO_KN, 2) + ' tf)'; }
+function fmtLoad(knm) { return fmt(knm, 3) + ' kN/m  (' + fmt(knm/TF_TO_KN, 3) + ' tf/m)'; }
+
+function badge(ok, okTxt='OK', failTxt='NÃO ATENDE') {
+  return ok ? `<span class="badge-ok">✓ ${okTxt}</span>` : `<span class="badge-fail">✗ ${failTxt}</span>`;
+}
+
+// ─── MATERIAL PROPERTIES ──────────────────────────────
+function getMaterials(fck_mpa, fyk_mpa) {
+  const gc = 1.4, gs = 1.15;
+  const fcd = fck_mpa / gc;
+  const fyd = fyk_mpa / gs;
+  const fctm = fck_mpa <= 50
+    ? 0.3 * Math.pow(fck_mpa, 2/3)
+    : 2.12 * Math.log(1 + 0.11 * fck_mpa);
+  const fctk_inf = 0.7 * fctm;
+  const fctd = fctk_inf / gc;
+  const alphaE = 1.0; // granito default
+  const Eci = alphaE * 5600 * Math.sqrt(fck_mpa);
+  const alphai = Math.min(0.8 + fck_mpa/80, 1.0);
+  const Ecs = alphai * Eci;
+  
+  const lambda = fck_mpa <= 50 ? 0.8 : 0.8 - (fck_mpa-50)/400;
+  // Correção de alphaC p/ blocos retangulares normativos fck > 50
+  const alphaC = fck_mpa <= 50 ? 0.85 : 0.85 * (1 - (fck_mpa - 50) / 200);
+  
+  return { fcd, fyd, fctm, fctk_inf, fctd, Eci, Ecs, lambda, alphaC };
+}
+
+// ─── COBRIMENTO RECOMENDADO ────────────────────────────
+function cnomRecom(caa, tipo='viga') {
+  const tbl = {
+    viga:  [25,30,40,50],
+    pilar: [25,30,40,50],
+    laje:  [20,25,35,45]
+  };
+  return (tbl[tipo] || tbl.viga)[caa-1];
+}
+
+// ─── ROW builder ──────────────────────────────────────
+function row(label, val, extra='') {
+  return `<div class="res-row"><span class="res-label">${label}</span><span class="res-val">${val}${extra}</span></div>`;
+}
+function divider() { return '<div class="res-divider"></div>'; }
+function blockTitle(t) { return `<div class="res-block-title">${t}</div>`; }
+
+// ═══════════════════════════════════════════════════════
+//  VIGA CALCULATOR
+// ═══════════════════════════════════════════════════════
+function calcViga() {
+  // ── Read inputs ──
+  const unit = unitState.v;
+  const b   = parseFloat(document.getElementById('v_b').value);    // cm
+  const h   = parseFloat(document.getElementById('v_h').value);    // cm
+  const l   = parseFloat(document.getElementById('v_l').value);    // m
+  const phi  = parseFloat(document.getElementById('v_phi').value); // mm
+  const phiw = parseFloat(document.getElementById('v_phiw').value);// mm
+
+  // Verificação prévia da armadura para calcular d e As_final corretamente
+  const v_n_input = document.getElementById('v_man_n').value;
+  const v_man_phi = parseFloat(document.getElementById('v_man_phi').value);
+  const phi_to_use = (v_n_input && parseInt(v_n_input) > 0) ? v_man_phi : phi;
+
+  const fck  = parseFloat(document.getElementById('v_fck').value); // MPa
+  const fyk  = parseFloat(document.getElementById('v_aco').value); // MPa
+  const caa  = parseInt(document.getElementById('v_caa').value);
+  let cnom   = parseFloat(document.getElementById('v_cnom').value);// mm
+  let grev   = parseFloat(document.getElementById('v_grev').value);
+  let qk_in  = parseFloat(document.getElementById('v_qk').value);
+  const psi0 = parseFloat(document.getElementById('v_psi').value);
+
+  // ── Unit conversion to kN ──
+  if(unit === 'tf') { grev *= TF_TO_KN; qk_in *= TF_TO_KN; }
+
+  // ── Material ──
+  const mat = getMaterials(fck, fyk);
+  const { fcd, fyd, fctm, fctd, Ecs, lambda, alphaC } = mat;
+
+  // ── Geometry ──
+  const cnom_rec = cnomRecom(caa, 'viga');
+  const cnom_ok  = cnom >= cnom_rec;
+  const cnom_phi = cnom >= phi_to_use;
+  // Effective depth d (mm)
+  const d_mm = h*10 - cnom - phiw - phi_to_use/2;
+  const d = d_mm; // in mm
+  const bw = b * 10; // mm
+
+  // ── Peso próprio ──
+  const gpp = 25.0 * (b/100) * (h/100); // kN/m (γconc = 25 kN/m³)
+  const gk  = gpp + grev;               // total permanent kN/m
+
+  // ── Combinations ──
+  const Fd = 1.4 * gk + 1.4 * qk_in;   // ELU normal
+  const MSd_Nm = Fd * l*l / 8;         // kN·m
+  const VSd_kN = Fd * l / 2;           // kN
+  const MSd = MSd_Nm * 1e6;             // N·mm
+
+  // ── ELS quasi-permanent ──
+  let psi2 = 0.3; // Default (Residencial)
+  if (psi0 === 0.7) psi2 = 0.4; // Comercial
+  if (psi0 === 0.8) psi2 = 0.6; // Biblioteca/Garagens
+  const Fser = gk + psi2 * qk_in;
+  const Mser_kNm = Fser * l*l / 8;
+
+  // ── Flexion design ──
+  const A_q = -alphaC * fcd * bw / 2;
+  const B_q =  alphaC * fcd * bw * d;
+  const C_q = -MSd;
+  const disc = B_q*B_q - 4*A_q*C_q;
+  
+  let y_mm = null, x_mm = null, As_need = null, xd = null;
+  let flexOk = false;
+
+  if(disc >= 0) {
+    y_mm = (-B_q + Math.sqrt(disc)) / (2*A_q); 
+    x_mm = y_mm / lambda;
+    xd   = x_mm / d;
+    As_need = MSd / (fyd * (d - y_mm/2)); // mm²
+    const xd_lim = fck <= 50 ? 0.45 : 0.35;
+    flexOk = xd <= xd_lim;
+  }
+
+  // ── Armadura mínima à flexão ──
+  const rho_min = Math.max(0.0015, 0.078 * Math.pow(fck, 2/3) / fyk);
+  const As_min  = rho_min * bw * (h * 10); 
+  const As_final = Math.max(As_need || 0, As_min);
+
+  // ── Armadura de Pele (h > 60 cm) ──
+  const needsPele = h > 60;
+  let peleResult = "Não necessária (h ≤ 60 cm)";
+  if (needsPele) {
+    const AsPele_face = 0.0005 * bw * (h * 10); // 0,05% Ac por face
+    const n_bars_face = Math.max(1, Math.ceil((h * 10) / 200) - 1);
+    const As_per_bar = AsPele_face / n_bars_face;
+    // Sugestão de bitola comercial (5.0 a 8.0 mm)
+    const phi_sug = As_per_bar > 31.17 ? 8.0 : (As_per_bar > 19.63 ? 6.3 : 5.0);
+    peleResult = `<b>Sim</b> → Mín. ${fmt(AsPele_face/100,2)} cm²/face. Sugestão: ${n_bars_face} Ø ${fmt(phi_sug,1)}mm por face (s ≤ 20cm)`;
+  }
+
+  // ── Armadura Longitudinal (Auto/Manual) ──
+  let phi_calc = phi_to_use;
+  let nAdopted, isManual = false;
+
+  if (v_n_input && parseInt(v_n_input) > 0) {
+    nAdopted = parseInt(v_n_input);
+    isManual = true;
+  } else {
+    nAdopted = Math.max(2, Math.ceil(As_final / (Math.PI * phi_calc * phi_calc / 4)));
+  }
+
+  const Abarra = Math.PI * phi_calc * phi_calc / 4;
+  const AsEf = nAdopted * Abarra;
+  
+  const armaduraOk = AsEf >= As_final;
+
+  let barSugg = `<b>${nAdopted} Ø ${phi_calc.toString().replace('.',',')} mm</b> → Asef = ${fmt(AsEf/100,2)} cm²`;
+  if (isManual) {
+    if (armaduraOk) {
+      barSugg += ` ${badge(true, 'OK')}`;
+    } else {
+      const nReq = Math.max(2, Math.ceil(As_final / Abarra));
+      barSugg += ` ${badge(false, '', 'INSUFICIENTE')} <span style="font-size:0.75rem;color:var(--rust);">➔ Requer mín. ${nReq} barras</span>`;
+    }
+  } else {
+    barSugg += ` <span style="font-size:0.75rem; opacity:0.8;">(Automático)</span> ${badge(armaduraOk, 'OK', 'VERIFICAR')}`;
+  }
+
+  // ── Shear ──
+  const av2   = 1 - fck/250;
+  const VRd2  = 0.27 * av2 * fcd * bw * d / 1000; // kN
+  const Vc0   = 0.6 * fctd * bw * d / 1000;        // kN
+  const vrd2Ok = VSd_kN <= VRd2;
+  const needsStirrup = VSd_kN > Vc0;
+
+  const fywd = Math.min(fyk/1.15, 435); // MPa
+  const Vsw_need = VSd_kN - Vc0;
+  let Asw_s = 0;
+  
+  if(needsStirrup && Vsw_need > 0) {
+    Asw_s = (Vsw_need * 1000) / (0.9 * d * fywd); // mm²/mm
+  }
+  
+  const fywk = fyk;
+  const Asw_s_min = 0.2 * bw * (fctm / fywk); // mm²/mm
+  const Asw_s_use = Math.max(Asw_s, Asw_s_min);
+
+  const phiEst = phiw;
+  const AswRamo = Math.PI * phiEst * phiEst / 4;
+  const nRamos = 2;
+  const AswTot = nRamos * AswRamo; // mm²
+  const s_calc  = AswTot / Math.max(Asw_s_use, 0.001); // mm spacing
+  
+  let sMax_shear = 300;
+  if ((VSd_kN / VRd2) <= 0.67) {
+      sMax_shear = Math.min(d * 0.6, 300);
+  } else {
+      sMax_shear = Math.min(d * 0.3, 200);
+  }
+  const s_adopt = Math.min(Math.floor(s_calc / 10) * 10, Math.floor(sMax_shear / 10) * 10);
+
+  // ── Deflection (simplified ELS) ──
+  const Ic = (bw * Math.pow(h*10, 3)) / 12; // mm⁴
+  const phi_flu = 2.0;
+  const F_ser_mm = Fser; 
+  
+  const Ecs_mpa = Ecs; // MPa = N/mm²
+  const delta_imm = (5/384) * (F_ser_mm * Math.pow(l*1000, 4)) / (Ecs_mpa * Ic);
+  const delta_tot = delta_imm * (1 + phi_flu);
+  const delta_lim_vis  = l*1000 / 250;
+  const delta_lim_alv  = Math.min(l*1000 / 500, 10); // mm
+  const deflOk = delta_tot <= delta_lim_vis;
+
+  // ── Build HTML output ──
+  const xd_lim = fck <= 50 ? 0.45 : 0.35;
+  let html = '';
+
+  html += blockTitle('DADOS GEOMÉTRICOS E ALTURA ÚTIL');
+  html += row('Seção transversal (b × h)', `${fmt(b,0)} × ${fmt(h,0)} cm`);
+  html += row('Área da seção bruta (Ac)', `${fmt(b*h,0)} cm²`);
+  html += row('Cobrimento nominal adotado', `${cnom} mm  ${badge(cnom_ok,'≥ '+cnom_rec+' mm (CAA '+caa+')', 'Insuficiente! Mín.'+cnom_rec+'mm')}`);
+  html += row('Verificação cnom ≥ Ø barra', `${cnom} mm ≥ ${phi_to_use.toString().replace('.',',')} mm  ${badge(cnom_phi)}`);
+  html += row('Altura útil calculada (d)', `${fmt(d/10,2)} cm`);
+  html += row('Armadura de pele (h > 60 cm)', peleResult);
+  html += divider();
+
+  html += blockTitle('PROPRIEDADES DOS MATERIAIS — NBR 6118 Seções 8 e 12');
+  html += row('fck', `${fck} MPa`);
+  html += row('fcd = fck / γc (γc=1,4)', `${fmt(fcd,2)} MPa`);
+  html += row('fctm', `${fmt(mat.fctm,3)} MPa`);
+  html += row('fctd = fctk,inf / γc', `${fmt(fctd,3)} MPa`);
+  html += row('fyk', `${fyk} MPa`);
+  html += row('fyd = fyk / γs (γs=1,15)', `${fmt(fyd,2)} MPa`);
+  html += row('Ecs (módulo secante)', `${fmt(Ecs/1000,1)} GPa`);
+  html += divider();
+
+  html += blockTitle('CARREGAMENTO E COMBINAÇÃO ÚLTIMA NORMAL (ELU)');
+  html += row('Peso próprio (gpp = 25·b·h)', `${fmtLoad(gpp)}`);
+  html += row('Revestimento (grev)', `${fmtLoad(grev)}`);
+  html += row('Carga permanente total (gk)', `${fmtLoad(gk)}`);
+  html += row('Carga acidental (qk)', `${fmtLoad(qk_in)}`);
+  html += row('ψ₀ (combinações últimas)', `${psi0}`);
+  html += row('Fd = 1,4·gk + 1,4·qk', `${fmtLoad(Fd)}`);
+  html += row('MSd = Fd·l²/8', `<b>${fmtMom(MSd_Nm)}</b>`);
+  html += row('VSd = Fd·l/2', `<b>${fmtForce(VSd_kN)}</b>`);
+  html += divider();
+
+  html += blockTitle('DIMENSIONAMENTO À FLEXÃO — DOMÍNIO 3 (Bloco retangular, λ=' + lambda.toFixed(2) + ')');
+  if(As_need !== null) {
+    html += row('Profundidade do bloco (y)', `${fmt(y_mm/10,2)} cm`);
+    html += row('Linha neutra (x = y/λ)', `${fmt(x_mm/10,2)} cm`);
+    html += row('Relação x/d', `${fmt(xd,4)}  ${badge(flexOk, xd_lim === 0.45 ? 'Dom.3 ≤0,45' : 'Dom.3 ≤0,35', 'Dom.4A/5 — FRÁGIL')}`);
+    html += row('As necessária calculada (As,nec)', `${fmt(As_need/100,2)} cm²`);
+    html += row('As,minima (ρ_min · Ac)', `${fmt(As_min/100,2)} cm²`);
+    html += row('Área de aço de projeto = max(As,nec, As,min)', `<b>${fmt(As_final/100,2)} cm²</b>`);
+    html += row('Solução de barras adotada', barSugg || '—');
+  } else {
+    html += row('Erro', 'Seção insuficiente para suportar este momento. Aumente b ou h.');
+  }
+  html += divider();
+
+  html += blockTitle('VERIFICAÇÃO À FORÇA CORTANTE — MODELO I (θ=45°)');
+  html += row('αv2 = 1 − fck/250', `${fmt(av2,4)}`);
+  html += row('VRd2 (diagonal compressão)', `${fmtForce(VRd2)}  ${badge(vrd2Ok,'≥ VSd','SEÇÃO INSUFICIENTE')}`);
+  html += row('Vc0 = 0,6·fctd·bw·d', `${fmtForce(Vc0)}`);
+  html += row('Estribo de cálculo necessário?', needsStirrup ? `Sim (VSd > Vc0)` : `Apenas armadura mínima (VSd ≤ Vc0)`);
+  html += row('Espaçamento adotado (s)', `${fmt(s_adopt/10,1)} cm  ≤  s,max = ${fmt(sMax_shear/10,1)} cm  ${badge(s_adopt <= sMax_shear)}`);
+  html += row('Especificação', `Ø${phiw}mm c/ ${fmt(s_adopt/10,0)} cm (${nRamos} ramos, CA-50)`);
+  html += divider();
+
+  html += blockTitle('ESTADO-LIMITE DE SERVIÇO — FLECHA (ELS-DEF)');
+  html += row('Combinação quasi-permanente (ψ₂='+psi2+')', `${fmtLoad(Fser)}`);
+  html += row('Momento de serviço elástico (Mser)', `${fmtMom(Mser_kNm)}`);
+  html += row('Ic (seção bruta referencial)', `${fmt(Ic/1e4, 0)} cm⁴`);
+  html += row('Flecha imediata teórica', `${fmt(delta_imm/10,3)} cm`);
+  html += row('Flecha total estimada (com fluência φ≈2)', `<b>${fmt(delta_tot/10,2)} cm</b>  ${badge(deflOk, '≤ l/250 = '+fmt(delta_lim_vis/10,2)+'cm', '> l/250 — VERIFICAR')}`);
+  html += row('Limite para alvenarias (l/500, máx 1 cm)', `${fmt(Math.min(l*100/500,1),2)} cm  ${badge(delta_tot/10 <= Math.min(l*100/500,1), 'OK', 'VERIFICAR')}`);
+
+  // ── Verdict ──
+  const allOk = cnom_ok && cnom_phi && flexOk && armaduraOk && vrd2Ok && deflOk && (s_adopt <= sMax_shear);
+  const verdictClass = allOk ? 'verdict-ok' : 'verdict-fail';
+  const verdictText  = allOk
+    ? '✓ Todos os critérios normativos atendidos. Dimensionamento conforme NBR 6118:2014.'
+    : '⚠ Um ou mais critérios de estabilidade ou requisitos normativos não foram atendidos. Revise os alertas apontados com ✗.';
+  html += `<div class="verdict-box ${verdictClass}">${verdictText}</div>`;
+
+  document.getElementById('res-viga-body').innerHTML = html;
+  const panel = document.getElementById('res-viga');
+  panel.classList.add('visible');
+  panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+
+// ═══════════════════════════════════════════════════════
+//  PILAR CALCULATOR — Atualizado (Validação por As,existente)
+// ═══════════════════════════════════════════════════════
+function calcPilar() {
+  const unit = unitState.p;
+  const b   = parseFloat(document.getElementById('p_b').value);    // cm
+  const h   = parseFloat(document.getElementById('p_h').value);    // cm
+  const phi  = parseFloat(document.getElementById('p_phi').value); // mm
+  const phiw = parseFloat(document.getElementById('p_phiw').value);// mm
+  const fck  = parseFloat(document.getElementById('p_fck').value);
+  const fyk  = parseFloat(document.getElementById('p_aco').value);
+  const caa  = parseInt(document.getElementById('p_caa').value);
+  const cnom = parseFloat(document.getElementById('p_cnom').value);
+  let Nsd    = parseFloat(document.getElementById('p_nsd').value);
+  let M1d    = parseFloat(document.getElementById('p_m1d').value);
+  let M2d    = parseFloat(document.getElementById('p_m2d').value);
+
+  if(unit === 'tf') { Nsd *= TF_TO_KN; M1d *= TF_TO_KN; M2d *= TF_TO_KN; }
+
+  const mat = getMaterials(fck, fyk);
+  const { fcd, fyd, fctm, fctd, Ecs, lambda, alphaC } = mat;
+  const cnom_rec = cnomRecom(caa, 'pilar');
+
+  // Dimensions — mm
+  const b_mm = b * 10, h_mm = h * 10;
+  const Ac   = b_mm * h_mm; // mm²
+  const bmin = Math.min(b, h);
+
+  // ── γn check ──
+  let gn = 1.0;
+  const dimOk    = bmin >= 19;
+  const dimSpec  = bmin >= 14 && bmin < 19;
+  if(dimSpec) gn = 1.95 - 0.05 * bmin;
+  const dimFail  = bmin < 14;
+  const areaOk   = Ac >= 360 * 100; // 360 cm² → mm²
+
+  // Effective forces after γn
+  const Nsd_ef = Nsd * gn * 1000;   // N
+  const M1d_min = Nsd * Math.max(0.015 + 0.03 * (h/100), (h/100)/30); // kN·m (h in meters) - NBR 6118 11.3.3.4.3
+  const Mtot_kNm = Math.max(M1d, M1d_min) + M2d;
+  const Mtot_N_mm = Mtot_kNm * 1e6;
+
+  // Eccentricity
+  const e_mm = (Nsd > 0) ? (Mtot_N_mm / (Nsd * 1000)) : 0;
+  const e_rel = e_mm / h_mm;
+
+  // ── Classify domain (simplified) ──
+  let domain = '';
+  if(e_rel < 0.05) domain = 'Domínio 5 — Compressão simples/centrada';
+  else if(e_rel < 0.1) domain = 'Domínio 4 — Flexo-compressão com pouca excentricidade';
+  else if(e_rel < 0.3) domain = 'Domínio 3 — Flexo-compressão com excentricidade moderada';
+  else domain = 'Domínio 2/3 — Flexo-compressão com grande excentricidade';
+
+  // ── Armadura mínima (NBR 6118 17.3.5.3) ──
+  const As_min = Math.max(0.15 * Nsd_ef / fyd, 0.004 * Ac);
+
+  // ── Armadura Longitudinal (Auto/Manual) ──
+  let phi_calc = phi;
+  const p_n_input = document.getElementById('p_man_n').value;
+  const p_man_phi = parseFloat(document.getElementById('p_man_phi').value);
+
+  let nAdopted, isManual = false;
+  if (p_n_input && parseInt(p_n_input) > 0) {
+    nAdopted = parseInt(p_n_input);
+    phi_calc = p_man_phi;
+    isManual = true;
+  } else {
+    // Cálculo automático agora busca atender a Armadura Mínima
+    nAdopted = Math.max(4, Math.ceil(As_min / (Math.PI * phi_calc * phi_calc / 4)));
+    if (nAdopted % 2 !== 0) nAdopted++; // Balanceamento mínimo de simetria
+  }
+  
+  const Abarra = Math.PI * phi_calc * phi_calc / 4;
+  const AsEf = nAdopted * Abarra; // Área de aço Existente/Adotada
+  
+  // ── Capacidade de compressão (NRd_max) atualizada com a AsEf real ──
+  const NRd_max = (alphaC * fcd * (Ac - AsEf) + AsEf * fyd) / 1000; // kN
+
+  // Condição mandatória: Validação pela área mínima e Área Adotada
+  const armaduraOk = AsEf >= As_min;
+
+  let barSugg = `<b>${nAdopted} Ø ${phi_calc.toString().replace('.',',')} mm</b>`;
+  
+  if (isManual) {
+    if (armaduraOk) {
+      barSugg += ` ${badge(true, 'OK')}`;
+    } else {
+      let nReq = Math.max(4, Math.ceil(As_min / Abarra));
+      if (nReq % 2 !== 0) nReq++;
+      barSugg += ` ${badge(false, '', 'INSUFICIENTE')} <span style="font-size:0.75rem;color:var(--rust);">➔ Requer mín. ${nReq} barras</span>`;
+    }
+  } else {
+    barSugg += ` <span style="font-size:0.75rem; opacity:0.8;">(Automático)</span> ${badge(armaduraOk, 'OK', 'VERIFICAR')}`;
+  }
+
+  // ── Stirrup spacing ──
+  const s_est1 = Math.min(b_mm, h_mm);                // menor dimensão
+  const s_est2 = 20 * phi_calc;                       // 20x diâm. barra longit.
+  const s_est3 = 200;                                 // 200 mm max (NBR 18.4.3)
+  const s_est  = Math.min(s_est1, s_est2, s_est3);
+
+  // ── Build HTML ──
+  let html = '';
+
+  html += blockTitle('VERIFICAÇÃO DIMENSIONAL — 13.2.3 e 11.3.3.4.3');
+  html += row('Seção (b × h)', `${fmt(b,0)} × ${fmt(h,0)} cm → menor dim. = ${bmin} cm`);
+  html += row('Área da seção transversal', `${fmt(Ac/100,0)} cm²  ${badge(areaOk, '≥ 360 cm²', '< 360 cm² — INVÁLIDO')}`);
+  html += row('Dimensão mínima ≥ 19 cm', dimOk
+    ? `<span class="badge-ok">✓ bmin = ${bmin} cm ≥ 19 cm</span>`
+    : dimSpec
+      ? `<span class="badge-warn">⚠ ${bmin} cm (14–19 cm): aplicar γn = ${fmt(gn,3)}</span>`
+      : `<span class="badge-fail">✗ ${bmin} cm < 14 cm — NÃO PERMITIDO</span>`);
+  html += row('Coeficiente adicional γn (13.2.3)', `${fmt(gn,3)}`);
+  html += row('Cobrimento nominal', `${cnom} mm  ${badge(cnom >= cnom_rec, '≥ '+cnom_rec+'mm (CAA'+caa+')', '< '+cnom_rec+'mm')}`);
+  html += divider();
+
+  html += blockTitle('PROPRIEDADES DOS MATERIAIS');
+  html += row('fcd', `${fmt(fcd,2)} MPa`);
+  html += row('fyd', `${fmt(fyd,2)} MPa`);
+  html += row('fctm', `${fmt(mat.fctm,3)} MPa`);
+  html += divider();
+
+  html += blockTitle('ESFORÇOS SOLICITANTES E MOMENTO MÍNIMO — 11.3.3.4.3');
+  html += row('NSd (entrada)', `${fmtForce(Nsd)}`);
+  html += row('M1d (1ª ordem — entrada)', `${fmtMom(M1d)}`);
+  html += row('M2d (2ª ordem)', `${fmtMom(M2d)}`);
+  html += row('M1d,min = NSd·(0,015 + 0,03·h)', `<b>${fmtMom(M1d_min)}</b>`);
+  html += row('M1d adotado = max(M1d, M1d,min)', `<b>${fmtMom(Math.max(M1d, M1d_min))}</b>`);
+  html += row('Mtot = M1d,adot + M2d', `<b>${fmtMom(Mtot_kNm)}</b>`);
+  if(gn > 1.0) html += row('Esforços majorados (×γn)', `NSd,ef = ${fmtForce(Nsd*gn)} · Mtot,ef = ${fmtMom(Mtot_kNm*gn)}`);
+  html += divider();
+
+  html += blockTitle('EXCENTRICIDADE E DOMÍNIO DE DEFORMAÇÃO');
+  html += row('Excentricidade total (e = Mtot/NSd)', `${fmt(e_mm,1)} mm`);
+  html += row('Excentricidade relativa (e/h)', `${fmt(e_rel,4)}`);
+  html += row('Domínio de comportamento', domain);
+  html += divider();
+
+  html += blockTitle('ARMADURA LONGITUDINAL (ESTIMATIVA — verificar com diagrama N-M)');
+  html += row('Área Mínima Calculada (As,min)', `${fmt(As_min/100,2)} cm²`);
+  html += row('Área Existente (As,existente)', `${fmt(AsEf/100,2)} cm²`);
+  html += row('Distribuição Adotada', barSugg);
+  html += row('Capacidade compressiva (NRd,máx)', `${fmtForce(NRd_max)}  ${badge(Nsd <= NRd_max, 'Suporta NSd', 'Risco: NSd excessivo')}`);
+  html += divider();
+
+  html += blockTitle('ARMADURA TRANSVERSAL (ESTRIBOS) — 18.4.3');
+  html += row('Espaçamento limite (min. entre b; 20φ; 200mm)', `${fmt(s_est,0)} mm`);
+  html += row('Especificação adotada', `Ø${phiw}mm c/ ${fmt(s_est,0)}mm`);
+  html += divider();
+
+  const allOk = !dimFail && areaOk && (cnom >= cnom_rec) && armaduraOk && (Nsd <= NRd_max);
+  const verdClass = allOk ? 'verdict-ok' : (dimFail ? 'verdict-fail' : 'verdict-warn');
+  const verdText  = dimFail
+    ? '✗ Seção com dimensão < 14 cm: estritamente não permitida pela NBR 6118:2014.'
+    : allOk
+      ? '✓ Verificações básicas de geometria e pré-dimensionamento atendidas.'
+      : '⚠ Um ou mais parâmetros encontram-se fora das especificações nominais. Revise.';
+  html += `<div class="verdict-box ${verdClass}">${verdText}</div>`;
+  html += `<div style="font-family:JetBrains Mono,monospace;font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.8rem;">
+    Nota: O dimensionamento definitivo de pilares e sua consequente armadura transversal requer a análise do diagrama de interação N–M (Seção 17.3.3) sob todas combinações modais de esforços solicitantes. Esta interface consolida as prerrogativas de pré-dimensionamento.
+  </div>`;
+
+  document.getElementById('res-pilar-body').innerHTML = html;
+  const panel = document.getElementById('res-pilar');
+  panel.classList.add('visible');
+  panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+// ── Auto-fill cobrimento when CAA changes ──
+function syncCnom(prefix, tipo) {
+  const caa = parseInt(document.getElementById(prefix+'_caa').value);
+  const rec = cnomRecom(caa, tipo);
+  document.getElementById(prefix+'_cnom').value = rec;
+}
+document.getElementById('v_caa').addEventListener('change', () => syncCnom('v','viga'));
+document.getElementById('p_caa').addEventListener('change', () => syncCnom('p','pilar'));
+</script>
+
+<div class="divider"></div>
+
+<footer style="margin-top:4rem;padding-top:2rem;border-top:2px solid var(--rule);text-align:center;">
+  <p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-light);letter-spacing:0.1em;">
+    GUIA ELABORADO COM BASE NA ABNT NBR 6118:2014<br>
+    Eng° Rafael Nogueira
+  </p>
+</footer>
+
+</main>
+</body>
+</html>
